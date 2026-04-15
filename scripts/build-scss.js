@@ -6,19 +6,10 @@
  */
 
 import { compile } from 'sass';
-import {
-  writeFile, readdir, readFile, mkdir,
-} from 'fs/promises';
+import { writeFile, readdir, mkdir } from 'fs/promises';
 import postcss from 'postcss';
 import cssnano from 'cssnano';
-// eslint-disable-next-line import/no-unresolved
-import tailwindcss from '@tailwindcss/postcss';
-import {
-  dirname,
-  join,
-  basename,
-  extname,
-} from 'path';
+import { dirname, join, basename, extname } from 'path';
 import { fileURLToPath } from 'url';
 
 // eslint-disable-next-line no-underscore-dangle
@@ -42,9 +33,9 @@ async function findScssFiles(dir, files = []) {
     if (entry.isDirectory()) {
       await findScssFiles(fullPath, files);
     } else if (
-      entry.isFile()
-      && extname(entry.name) === '.scss'
-      && !basename(entry.name).startsWith('_')
+      entry.isFile() &&
+      extname(entry.name) === '.scss' &&
+      !basename(entry.name).startsWith('_')
     ) {
       files.push(fullPath);
     }
@@ -56,55 +47,10 @@ async function findScssFiles(dir, files = []) {
 }
 
 /**
- * Create a postcss processor for SCSS-compiled block/styles CSS.
- * Runs Tailwind first (resolves @apply) then cssnano (minifies).
+ * Create a postcss processor: cssnano minification.
  * @returns {postcss.Processor}
  */
 function createCssProcessor() {
-  return postcss([
-    tailwindcss(),
-    cssnano({
-      preset: [
-        'default',
-        {
-          reduceIdents: false,
-          mergeLonghand: false,
-          calc: true,
-          colormin: true,
-          convertValues: true,
-          discardComments: { removeAll: true },
-          discardDuplicates: true,
-          discardEmpty: true,
-          minifyFontValues: true,
-          minifyGradients: true,
-          minifySelectors: false,
-          normalizeCharset: true,
-          normalizeDisplayValues: true,
-          normalizePositions: true,
-          normalizeRepeatStyle: true,
-          normalizeString: true,
-          normalizeTimingFunctions: true,
-          normalizeUnicode: true,
-          normalizeUrl: false,
-          normalizeWhitespace: true,
-          orderedValues: true,
-          reduceInitial: true,
-          reduceTransforms: true,
-          svgo: true,
-          uniqueSelectors: false,
-          mergeRules: false,
-        },
-      ],
-    }),
-  ]);
-}
-
-/**
- * Create a postcss processor for already-Tailwind-processed CSS (style-config).
- * Only runs cssnano — Tailwind already ran via postcss-cli.
- * @returns {postcss.Processor}
- */
-function createCssMinifier() {
   return postcss([
     cssnano({
       preset: [
@@ -167,28 +113,6 @@ async function minifyCss(css, cssPath, processor) {
 }
 
 /**
- * Process style-config.compiled.css to create a minified version
- * @param {postcss.Processor} processor - Reusable postcss processor
- * @returns {Promise<{success: boolean, path: string, error?: Error}>}
- */
-async function processStyleConfig(processor) {
-  const cssPath = join(rootDir, 'styles', 'dist', 'style-config.compiled.css');
-  const minCssPath = join(rootDir, 'styles', 'dist', 'style-config.compiled.min.css');
-
-  try {
-    const cssContent = await readFile(cssPath, 'utf-8');
-    const minifiedCss = await minifyCss(cssContent, minCssPath, processor);
-    await writeFile(minCssPath, minifiedCss);
-
-    console.log('✓ Created: /styles/dist/style-config.compiled.min.css');
-    return { success: true, path: cssPath };
-  } catch (error) {
-    console.error('✗ Error processing style-config.compiled.css:', error.message);
-    return { success: false, path: cssPath, error };
-  }
-}
-
-/**
  * Compile a single SCSS file to CSS
  * @param {string} scssPath - Path to scss file
  * @param {postcss.Processor} processor - Reusable postcss processor
@@ -198,10 +122,7 @@ async function compileScss(scssPath, processor) {
   try {
     const result = compile(scssPath, {
       style: 'compressed',
-      loadPaths: [
-        join(rootDir, 'styles'),
-        dirname(scssPath),
-      ],
+      loadPaths: [join(rootDir, 'styles'), dirname(scssPath)],
     });
 
     // Use .css for blocks, .min.css for styles; all styles/ outputs go to styles/dist/
@@ -211,9 +132,8 @@ async function compileScss(scssPath, processor) {
     const outputDir = isStyles ? join(rootDir, 'styles', 'dist') : dirname(scssPath);
     const cssPath = join(outputDir, cssFilename);
 
-    const finalCss = result.css.trim() !== ''
-      ? await minifyCss(result.css, cssPath, processor)
-      : '';
+    const finalCss =
+      result.css.trim() !== '' ? await minifyCss(result.css, cssPath, processor) : '';
 
     await writeFile(cssPath, finalCss);
 
@@ -259,16 +179,11 @@ async function build() {
     return;
   }
 
-  // SCSS files use Tailwind + cssnano; style-config uses cssnano only (Tailwind already ran)
+  // SCSS files use cssnano for minification
   const cssProcessor = createCssProcessor();
-  const cssMinifier = createCssMinifier();
 
   // Compile all files
   const results = await Promise.all(scssFiles.map((file) => compileScss(file, cssProcessor)));
-
-  // Process style-config.compiled.css to create minified version
-  const styleConfigResult = await processStyleConfig(cssMinifier);
-  results.push(styleConfigResult);
 
   const successful = results.filter((r) => r.success).length;
   const failed = results.filter((r) => !r.success).length;

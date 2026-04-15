@@ -52,5 +52,23 @@
   {
     "id": "carousel-slide",
     "components": []
+  },
+  {
+    "id": "step-accordion",
+    "components": [
+      "step-accordion-item"
+    ],
+    "min": 1,
+    "max": 20,
+    "minErrorMsg": "A Step Accordion must have at least 1 step",
+    "maxErrorMsg": "A Step Accordion cannot have more than 20 steps"
+  },
+  {
+    "id": "step-accordion-item",
+    "components": [
+      "text",
+      "image",
+      "button"
+    ]
   }
 ]

@@ -1,0 +1,9 @@
+<svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Great Bank">
+  <!-- Brand mark: ascending vertical bars -->
+  <rect x="0" y="16" width="5" height="16" rx="1" fill="#002855"/>
+  <rect x="7" y="8" width="5" height="24" rx="1" fill="#002855"/>
+  <rect x="14" y="0" width="5" height="32" rx="1" fill="#002855"/>
+  <rect x="21" y="12" width="5" height="20" rx="1" fill="#002855"/>
+  <!-- Wordmark -->
+  <text x="34" y="22" font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="13" font-weight="700" fill="#002855" letter-spacing="1.5">GREAT BANK</text>
+</svg>

@@ -17,7 +17,13 @@
 
 const VARIANTS = ['primary', 'secondary', 'outline', 'ghost', 'tertiary'];
 const SIZES = ['xs', 'sm', 'md', 'lg', 'xl'];
-const SIZE_LABELS = { xs: 'Extra Small', sm: 'Small', md: 'Medium', lg: 'Large', xl: 'Extra Large' };
+const SIZE_LABELS = {
+  xs: 'Extra Small',
+  sm: 'Small',
+  md: 'Medium',
+  lg: 'Large',
+  xl: 'Extra Large',
+};
 
 // Minimal inline SVG icons — stand-ins for GEL icons in stories
 const ICON_HOME = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`;
@@ -127,13 +133,16 @@ function buildMatrix(dark = false) {
 
   VARIANTS.forEach((variant) => {
     const row = document.createElement('div');
-    row.style.cssText = 'display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 0.5rem;';
+    row.style.cssText =
+      'display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 0.5rem;';
 
     SIZES.forEach((size) => {
       row.appendChild(createButton({ label: SIZE_LABELS[size], variant, size }));
     });
 
-    wrap.appendChild(section(`${variant.charAt(0).toUpperCase() + variant.slice(1)} Variant`, row, false));
+    wrap.appendChild(
+      section(`${variant.charAt(0).toUpperCase() + variant.slice(1)} Variant`, row, false),
+    );
   });
 
   return wrap;
@@ -191,7 +200,8 @@ export const AllVariantsDark = {
 export const Primary = {
   render: () => {
     const wrap = document.createElement('div');
-    wrap.style.cssText = 'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
+    wrap.style.cssText =
+      'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
     SIZES.forEach((size) => {
       wrap.appendChild(createButton({ label: SIZE_LABELS[size], variant: 'primary', size }));
     });
@@ -203,7 +213,8 @@ export const Primary = {
 export const Secondary = {
   render: () => {
     const wrap = document.createElement('div');
-    wrap.style.cssText = 'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
+    wrap.style.cssText =
+      'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
     SIZES.forEach((size) => {
       wrap.appendChild(createButton({ label: SIZE_LABELS[size], variant: 'secondary', size }));
     });
@@ -215,7 +226,8 @@ export const Secondary = {
 export const Outline = {
   render: () => {
     const wrap = document.createElement('div');
-    wrap.style.cssText = 'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
+    wrap.style.cssText =
+      'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
     SIZES.forEach((size) => {
       wrap.appendChild(createButton({ label: SIZE_LABELS[size], variant: 'outline', size }));
     });
@@ -227,7 +239,8 @@ export const Outline = {
 export const Ghost = {
   render: () => {
     const wrap = document.createElement('div');
-    wrap.style.cssText = 'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
+    wrap.style.cssText =
+      'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
     SIZES.forEach((size) => {
       wrap.appendChild(createButton({ label: SIZE_LABELS[size], variant: 'ghost', size }));
     });
@@ -239,7 +252,8 @@ export const Ghost = {
 export const Tertiary = {
   render: () => {
     const wrap = document.createElement('div');
-    wrap.style.cssText = 'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
+    wrap.style.cssText =
+      'padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
     SIZES.forEach((size) => {
       wrap.appendChild(createButton({ label: SIZE_LABELS[size], variant: 'tertiary', size }));
     });
@@ -257,19 +271,56 @@ export const WithIcons = {
     wrap.style.cssText = 'padding: 2rem;';
 
     wrap.appendChild(
-      section('Light — Leading icon', buttonContainer(
-        createButton({ label: 'Home Loans', variant: 'primary', size: 'md', iconLeading: ICON_HOME }),
-        createButton({ label: 'Apply Now', variant: 'primary', size: 'md', iconTrailing: ICON_ARROW }),
-        createButton({ label: 'Insurance', variant: 'outline', size: 'md', iconLeading: ICON_SHIELD }),
-      )),
+      section(
+        'Light — Leading icon',
+        buttonContainer(
+          createButton({
+            label: 'Home Loans',
+            variant: 'primary',
+            size: 'md',
+            iconLeading: ICON_HOME,
+          }),
+          createButton({
+            label: 'Apply Now',
+            variant: 'primary',
+            size: 'md',
+            iconTrailing: ICON_ARROW,
+          }),
+          createButton({
+            label: 'Insurance',
+            variant: 'outline',
+            size: 'md',
+            iconLeading: ICON_SHIELD,
+          }),
+        ),
+      ),
     );
 
-    const darkSection = section('Dark — Icons', buttonContainer(
-      createButton({ label: 'Home Loans', variant: 'primary', size: 'md', iconLeading: ICON_HOME }),
-      createButton({ label: 'Apply Now', variant: 'primary', size: 'md', iconTrailing: ICON_ARROW }),
-      createButton({ label: 'Insurance', variant: 'outline', size: 'md', iconLeading: ICON_SHIELD }),
-    ));
-    darkSection.style.cssText = 'margin-top: 0; padding: 1.5rem; background: #111827; color: #f1f5f9;';
+    const darkSection = section(
+      'Dark — Icons',
+      buttonContainer(
+        createButton({
+          label: 'Home Loans',
+          variant: 'primary',
+          size: 'md',
+          iconLeading: ICON_HOME,
+        }),
+        createButton({
+          label: 'Apply Now',
+          variant: 'primary',
+          size: 'md',
+          iconTrailing: ICON_ARROW,
+        }),
+        createButton({
+          label: 'Insurance',
+          variant: 'outline',
+          size: 'md',
+          iconLeading: ICON_SHIELD,
+        }),
+      ),
+    );
+    darkSection.style.cssText =
+      'margin-top: 0; padding: 1.5rem; background: #111827; color: #f1f5f9;';
     darkSection.setAttribute('data-theme', 'dark');
 
     wrap.appendChild(darkSection);
@@ -283,13 +334,32 @@ export const FullWidth = {
     const wrap = document.createElement('div');
     wrap.style.cssText = 'padding: 2rem; max-width: 400px;';
 
-    wrap.appendChild(section('Primary — btn-block', (() => {
-      const div = document.createElement('div');
-      div.style.cssText = 'display: flex; flex-direction: column; gap: 0.75rem;';
-      div.appendChild(createButton({ label: 'Full-Width Primary', variant: 'primary', size: 'lg', block: true }));
-      div.appendChild(createButton({ label: 'Full-Width Outline', variant: 'outline', size: 'lg', block: true }));
-      return div;
-    })()));
+    wrap.appendChild(
+      section(
+        'Primary — btn-block',
+        (() => {
+          const div = document.createElement('div');
+          div.style.cssText = 'display: flex; flex-direction: column; gap: 0.75rem;';
+          div.appendChild(
+            createButton({
+              label: 'Full-Width Primary',
+              variant: 'primary',
+              size: 'lg',
+              block: true,
+            }),
+          );
+          div.appendChild(
+            createButton({
+              label: 'Full-Width Outline',
+              variant: 'outline',
+              size: 'lg',
+              block: true,
+            }),
+          );
+          return div;
+        })(),
+      ),
+    );
 
     return wrap;
   },
@@ -305,12 +375,14 @@ export const Disabled = {
     row.style.cssText = 'display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;';
 
     ['primary', 'secondary', 'outline', 'ghost'].forEach((variant) => {
-      row.appendChild(createButton({
-        label: `${variant.charAt(0).toUpperCase() + variant.slice(1)} (disabled)`,
-        variant,
-        size: 'md',
-        disabled: true,
-      }));
+      row.appendChild(
+        createButton({
+          label: `${variant.charAt(0).toUpperCase() + variant.slice(1)} (disabled)`,
+          variant,
+          size: 'md',
+          disabled: true,
+        }),
+      );
     });
 
     wrap.appendChild(section('Disabled (aria-disabled)', row));
@@ -325,16 +397,26 @@ export const GroupedContainer = {
     const wrap = document.createElement('div');
     wrap.style.cssText = 'padding: 2rem;';
 
-    wrap.appendChild(section('Primary + Outline group (md)', buttonContainer(
-      createButton({ label: 'Apply Now', variant: 'primary', size: 'md' }),
-      createButton({ label: 'Learn More', variant: 'outline', size: 'md' }),
-    )));
+    wrap.appendChild(
+      section(
+        'Primary + Outline group (md)',
+        buttonContainer(
+          createButton({ label: 'Apply Now', variant: 'primary', size: 'md' }),
+          createButton({ label: 'Learn More', variant: 'outline', size: 'md' }),
+        ),
+      ),
+    );
 
-    wrap.appendChild(section('Three-button group (lg)', buttonContainer(
-      createButton({ label: 'Home Loans', variant: 'primary', size: 'lg' }),
-      createButton({ label: 'Compare', variant: 'outline', size: 'lg' }),
-      createButton({ label: 'See all products', variant: 'tertiary', size: 'lg' }),
-    )));
+    wrap.appendChild(
+      section(
+        'Three-button group (lg)',
+        buttonContainer(
+          createButton({ label: 'Home Loans', variant: 'primary', size: 'lg' }),
+          createButton({ label: 'Compare', variant: 'outline', size: 'lg' }),
+          createButton({ label: 'See all products', variant: 'tertiary', size: 'lg' }),
+        ),
+      ),
+    );
 
     return wrap;
   },

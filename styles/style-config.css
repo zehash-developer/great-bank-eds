@@ -1,19 +1,8 @@
-
 @import url('tailwindcss');
 
 /* ==================================================
-   GEL TOKENS — SHARED
+   GREAT BANK DESIGN SYSTEM TOKENS
    ================================================== */
 
-@import url("@westpac/style-config/dist/css/shared/animations.css");
-@import url("@westpac/style-config/dist/css/shared/borders.css");
-@import url("@westpac/style-config/dist/css/shared/brand-fonts.css");
-
 /* colors provided by styles/_colors.scss — compiled into styles/dist/styles.min.css */
-@import url("@westpac/style-config/dist/css/shared/layout.css");
-@import url("@westpac/style-config/dist/css/shared/typography.css");
-@import url("@westpac/style-config/dist/css/shared/utilities.css");
-
-/* Brand theme tokens now defined in styles/_colors.scss */
-
-/* theme-wbc.css and theme-stg.css removed — Great Bank palette applied via CSS custom properties */
+@import url('./gb-config.css');

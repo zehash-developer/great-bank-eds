@@ -1,0 +1,43 @@
+{
+  "definitions": [
+    {
+      "title": "Footer",
+      "id": "footer",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Footer",
+              "model": "footer"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "footer",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Theme",
+          "description": "Choose light or dark color scheme",
+          "options": [
+            {
+              "name": "Light",
+              "value": ""
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

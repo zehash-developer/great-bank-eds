@@ -11,6 +11,7 @@ Three card variants side-by-side: Transaction Account (2 CTAs), Home Loans (1 CT
 ![Cards light mode](light-mode.png)
 
 **Key observations:**
+
 - White card backgrounds (`#ffffff`) on a light frame
 - Gold-tinted icon containers (`rgba(212,175,55,0.1)`)
 - Navy pill badges with gold-tinted background
@@ -27,6 +28,7 @@ Same three cards rendered in dark theme.
 ![Cards dark mode](dark-mode.png)
 
 **Key observations:**
+
 - Dark card backgrounds (`#111827`) with `#334155` borders
 - Gold-light tinted icon containers (`rgba(232,201,104,0.1)`)
 - Gold-light (`#e8c968`) pill badge text on matching tinted background
@@ -40,19 +42,19 @@ Same three cards rendered in dark theme.
 
 ## Differences between light and dark
 
-| Element | Light | Dark |
-|---------|-------|------|
-| Card background | `#ffffff` | `#111827` |
-| Card border | `#e5e7eb` | `#334155` |
-| Icon container tint | `rgba(212,175,55,0.1)` | `rgba(232,201,104,0.1)` |
-| Badge text | `#002855` | `#e8c968` |
-| Title text | `#101828` | `#f1f5f9` |
-| Subtitle text | `#d4af37` | `#e8c968` |
-| Description text | `#4a5565` | `#94a3b8` |
-| Primary button bg | `#002855` | `#e8c968` |
-| Primary button text | `#ffffff` | `#0a0f1a` |
-| Outline button border | `#002855` | `#e8c968` |
-| Outline button text | `#002855` | `#e8c968` |
+| Element               | Light                  | Dark                    |
+| --------------------- | ---------------------- | ----------------------- |
+| Card background       | `#ffffff`              | `#111827`               |
+| Card border           | `#e5e7eb`              | `#334155`               |
+| Icon container tint   | `rgba(212,175,55,0.1)` | `rgba(232,201,104,0.1)` |
+| Badge text            | `#002855`              | `#e8c968`               |
+| Title text            | `#101828`              | `#f1f5f9`               |
+| Subtitle text         | `#d4af37`              | `#e8c968`               |
+| Description text      | `#4a5565`              | `#94a3b8`               |
+| Primary button bg     | `#002855`              | `#e8c968`               |
+| Primary button text   | `#ffffff`              | `#0a0f1a`               |
+| Outline button border | `#002855`              | `#e8c968`               |
+| Outline button text   | `#002855`              | `#e8c968`               |
 
 ---
 

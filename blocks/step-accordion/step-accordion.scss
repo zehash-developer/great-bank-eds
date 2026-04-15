@@ -1,0 +1,468 @@
+@use '../../styles/variables' as *;
+
+// =============================================================================
+// Step Accordion Block — CSS custom properties (Figma nodes 28:1000, 28:1093, 28:2860)
+// =============================================================================
+
+.step-accordion {
+  // ── Light mode tokens (from Figma node 28:1000 / 28:1093) ──────────────────
+
+  // Card backgrounds
+  --sa-card-bg-inactive: #f9fafb;
+  --sa-card-bg-active:   #ffffff;
+
+  // Card borders
+  --sa-card-border-inactive:       #e5e7eb;
+  --sa-card-border-inactive-width: 1px;
+  --sa-card-border-active:         #d4af37;
+  --sa-card-border-active-width:   2px;
+
+  // Card shadow (active)
+  --sa-card-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  // Card border-radius
+  --sa-card-radius: #{$radius-2xl}; // 8px
+
+  // Step title typography
+  --sa-title-inactive: #101828;
+  --sa-title-active:   #002855;
+
+  // Step subtitle/meta
+  --sa-subtitle-color: #4a5565;
+
+  // Panel description text
+  --sa-description-color: #364153;
+
+  // Panel inner background
+  --sa-panel-bg: #f9fafb;
+
+  // Block heading color
+  --sa-heading-color: #0f172a;
+
+  // Timeline dot (inactive)
+  --sa-dot-bg-inactive:     #e5e5e5;
+  --sa-dot-border-inactive: #ffffff;
+  --sa-dot-num-inactive:    #4a5565;
+
+  // Timeline dot (active)
+  --sa-dot-bg-active:     #d4af37;
+  --sa-dot-border-active: #ffffff;
+  --sa-dot-num-active:    #002855;
+
+  // Connector line
+  --sa-connector-color: #d1d5dc;
+
+  // Chevron icon
+  --sa-chevron-color: #6b7280;
+
+  // CTA card
+  --sa-cta-card-bg:     #ffffff;
+  --sa-cta-card-border: #e5e7eb;
+  --sa-cta-card-radius: #{$radius-2xl};
+  --sa-cta-card-label:  #101828;
+  --sa-cta-card-desc:   #4a5565;
+  --sa-cta-card-icon:   #002855;
+
+  // Layout
+  --sa-dot-size:          48px;
+  --sa-dot-offset-left:   0px;
+  --sa-dot-offset-top:    16px;
+  --sa-content-offset:    80px;  // Distance from left edge to card start (Figma pl-[80px])
+  --sa-step-gap:          #{spacing(2.667)};  // 16px between items
+  --sa-trigger-padding:   #{spacing(2.667)};  // 16px
+  --sa-subtitle-gap:      #{spacing(0.667)};  // 4px
+  --sa-panel-padding:     #{spacing(2.667)};  // 16px
+  --sa-connector-width:   2px;
+  --sa-connector-top:    calc(var(--sa-dot-offset-top) + var(--sa-dot-size)); // 64px
+}
+
+// ── Dark mode overrides ────────────────────────────────────────────────────────
+
+.step-accordion.dark {
+  --sa-card-bg-inactive: rgba(17, 24, 39, 0.5);
+  --sa-card-bg-active:   #111827;
+
+  --sa-card-border-inactive: #334155;
+  --sa-card-border-active:   #e8c968;
+
+  --sa-title-inactive: #f1f5f9;
+  --sa-title-active:   #e8c968;
+
+  --sa-subtitle-color:    #94a3b8;
+  --sa-description-color: #94a3b8;
+
+  --sa-panel-bg: rgba(30, 41, 59, 0.5);
+
+  --sa-heading-color: #f1f5f9;
+
+  --sa-dot-bg-inactive:     #334155;
+  --sa-dot-border-inactive: #0a0f1a;
+  --sa-dot-num-inactive:    #94a3b8;
+
+  --sa-dot-bg-active:     #e8c968;
+  --sa-dot-border-active: #0a0f1a;
+  --sa-dot-num-active:    #0a0f1a;
+
+  --sa-connector-color: #334155;
+
+  --sa-chevron-color: #94a3b8;
+
+  --sa-cta-card-bg:     #111827;
+  --sa-cta-card-border: #334155;
+  --sa-cta-card-label:  #f1f5f9;
+  --sa-cta-card-desc:   #94a3b8;
+  --sa-cta-card-icon:   #e8c968;
+}
+
+// =============================================================================
+// Block heading
+// =============================================================================
+
+.step-accordion .block-heading {
+  color: var(--sa-heading-color);
+  font-size: $heading-font-size-m;    // 18px — step title size per Figma
+  font-weight: 700;
+  margin: 0 0 spacing(4);            // 24px below heading
+
+  @include breakpoint('md') {
+    font-size: $heading-font-size-l;  // 24px on desktop
+    margin-bottom: spacing(5.333);    // 32px
+  }
+}
+
+// =============================================================================
+// Content area — step list + optional image panel
+// =============================================================================
+
+.step-accordion-content {
+  display: flex;
+  align-items: flex-start;
+  gap: spacing(4);                    // 24px between list and image
+}
+
+.step-accordion-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+// Image panel (right column) — hidden when active step has no image
+.step-accordion-image {
+  flex: 0 0 38%;
+  max-width: 420px;
+  min-width: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--sa-card-radius);
+    display: block;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+// Collapse image to full-width on small screens
+@include breakpoint-down('sm') {
+  .step-accordion-content {
+    flex-direction: column;
+  }
+
+  .step-accordion-image {
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+// =============================================================================
+// Step item (LI)
+// =============================================================================
+
+.step-accordion-item {
+  position: relative;
+
+  & + .step-accordion-item {
+    margin-top: var(--sa-step-gap);
+  }
+}
+
+// =============================================================================
+// Dot container — the row holding the timeline + the card content
+// =============================================================================
+
+.step-accordion-dot-container {
+  position: relative;
+  padding-left: var(--sa-content-offset);  // 80px — cards start here
+}
+
+// =============================================================================
+// Timeline — dot circle + connector line (aria-hidden decorative element)
+// =============================================================================
+
+.step-accordion-timeline {
+  position: absolute;
+  left: var(--sa-dot-offset-left);
+  top: 0;
+  bottom: 0;
+  width: var(--sa-dot-size);
+}
+
+// Step dot circle
+.step-accordion-dot {
+  position: absolute;
+  top: var(--sa-dot-offset-top);           // 16px from top of trigger area
+  left: 0;
+  width: var(--sa-dot-size);
+  height: var(--sa-dot-size);
+  border-radius: $radius-full;
+  background: var(--sa-dot-bg-inactive);
+  border: 4px solid var(--sa-dot-border-inactive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $heading-font-size-xs;        // 14px
+  font-weight: 500;
+  line-height: 1;
+  color: var(--sa-dot-num-inactive);
+  z-index: 1;
+  cursor: pointer;
+  transition: background-color 300ms ease-in, border-color 300ms ease-in, color 300ms ease-in;
+
+  &.is-active {
+    background: var(--sa-dot-bg-active);
+    border-color: var(--sa-dot-border-active);
+    color: var(--sa-dot-num-active);
+    font-weight: 700;
+  }
+}
+
+// Vertical connector line between dots (omitted on last item)
+.step-accordion-connector {
+  position: absolute;
+  left: 50%;                                  // center in timeline (= center of dot)
+  transform: translateX(-50%);               // offset back by half line width
+  top: var(--sa-connector-top);            // 64px — bottom of the dot
+  bottom: calc(-1 * (var(--sa-step-gap) + var(--sa-dot-offset-top)));  // top of next item's dot
+  width: var(--sa-connector-width);
+  background: var(--sa-connector-color);
+}
+
+// =============================================================================
+// Item content — the card
+// =============================================================================
+
+.step-accordion-item-content {
+  background: var(--sa-card-bg-inactive);
+  border: var(--sa-card-border-inactive-width) solid var(--sa-card-border-inactive);
+  border-radius: var(--sa-card-radius);
+  overflow: hidden;
+  transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.step-accordion-item.is-active .step-accordion-item-content {
+  background: var(--sa-card-bg-active);
+  border: var(--sa-card-border-active-width) solid var(--sa-card-border-active);
+  box-shadow: var(--sa-card-shadow);
+}
+
+// =============================================================================
+// Trigger button
+// =============================================================================
+
+.step-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing(2);
+  width: 100%;
+  padding: var(--sa-trigger-padding);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  &:focus-visible {
+    outline: 2px solid var(--border-focus, $gel-fallback-focus);
+    outline-offset: 2px;
+  }
+
+  &:hover .step-accordion-item-content {
+    background: color-mix(in srgb, var(--sa-card-border-inactive) 20%, var(--sa-card-bg-inactive));
+  }
+}
+
+// Title group — label + optional subtitle stacked vertically
+.step-accordion-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sa-subtitle-gap);         // 4px between label and subtitle
+  flex: 1;
+  min-width: 0;
+}
+
+.step-accordion-label {
+  font-size: $heading-font-size-m;     // 18px
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--sa-title-inactive);
+  transition: color 200ms ease;
+}
+
+.step-accordion-subtitle {
+  font-size: $body-font-size-s;        // 14px
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--sa-subtitle-color);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.step-accordion-item.is-active .step-accordion-label {
+  color: var(--sa-title-active);
+}
+
+// Chevron icon — rotates 180° when step is expanded
+.step-accordion-chevron {
+  flex-shrink: 0;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--sa-chevron-color);
+  transition: transform 250ms ease;
+}
+
+.step-accordion-item.is-active .step-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+// =============================================================================
+// Expanded panel
+// =============================================================================
+
+.step-accordion-panel {
+  overflow: hidden;
+  transition: max-height 300ms ease-in;
+
+  &[hidden] {
+    display: block; // override browser default to allow CSS transition
+    max-height: 0;
+  }
+}
+
+.step-accordion-panel-inner {
+  padding: 0 var(--sa-panel-padding) var(--sa-panel-padding);
+  background: var(--sa-panel-bg);
+}
+
+.step-accordion-description {
+  font-size: $body-font-size-m;        // 16px
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--sa-description-color);
+
+  p { margin: 0 0 spacing(1.333); }
+  p:last-child { margin-bottom: 0; }
+
+  a {
+    color: var(--sa-title-active);
+    text-decoration: underline;
+  }
+}
+
+// =============================================================================
+// CTA section
+// =============================================================================
+
+.step-accordion-cta {
+  margin-top: spacing(5.333);          // 32px above CTA
+}
+
+// Single link CTA
+.step-accordion-cta--single {
+  display: flex;
+  justify-content: flex-start;
+}
+
+// Dual card CTA
+.step-accordion-cta--dual {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(2.667);                 // 16px between cards
+
+  @include breakpoint('sm') {
+    flex-wrap: nowrap;
+  }
+}
+
+.step-accordion-cta-card {
+  display: flex;
+  align-items: center;
+  gap: spacing(2.667);
+  flex: 1 1 100%;
+  padding: spacing(2.667);
+  background: var(--sa-cta-card-bg);
+  border: 1px solid var(--sa-cta-card-border);
+  border-radius: var(--sa-cta-card-radius);
+  text-decoration: none;
+  transition: box-shadow 200ms ease;
+
+  @include breakpoint('sm') {
+    flex: 1 1 0;
+  }
+
+  &:hover {
+    box-shadow: var(--sa-card-shadow);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--border-focus, $gel-fallback-focus);
+    outline-offset: 2px;
+  }
+
+  // Leading icon
+  .gel-icon:first-child {
+    flex-shrink: 0;
+    color: var(--sa-cta-card-icon);
+    font-size: 24px;
+  }
+
+  // Trailing arrow icon
+  .gel-icon:last-child {
+    flex-shrink: 0;
+    margin-left: auto;
+    color: var(--sa-cta-card-icon);
+    font-size: 24px;
+  }
+}
+
+.step-accordion-cta-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(0.667);                 // 4px
+  min-width: 0;
+  flex: 1;
+}
+
+.step-accordion-cta-card-label {
+  font-size: $body-font-size-m;        // 16px
+  font-weight: 700;
+  color: var(--sa-cta-card-label);
+  line-height: 24px;
+}
+
+.step-accordion-cta-card-desc {
+  font-size: $body-font-size-s;        // 14px
+  font-weight: 400;
+  color: var(--sa-cta-card-desc);
+  line-height: 20px;
+}

@@ -176,6 +176,53 @@
               }
             }
           }
+        },
+        {
+          "title": "Footer",
+          "id": "footer",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Footer",
+                  "model": "footer"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Step Accordion",
+          "id": "step-accordion",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Step Accordion",
+                  "model": "step-accordion",
+                  "filter": "step-accordion"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Step Accordion Item",
+          "id": "step-accordion-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Step Accordion Item",
+                  "model": "step-accordion-item",
+                  "filter": "step-accordion-item"
+                }
+              }
+            }
+          }
         }
       ]
     }

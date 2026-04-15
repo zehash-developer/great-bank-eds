@@ -1,7 +1,6 @@
 /** @type { import('@storybook/html').Preview } */
 
 // Import global styles first, then block styles (block values should follow Figma; extend SCSS when needed)
-import '../styles/dist/style-config.compiled.min.css';
 import '../styles/dist/styles.min.css';
 import '../styles/dist/gel-icons.min.css';
 /**
@@ -54,20 +53,20 @@ const preview = {
         runOnly: {
           type: 'tag',
           values: [
-            'wcag2a',       // WCAG 2.0 Level A
-            'wcag2aa',      // WCAG 2.0 Level AA
-            'wcag2aaa',     // WCAG 2.0 Level AAA (strictest)
-            'wcag21a',      // WCAG 2.1 Level A
-            'wcag21aa',     // WCAG 2.1 Level AA
-            'wcag21aaa',    // WCAG 2.1 Level AAA (strictest)
-            'wcag22aa',     // WCAG 2.2 Level AA
+            'wcag2a', // WCAG 2.0 Level A
+            'wcag2aa', // WCAG 2.0 Level AA
+            'wcag2aaa', // WCAG 2.0 Level AAA (strictest)
+            'wcag21a', // WCAG 2.1 Level A
+            'wcag21aa', // WCAG 2.1 Level AA
+            'wcag21aaa', // WCAG 2.1 Level AAA (strictest)
+            'wcag22aa', // WCAG 2.2 Level AA
             'best-practice', // Additional accessibility best practices
           ],
         },
       },
     },
   },
-  
+
   // Global toolbar for brand and theme mode switching
   // globalTypes: {
   //   brand: {
@@ -114,7 +113,7 @@ const preview = {
       const isDarkBg = globalsBg?.value === '#131313' || globalsBg?.name === 'dark';
       const isDarkStory = /-dark(-|$)/i.test(context.id || '');
       const isDark = mode === 'dark' || storyBg === 'dark' || isDarkBg || isDarkStory;
-      
+
       // data-brand removed — Great Bank has a single palette (no GEL brand switching)
       document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
       document.documentElement.removeAttribute('data-brand');
@@ -123,10 +122,10 @@ const preview = {
 
       document.body.style.backgroundColor = isDark ? 'var(--gb-black)' : 'var(--gb-white)';
       document.body.style.color = 'var(--text-body)';
-      
+
       return Story();
     },
-    
+
     // Container decorator - mimics AEM page structure
     (Story) => {
       const main = document.createElement('main');

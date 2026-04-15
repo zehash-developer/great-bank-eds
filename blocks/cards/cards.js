@@ -20,14 +20,8 @@
  */
 
 import { moveInstrumentation } from '../../scripts/scripts.js';
-import {
-  getCellText,
-  getCellImage,
-} from '../../scripts/utility/shared.js';
-import {
-  initializeCarousel,
-  renderCarouselContainer,
-} from '../../scripts/utility/carousel.js';
+import { getCellText, getCellImage } from '../../scripts/utility/shared.js';
+import { initializeCarousel, renderCarouselContainer } from '../../scripts/utility/carousel.js';
 
 // =============================================================================
 // Constants
@@ -105,17 +99,20 @@ function extractCardFromRow(row) {
 
   const tagsRaw = getCellText(cells[1]) || '';
   const tags = tagsRaw
-    ? tagsRaw.split(',').map((t) => t.trim()).filter(Boolean)
+    ? tagsRaw
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean)
     : [];
   console.log('tags', tags);
 
   const title = getCellText(cells[2]) || '';
   console.log('title', title);
 
-  const subtitle = cells[3] ? (getCellText(cells[3]) || '') : '';
+  const subtitle = cells[3] ? getCellText(cells[3]) || '' : '';
   console.log('subtitle', subtitle);
 
-  const description = cells[4] ? (getCellText(cells[4]) || '') : '';
+  const description = cells[4] ? getCellText(cells[4]) || '' : '';
   console.log('description', description);
 
   const ctas = getCTAsFromCell(cells[5] || null);
@@ -147,9 +144,7 @@ function extractData(block) {
   const rows = [...block.children];
   console.log('totalRows', rows.length);
 
-  const cards = rows
-    .map(extractCardFromRow)
-    .filter(Boolean);
+  const cards = rows.map(extractCardFromRow).filter(Boolean);
 
   console.log('extractedCards', cards.length);
   return { cards };
@@ -166,9 +161,7 @@ function extractData(block) {
  */
 function renderTagsHTML(tags) {
   if (!tags.length) return '';
-  const pillsHTML = tags
-    .map((tag) => `<span class="card-tag">${tag}</span>`)
-    .join('');
+  const pillsHTML = tags.map((tag) => `<span class="card-tag">${tag}</span>`).join('');
   return `<div class="card-tags">${pillsHTML}</div>`;
 }
 
@@ -202,9 +195,7 @@ function renderCardHTML(card) {
       </div>`
     : '';
 
-  const subtitleHTML = card.subtitle
-    ? `<p class="card-subtitle">${card.subtitle}</p>`
-    : '';
+  const subtitleHTML = card.subtitle ? `<p class="card-subtitle">${card.subtitle}</p>` : '';
 
   const descriptionHTML = card.description
     ? `<p class="card-description">${card.description}</p>`

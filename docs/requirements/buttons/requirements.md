@@ -14,6 +14,7 @@ Buttons are a shared, reusable UI component used across all blocks and page regi
 Authors apply button styles by adding the `button` class (plus a variant and size modifier) to any `<a>` or `<button>` element. Blocks that render CTAs are responsible for appending the correct classes in their own `decorate()` functions.
 
 The component must support:
+
 - Four **variants**: `primary`, `secondary`, `outline`, `ghost`
 - Five **sizes**: `xs`, `sm`, `md`, `lg`, `xl`
 - Optional **leading icon** (icon before label) and **trailing icon** (icon after label)
@@ -78,32 +79,32 @@ Container for grouped buttons:
 
 ## Variants
 
-| Variant class | Figma name | Description |
-|--------------|------------|-------------|
-| `primary` | Primary Variant | Solid filled, brand primary colour |
-| `secondary` | Secondary Variant | Muted filled, body-text coloured label |
-| `outline` | Outline Variant | No fill, 2px border, coloured label — **new, not in existing SCSS** |
-| `ghost` | Ghost Variant | No fill, no border, body-text coloured label — subtle inline action |
+| Variant class | Figma name        | Description                                                         |
+| ------------- | ----------------- | ------------------------------------------------------------------- |
+| `primary`     | Primary Variant   | Solid filled, brand primary colour                                  |
+| `secondary`   | Secondary Variant | Muted filled, body-text coloured label                              |
+| `outline`     | Outline Variant   | No fill, 2px border, coloured label — **new, not in existing SCSS** |
+| `ghost`       | Ghost Variant     | No fill, no border, body-text coloured label — subtle inline action |
 
 ### Variant token values
 
 #### Light theme (default)
 
-| Variant | Background | Text | Border |
-|---------|-----------|------|--------|
-| `primary` | `#002855` | `#ffffff` | none |
-| `secondary` | `#f3f4f6` | `#101828` | none |
-| `outline` | transparent | `#002855` | 2px solid `#002855` |
-| `ghost` | transparent | `#364153` | none |
+| Variant     | Background  | Text      | Border              |
+| ----------- | ----------- | --------- | ------------------- |
+| `primary`   | `#002855`   | `#ffffff` | none                |
+| `secondary` | `#f3f4f6`   | `#101828` | none                |
+| `outline`   | transparent | `#002855` | 2px solid `#002855` |
+| `ghost`     | transparent | `#364153` | none                |
 
 #### Dark theme (`data-theme="dark"` on ancestor)
 
-| Variant | Background | Text | Border |
-|---------|-----------|------|--------|
-| `primary` | `#e8c968` | `#0a0f1a` | none |
-| `secondary` | `#1e293b` | `#f1f5f9` | none |
-| `outline` | transparent | `#e8c968` | 2px solid `#e8c968` |
-| `ghost` | transparent | `#f1f5f9` | none |
+| Variant     | Background  | Text      | Border              |
+| ----------- | ----------- | --------- | ------------------- |
+| `primary`   | `#e8c968`   | `#0a0f1a` | none                |
+| `secondary` | `#1e293b`   | `#f1f5f9` | none                |
+| `outline`   | transparent | `#e8c968` | 2px solid `#e8c968` |
+| `ghost`     | transparent | `#f1f5f9` | none                |
 
 ---
 
@@ -113,37 +114,38 @@ Container for grouped buttons:
 
 Figma button sizes use a **6px base grid**. Heights for filled variants (no border):
 
-| Size class | Figma name | Height | Horiz padding | Font size | Line height |
-|-----------|------------|--------|---------------|-----------|-------------|
-| `xs` | Extra Small | 28px | 12px | 12px | 16px |
-| `sm` | Small | 36px | 16px | 14px | 20px |
-| `md` | Medium | 44px | 24px | 16px | 24px |
-| `lg` | Large | 52px | 32px | 18px | 28px |
-| `xl` | Extra Large | 60px | 40px | 20px | 28px |
+| Size class | Figma name  | Height | Horiz padding | Font size | Line height |
+| ---------- | ----------- | ------ | ------------- | --------- | ----------- |
+| `xs`       | Extra Small | 28px   | 12px          | 12px      | 16px        |
+| `sm`       | Small       | 36px   | 16px          | 14px      | 20px        |
+| `md`       | Medium      | 44px   | 24px          | 16px      | 24px        |
+| `lg`       | Large       | 52px   | 32px          | 18px      | 28px        |
+| `xl`       | Extra Large | 60px   | 40px          | 20px      | 28px        |
 
 Outline variant dimensions (border-box, 2px border adds 4px to visual height):
 
 | Size class | Visual height | Horiz padding |
-|-----------|--------------|---------------|
-| `xs` | 32px | 14px |
-| `sm` | 40px | 18px |
-| `md` | 48px | 26px |
-| `lg` | 56px | 34px |
-| `xl` | 64px | 42px |
+| ---------- | ------------- | ------------- |
+| `xs`       | 32px          | 14px          |
+| `sm`       | 40px          | 18px          |
+| `md`       | 48px          | 26px          |
+| `lg`       | 56px          | 34px          |
+| `xl`       | 64px          | 42px          |
 
 ### Sizing discrepancies with existing SCSS
 
 > **Open question / decision needed.** The existing `_buttons.scss` uses different heights and the `button-variant` mixin uses different size tokens. The implementation phase must choose one of:
+>
 > - **Option A**: Update all existing height and padding values in the mixin to match Figma exactly.
 > - **Option B**: Keep existing mixin values and add only the missing `xs` size and `outline`/`ghost` variants.
 
 | Size | Existing height | Figma height | Delta |
-|------|----------------|--------------|-------|
-| `sm` | 30px (1.875rem) | 36px | +6px |
-| `md` | 36px (2.25rem) | 44px | +8px |
-| `lg` | 42px (2.625rem) | 52px | +10px |
-| `xl` | 48px (3rem) | 60px | +12px |
-| `xs` | — (missing) | 28px | new |
+| ---- | --------------- | ------------ | ----- |
+| `sm` | 30px (1.875rem) | 36px         | +6px  |
+| `md` | 36px (2.25rem)  | 44px         | +8px  |
+| `lg` | 42px (2.625rem) | 52px         | +10px |
+| `xl` | 48px (3rem)     | 60px         | +12px |
+| `xs` | — (missing)     | 28px         | new   |
 
 ---
 
@@ -174,13 +176,13 @@ Outline variant dimensions (border-box, 2px border adds 4px to visual height):
 
 ## States
 
-| State | Behaviour |
-|-------|-----------|
-| Default | As per variant/theme token table above |
-| Hover | Background lightens (primary/secondary) or darkens — use `color-mix()` as in existing mixin |
-| Focus | Visible focus ring via `--border-focus` outline |
-| Disabled | `opacity: 0.5`, `cursor: not-allowed`, `pointer-events: none` |
-| Active | Slight scale or brightness shift (confirm during build) |
+| State    | Behaviour                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------- |
+| Default  | As per variant/theme token table above                                                      |
+| Hover    | Background lightens (primary/secondary) or darkens — use `color-mix()` as in existing mixin |
+| Focus    | Visible focus ring via `--border-focus` outline                                             |
+| Disabled | `opacity: 0.5`, `cursor: not-allowed`, `pointer-events: none`                               |
+| Active   | Slight scale or brightness shift (confirm during build)                                     |
 
 ---
 
@@ -211,12 +213,14 @@ Outline variant dimensions (border-box, 2px border adds 4px to visual height):
 ## Storybook
 
 Stories file location: to be determined. Options:
+
 - `blocks/buttons/buttons.stories.js` (conventional per existing pattern, even though no block JS exists)
 - Root-level `buttons.stories.js` (non-standard)
 
 > **Recommendation**: Use `blocks/buttons/buttons.stories.js` so Storybook picks it up via its existing glob pattern. No `blocks/buttons/buttons.js` EDS block file is needed — the story renders the HTML directly.
 
 Stories required:
+
 - All 4 variants × 5 sizes (20 combinations) on light background
 - All 4 variants × 5 sizes on dark background
 - Icon leading + icon trailing examples (primary at md)
@@ -227,21 +231,21 @@ Stories required:
 
 ## Variant/State Matrix
 
-| Variant | xs | sm | md | lg | xl | Icon | Dark | Disabled |
-|---------|----|----|----|----|----|----|------|---------|
-| primary | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| secondary | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ |
-| outline | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| ghost | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ |
+| Variant   | xs  | sm  | md  | lg  | xl  | Icon | Dark | Disabled |
+| --------- | --- | --- | --- | --- | --- | ---- | ---- | -------- |
+| primary   | ✅  | ✅  | ✅  | ✅  | ✅  | ✅   | ✅   | ✅       |
+| secondary | ✅  | ✅  | ✅  | ✅  | ✅  | —    | ✅   | ✅       |
+| outline   | ✅  | ✅  | ✅  | ✅  | ✅  | ✅   | ✅   | ✅       |
+| ghost     | ✅  | ✅  | ✅  | ✅  | ✅  | —    | ✅   | ✅       |
 
 ---
 
 ## Figma Visual Reference Matrix
 
-| Figma URL | Node ID | Screenshot file | Purpose |
-|-----------|---------|-----------------|---------|
-| https://www.figma.com/design/WXBZsxyNrHkyGDg0FWIS1g/Great-Bank-Design-Files?node-id=5-3024&m=dev | `5:3024` | `figma/node-5-3024-buttons-light.png` *(pending)* | All variants × all sizes — light theme. Multi-state frame (one image shows all). |
-| https://www.figma.com/design/WXBZsxyNrHkyGDg0FWIS1g/Great-Bank-Design-Files?node-id=5-4803&m=dev | `5:4803` | `figma/node-5-4803-buttons-dark.png` *(pending)* | All variants × all sizes — dark theme. Multi-state frame (one image shows all). |
+| Figma URL                                                                                        | Node ID  | Screenshot file                                   | Purpose                                                                          |
+| ------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------- | -------------------------------------------------------------------------------- |
+| https://www.figma.com/design/WXBZsxyNrHkyGDg0FWIS1g/Great-Bank-Design-Files?node-id=5-3024&m=dev | `5:3024` | `figma/node-5-3024-buttons-light.png` _(pending)_ | All variants × all sizes — light theme. Multi-state frame (one image shows all). |
+| https://www.figma.com/design/WXBZsxyNrHkyGDg0FWIS1g/Great-Bank-Design-Files?node-id=5-4803&m=dev | `5:4803` | `figma/node-5-4803-buttons-dark.png` _(pending)_  | All variants × all sizes — dark theme. Multi-state frame (one image shows all).  |
 
 > **Note**: Both frames are multi-state reference sheets (they show all variants/sizes together in one frame). Do not use pixel-perfect pixelmatch comparison against these frames — use them for visual hierarchy, colour, and density review only. For individual variant comparison, crop or use isolated story stories targeting a single variant output.
 

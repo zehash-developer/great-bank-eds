@@ -1,0 +1,250 @@
+@use '../../styles/variables' as *;
+
+// =============================================================================
+// Footer Block
+//
+// Figma references:
+//   Light mode: docs/requirements/footer/figma/node-4-2395-footer-light.png
+//   Dark mode:  docs/requirements/footer/figma/node-5-4263-footer-dark.png
+// =============================================================================
+
+.footer {
+  // ── CSS Custom Properties — Light (default) ──────────────────────────────
+  --footer-bg:            #f9fafb;
+  --footer-border:        #e5e7eb;
+  --footer-tagline-color: #4a5565;
+  --footer-social-bg:     #e5e7eb;
+  --footer-social-icon:   #4a5565;
+  --footer-nav-heading:   #101828;
+  --footer-link-color:    #4a5565;
+  --footer-legal-bg:      #ffffff;
+  --footer-legal-border:  #e5e7eb;
+  --footer-legal-text:    #4a5565;
+
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  font-family: $font-family-sans;
+
+  // ── Dark variant ──────────────────────────────────────────────────────────
+  &.dark {
+    --footer-bg:            #111827;
+    --footer-border:        #334155;
+    --footer-tagline-color: #94a3b8;
+    --footer-social-bg:     #1e293b;
+    --footer-social-icon:   #94a3b8;
+    --footer-nav-heading:   #f1f5f9;
+    --footer-link-color:    #94a3b8;
+    --footer-legal-bg:      #0a0f1a;
+    --footer-legal-border:  #334155;
+    --footer-legal-text:    #94a3b8;
+  }
+}
+
+// =============================================================================
+// Main body — brand + nav columns side-by-side on desktop
+// =============================================================================
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
+  padding: spacing(8);
+
+  @include breakpoint('md') {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: spacing(10);
+  }
+}
+
+// =============================================================================
+// Brand column — logo, tagline, social icons
+// =============================================================================
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+
+  @include breakpoint('md') {
+    min-width: 220px;
+    max-width: 260px;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-img {
+  max-height: 32px;
+  width: auto;
+  display: block;
+
+  // Dark mode: shift navy logo to gold (#d4af37) via CSS filter
+  .footer.dark & {
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1);
+  }
+}
+
+.footer-tagline {
+  font-size: $body-font-size-s;
+  color: var(--footer-tagline-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+// =============================================================================
+// Social icons
+// =============================================================================
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(2.667); // 16px
+  margin-top: spacing(1);
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  background-color: var(--footer-social-bg);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 200ms ease;
+
+  .gel-icon {
+    width: 20px;
+    height: 20px;
+    background-color: var(--footer-social-icon);
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--footer-social-icon);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// Nav columns
+// =============================================================================
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
+  flex: 1;
+
+  @include breakpoint('md') {
+    flex-direction: row;
+    gap: spacing(8);
+  }
+
+  nav {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+.footer-nav-heading {
+  font-size: $heading-font-size-m; // 18px
+  font-weight: 500;
+  color: var(--footer-nav-heading);
+  margin: 0 0 spacing(2.667) 0; // 16px bottom
+}
+
+.footer-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  li {
+    padding-left: 0;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+  flex-direction: column;
+  gap: spacing(2); // 12px
+
+  a {
+    font-size: $body-font-size-s; // 14px
+    color: var(--footer-link-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentcolor;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+}
+
+// =============================================================================
+// Legal bar
+// =============================================================================
+
+.footer-legal-bar {
+  background-color: var(--footer-legal-bg);
+  border-top: 1px solid var(--footer-legal-border);
+}
+
+.footer-legal-inner {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  padding: spacing(4) spacing(8); // 24px top/bottom, 48px sides
+
+  @include breakpoint('md') {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(3); // 18px
+
+  a {
+    font-size: $body-font-size-s; // 14px
+    color: var(--footer-legal-text);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentcolor;
+      outline-offset: 2px;
+      border-radius: $radius-sm;
+    }
+  }
+}
+
+.footer-copyright {
+  font-size: $body-font-size-s; // 14px
+  color: var(--footer-legal-text);
+  margin: 0;
+  white-space: nowrap;
+}

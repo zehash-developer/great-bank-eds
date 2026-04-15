@@ -400,5 +400,268 @@
         "description": "Optional CSS colour (e.g. #002855) or gradient (e.g. linear-gradient(90deg, #002855, #003D7A)). Ignored when a background image is set. Leave blank to use the default brand palette by slide index."
       }
     ]
+  },
+  {
+    "id": "footer",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Theme",
+        "description": "Choose light or dark color scheme",
+        "options": [
+          {
+            "name": "Light",
+            "value": ""
+          },
+          {
+            "name": "Dark",
+            "value": "dark"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "step-accordion",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "Heading",
+        "valueType": "string",
+        "description": "Heading displayed above the step list",
+        "required": true,
+        "validation": {
+          "maxLength": 256
+        }
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Mode",
+        "description": "Choose the colour scheme",
+        "options": [
+          {
+            "name": "Light",
+            "value": ""
+          },
+          {
+            "name": "Dark",
+            "value": "dark"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "ctaType",
+        "label": "CTA Type",
+        "description": "Call-to-action displayed below the steps",
+        "options": [
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Single link",
+            "value": "single"
+          },
+          {
+            "name": "Dual cards",
+            "value": "dual"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "singleLabel",
+        "label": "CTA Label",
+        "valueType": "string",
+        "description": "Label for the single CTA link",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "single"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "singleUrl",
+        "label": "CTA URL",
+        "description": "Destination URL for the single CTA link",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "single"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "dualIconOne",
+        "label": "Card 1 Icon",
+        "valueType": "string",
+        "description": "GEL outlined icon name for card 1 (e.g. home-outlined)",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "dualLabelOne",
+        "label": "Card 1 Label",
+        "valueType": "string",
+        "description": "Label for the first CTA card",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "dualDescriptionOne",
+        "label": "Card 1 Description",
+        "valueType": "string",
+        "description": "Short description for the first CTA card",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "dualUrlOne",
+        "label": "Card 1 URL",
+        "description": "Destination URL for the first CTA card",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "dualIconTwo",
+        "label": "Card 2 Icon",
+        "valueType": "string",
+        "description": "GEL outlined icon name for card 2 (e.g. arrow-forward-circle-outlined)",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "dualLabelTwo",
+        "label": "Card 2 Label",
+        "valueType": "string",
+        "description": "Label for the second CTA card",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "dualDescriptionTwo",
+        "label": "Card 2 Description",
+        "valueType": "string",
+        "description": "Short description for the second CTA card",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "dualUrlTwo",
+        "label": "Card 2 URL",
+        "description": "Destination URL for the second CTA card",
+        "condition": {
+          "===": [
+            {
+              "var": "ctaType"
+            },
+            "dual"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "step-accordion-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "value": "",
+        "label": "Step Label",
+        "valueType": "string",
+        "description": "Title shown in the step trigger (required)",
+        "required": true,
+        "validation": {
+          "maxLength": 256,
+          "pattern": "^[^\\s].*$",
+          "customErrorMsg": "Step label is required and must not start with a space"
+        }
+      },
+      {
+        "component": "text",
+        "name": "subtitle",
+        "value": "",
+        "label": "Step Subtitle",
+        "valueType": "string",
+        "description": "Optional secondary text shown below the step label (e.g. \"Step 1 – 30 minutes\")"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string",
+        "description": "Content revealed when this step is expanded"
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Step Image",
+        "valueType": "string",
+        "description": "Optional image shown in the right panel when this step is active"
+      }
+    ]
   }
 ]

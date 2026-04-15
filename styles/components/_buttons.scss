@@ -10,7 +10,7 @@ a:any-link {
     background-color: transparent;
     color: var(--text-link);
     text-decoration: underline;
-    border-radius: var(--rounded-none);
+    border-radius: 0;
     height: auto;
 
     &:has(sup) {
@@ -89,7 +89,7 @@ $button-sizes: (
 
     @each $size in $button-sizes {
         &.#{$size} {
-            @include button-variant($size: $size);
+            @include button-size-named($size);
         }
     }
 

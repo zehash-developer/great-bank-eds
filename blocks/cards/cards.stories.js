@@ -91,9 +91,9 @@ export const Default = {
     docs: {
       description: {
         story:
-          'Three-card light mode layout matching Figma node 17:6. '
-          + 'Transaction Account has both a primary and an outline button. '
-          + 'Home Loans and Credit Cards have a single primary CTA.',
+          'Three-card light mode layout matching Figma node 17:6. ' +
+          'Transaction Account has both a primary and an outline button. ' +
+          'Home Loans and Credit Cards have a single primary CTA.',
       },
     },
   },
@@ -111,9 +111,9 @@ export const Dark = {
     docs: {
       description: {
         story:
-          'Dark mode variant matching Figma node 22:372. '
-          + 'Cards use a dark navy background. Buttons use gold-light; '
-          + 'primary button text is near-black for WCAG contrast.',
+          'Dark mode variant matching Figma node 22:372. ' +
+          'Cards use a dark navy background. Buttons use gold-light; ' +
+          'primary button text is near-black for WCAG contrast.',
       },
     },
   },
@@ -128,7 +128,8 @@ export const SingleCTA = {
   parameters: {
     docs: {
       description: {
-        story: 'Cards with only one CTA button each. Tests that the flex layout in `.card-ctas` behaves correctly.',
+        story:
+          'Cards with only one CTA button each. Tests that the flex layout in `.card-ctas` behaves correctly.',
       },
     },
   },
@@ -143,7 +144,8 @@ export const Minimal = {
   parameters: {
     docs: {
       description: {
-        story: 'Cards using only required fields: icon, title, description, and CTA. Tags and subtitle cells are empty.',
+        story:
+          'Cards using only required fields: icon, title, description, and CTA. Tags and subtitle cells are empty.',
       },
     },
   },
