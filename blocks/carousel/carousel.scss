@@ -1,0 +1,229 @@
+@use '../../styles/variables' as *;
+
+// =============================================================================
+// Carousel Block
+//
+// Full-width, single-slide hero banner carousel.
+// Design tokens sourced from Figma node 5:5196 (light) and 5:5296 (dark).
+// =============================================================================
+
+.carousel {
+  // Block-scoped design tokens
+  --carousel-slide-height: 176px;
+  --carousel-slide-radius: 12px;
+  --carousel-slide-padding-v: 48px;
+  --carousel-slide-padding-h: 48px;
+  --carousel-slide-gap: 16px;
+
+  --carousel-dot-gap: 8px;
+  --carousel-dot-active-w: 32px;
+  --carousel-dot-h: 8px;
+  --carousel-dot-radius: 9999px;
+
+  --carousel-nav-size: 40px;
+  --carousel-nav-offset: 16px;
+  --carousel-nav-top: 80px;
+
+  // Light mode tokens
+  --carousel-dot-active-color: #002855;
+  --carousel-dot-inactive-color: #d1d5dc;
+  --carousel-nav-bg: rgba(255, 255, 255, 0.9);
+  --carousel-nav-border: none;
+  --carousel-nav-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+  --carousel-nav-color: #002855;
+
+  // =============================================================================
+  // Viewport — clips and positions the track + overlay nav
+  // =============================================================================
+  &-viewport {
+    position: relative;
+    border-radius: var(--carousel-slide-radius);
+    overflow: hidden;
+    // Allow keyboard users to focus the region
+    outline: none;
+  }
+
+  // =============================================================================
+  // Track — horizontally scrollable flex container
+  // =============================================================================
+  &-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    // Hide scrollbar visually but keep it functional
+    scrollbar-width: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // =============================================================================
+  // Individual slide
+  // =============================================================================
+  &-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: var(--carousel-slide-height);
+    position: relative;
+    scroll-snap-align: start;
+    border-radius: var(--carousel-slide-radius);
+    overflow: hidden;
+    // Background is set via inline style by carousel.js
+  }
+
+  // Semi-transparent scrim for image slides (visibility toggled by JS)
+  &-slide-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: none;
+    pointer-events: none;
+  }
+
+  // Slide with image background — show scrim (JS removes aria-hidden)
+  &-slide[style*='url('] &-slide-scrim {
+    display: block;
+  }
+
+  &-slide-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--carousel-slide-gap);
+    height: 100%;
+    padding: var(--carousel-slide-padding-v) var(--carousel-slide-padding-h);
+    text-align: center;
+    color: var(--slide-text-color, #ffffff);
+  }
+
+  &-slide-title {
+    margin: 0;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    color: inherit;
+  }
+
+  &-slide-description {
+    margin: 0;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  &-slide-cta {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: rgba(255, 255, 255, 0.15);
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+
+  // =============================================================================
+  // Navigation buttons (overlay, vertically centred on the slide)
+  // =============================================================================
+  &-nav {
+    position: absolute;
+    top: var(--carousel-nav-top);
+    width: var(--carousel-nav-size);
+    height: var(--carousel-nav-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--carousel-dot-radius);
+    background: var(--carousel-nav-bg);
+    border: var(--carousel-nav-border);
+    box-shadow: var(--carousel-nav-shadow);
+    color: var(--carousel-nav-color);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+
+    svg {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    &[aria-disabled='true'] {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    &--prev {
+      left: var(--carousel-nav-offset);
+    }
+
+    &--next {
+      right: var(--carousel-nav-offset);
+    }
+  }
+
+  // =============================================================================
+  // Pagination dots
+  // =============================================================================
+  &-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--carousel-dot-gap);
+    margin-top: 16px;
+  }
+
+  &-dot {
+    width: var(--carousel-dot-h);
+    height: var(--carousel-dot-h);
+    border-radius: var(--carousel-dot-radius);
+    background-color: var(--carousel-dot-inactive-color);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: width 0.2s ease, background-color 0.2s ease;
+
+    &--active {
+      width: var(--carousel-dot-active-w);
+      background-color: var(--carousel-dot-active-color);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--carousel-dot-active-color);
+      outline-offset: 2px;
+    }
+  }
+
+  // =============================================================================
+  // Dark mode
+  // =============================================================================
+  &.dark {
+    --carousel-dot-active-color: #e8c968;
+    --carousel-dot-inactive-color: rgba(148, 163, 184, 0.3);
+    --carousel-nav-bg: rgba(17, 24, 39, 0.9);
+    --carousel-nav-border: 1px solid #334155;
+    --carousel-nav-shadow: none;
+    --carousel-nav-color: #f1f5f9;
+  }
+}

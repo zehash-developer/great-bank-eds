@@ -7,7 +7,12 @@ argument-hint: 'block-name'
 Follow all rules in `/agents.md` and `.github/instructions/copilot-instructions.md`.
 If there is any conflict, `/agents.md` wins.
 
+## Pattern and reference sources
+
+Do **not** use ad-hoc review of other directories under `blocks/` to decide patterns. Use [Block catalog](../skills/block-catalog.md) for vetted block inventory and links to reference JSON/JS under `.github/skills/`, plus the skills below.
+
 **Reference these when scaffolding:**
+- [Block catalog](../skills/block-catalog.md) — inventory of blocks, patterns, and links to UE/JS reference snippets in the skills bundle
 - [Block Development](../skills/block-development/SKILL.md) — EDS block lifecycle, extraction/render/decorate flow, `moveInstrumentation()`, document-based vs UE content
 - [Universal Editor](../skills/universal-editor/SKILL.md) — UE JSON: definitions, models, filters, field types, options, conditional visibility, block vs block/item, section registration
 - [Semantic HTML](../skills/semantic-html/SKILL.md) — Semantic structure and ARIA guidance
@@ -33,8 +38,8 @@ Using `docs/requirements/${input}.md`, scaffold a new EDS block named `${input}`
    - If icons are needed, use GEL icon classes (see Icon Usage below).
 
 2) `blocks/${input}/${input}.scss`
-  - Use `spacing()` for layout and `var(--token-name)` for colors (style-config design tokens). No hardcoded colors or magic pixel values. See [SCSS Styling](../skills/scss-styling/SKILL.md).
-   - Follow existing repo SCSS conventions (imports/mixins) per `/agents.md`.
+  - Derive **colors, radii, and spacing** from Figma (`get_design_context` / requirements). Use `spacing()` where it matches Figma px; expose repeated values as CSS variables in SCSS. **If Figma specifies a value and no variable exists, define one** in this file or `styles/`. See [SCSS Styling](../skills/scss-styling/SKILL.md).
+  - Follow SCSS conventions in `/agents.md` and [SCSS Styling](../skills/scss-styling/SKILL.md); use [Block catalog](../skills/block-catalog.md) for comparable block patterns, not informal copying from unrelated `blocks/` folders.
    - If icons are used, import: `@import '../../styles/gel-icons.scss';`
 
 3) `blocks/${input}/${input}.mocks.js`
@@ -70,7 +75,7 @@ Using `docs/requirements/${input}.md`, scaffold a new EDS block named `${input}`
      ```
    - **CRITICAL**: After creating or modifying `_${input}.json`, you MUST immediately run `npm run build:json` to merge the block configuration into the global config files. This is non-negotiable.
 
-6) **Dark mode** — Use `var(--text-body)`, `var(--surface-mono)`, etc. for all colors. style-config auto-resolves light/dark when `data-brand` and `data-theme` are set on the document. No block registration needed.
+6) **Theming / dark mode** — Follow Figma variants and Confluence. Implement with CSS variables and/or `data-theme` as required by the spec; add variables in SCSS for each Figma color role.
 
 ## File Creation Order
 
@@ -118,7 +123,7 @@ When icons are needed in a block:
 </button>
 
 <!-- Logo -->
-<i class="gel-logo gel-logo-wbc" aria-label="Westpac"></i>
+<i class="gel-logo gel-logo-wbc" aria-label="Brand"></i>
 
 <!-- Pictogram -->
 <i class="gel-pictogram gel-pictogram-atm" aria-hidden="true"></i>

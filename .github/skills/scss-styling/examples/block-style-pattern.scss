@@ -1,9 +1,13 @@
 @use '../../../styles/variables' as *;
 
+// Example: define CSS variables from Figma (`get_design_context`), then use them here.
 .sample-block {
+  --sample-bg: #f5f5f6; // example — replace with values from the Figma node
+  --sample-fg: #161619;
+
   padding: spacing(4);
-  background: var(--surface-primary);
-  color: var(--text-primary);
+  background: var(--sample-bg);
+  color: var(--sample-fg);
 
   &__title {
     margin-bottom: spacing(2);

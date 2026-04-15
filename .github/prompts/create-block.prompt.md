@@ -7,6 +7,10 @@ argument-hint: 'block-name confluence-link'
 Follow all rules in `/agents.md` and `.github/instructions/copilot-instructions.md`.
 If there is any conflict, `/agents.md` wins.
 
+## Pattern and reference sources
+
+Do **not** treat unrelated folders under `blocks/` as the primary source of EDS conventions. For architecture, UE models, decorator flow, and vetted reference implementations, use [Block Development](../skills/block-development/SKILL.md), [Universal Editor](../skills/universal-editor/SKILL.md), and [Block catalog](../skills/block-catalog.md) (links to reference snippets under `.github/skills/`). Only read `blocks/<block-name>/` for the block you are creating in this workflow.
+
 Use this prompt as:
 
 `create-block <block-name> <confluence-link>`
@@ -23,11 +27,14 @@ Create a new block by:
 
 1. Extracting requirements from Confluence.
 2. Creating and populating `docs/requirements/<block-name>/requirements.md` with Confluence information before any Figma extraction.
-3. Extracting design context from all linked Figma files (design context only, no screenshots).
+3. Extracting **design context and screenshots** from all linked Figma files (same rules as [get-requirements](get-requirements.prompt.md) Phase 2 — visual reference matrix and `docs/requirements/<block-name>/figma/`).
 4. Building block files in the defined order.
+
+**Shortcut:** Prefer running `get-requirements <block-name> <confluence-link>` then `build-block <block-name>` so Figma capture stays canonical; this prompt duplicates the full pipeline when used alone.
 
 ## Required References
 
+- [Block catalog](../skills/block-catalog.md)
 - [Universal Editor](../skills/universal-editor/SKILL.md)
 - [Block Development](../skills/block-development/SKILL.md)
 - [Semantic HTML](../skills/semantic-html/SKILL.md)
@@ -51,8 +58,8 @@ Create a new block by:
    - Annotations and States
    - Accessibility
 6. Also capture any additional sections if present, including:
-   - GEL Tokens (incl. Dark Mode)
-   - MVP Browsers and Devices
+   - Design tokens and theming (as stated in Confluence / Figma)
+   - Browsers and devices (if specified)
    - User interaction and design specs
    - Technical specs/SOPs
    - Questions/Decisions
@@ -60,21 +67,9 @@ Create a new block by:
    - Related documents
 7. Do not drop content. If a section is missing, add a heading and mark it as `Not provided`.
 
-## Phase 2: Figma Design Context Extraction
+## Phase 2: Figma Design Context And Screenshot Extraction
 
-1. Find all Figma links in the Confluence content.
-2. Process Figma links in sequential batches with a maximum of 3 parallel Figma connector calls at a time.
-3. Wait for the current batch of 3 (or fewer) calls to finish before starting the next batch.
-4. For each link, use the Figma connector to extract design context.
-5. Do not use screenshots.
-6. Append organized design context under a dedicated section in `docs/requirements/<block-name>/requirements.md`.
-7. For each Figma source, include:
-   - Source URL
-   - Key component anatomy
-   - States and variants
-   - Spacing/layout behavior
-   - Typography/tokens
-   - Interaction notes
+Follow **Phase 2** of [get-requirements.prompt.md](get-requirements.prompt.md) in full (`get_design_context` + `get_screenshot` per node, save PNGs under `docs/requirements/<block-name>/figma/`, Figma visual reference matrix in `requirements.md`). Do not skip screenshots — `build-block` / `review-block` depend on them.
 
 ## Phase 3: Normalize And Validate Requirements
 
@@ -128,40 +123,43 @@ After creating/updating `_<block-name>.json`, run:
 
 Use the [Figma Comparison skill](../skills/figma-comparison/SKILL.md) to validate the implementation against Figma and iterate toward pixel-perfect output.
 
-### Two-tool approach (mandatory)
+### Figma MCP tools (mandatory)
 
-- **`figma-get_design_context`** — validates colors, font sizes, weights, spacing, border-radius. Use this first. Screenshots cannot be trusted for these values due to color space differences.
-- **`npm run figma:compare`** — validates structural layout only (positions, widths, heights, alignment).
+- **`get_screenshot`** — **Use for look and feel.** Capture the component frame (and key variants) to compare visually with Storybook; align with saved PNGs under `docs/requirements/<block-name>/figma/` when present.
+- **`figma-get_design_context`** — Validates **measurable** values: colors, font sizes, weights, spacing, border-radius (use MCP output for SCSS literals, not eyedropper on screenshots).
+- **`npm run figma:compare`** — Structural layout diff (positions, widths, heights, alignment).
 
 ### Steps
 
-1. **Token audit** — call `figma-get_design_context` on the main Figma node. Cross-check every color, font-size, font-weight, line-height, spacing, and gap value against `blocks/<block-name>/<block-name>.scss`. Fix all mismatches before taking any screenshots.
+1. **Visual pass** — call **`get_screenshot`** on the main Figma node; keep it visible while implementing. Refresh after major SCSS changes.
 
-2. **Add a `FigmaMatch` story** — following `examples/figmamatch-story-pattern.md` in the Figma Comparison skill:
+2. **Measurable audit** — call `figma-get_design_context` on the main Figma node. Cross-check every color, font-size, font-weight, line-height, spacing, and gap value against `blocks/<block-name>/<block-name>.scss` and fix mismatches.
+
+3. **Add a `FigmaMatch` story** — following `examples/figmamatch-story-pattern.md` in the Figma Comparison skill:
    - `layout: 'fullscreen'`
    - `requestAnimationFrame` decorator to remove container `max-width` / `padding`
    - Mock data matching Figma content exactly
 
-3. **Download Figma images** — for any image asset in the Figma design:
+4. **Download Figma images** — for any image asset in the Figma design:
    - Call `figma-get_screenshot` on the image node to warm the MCP asset cache
    - Download to `images/<block-name>-<descriptor>.png`
    - Confirm `'../images'` is in `.storybook/main.js` `staticDirs` (add if missing — requires Storybook restart)
    - Confirm `/images/*` is in `.gitignore` (add if missing)
    - Reference in mocks as `/<block-name>-<descriptor>.png`
 
-4. **Baseline comparison** — with Storybook running:
+5. **Baseline comparison** — with Storybook running:
    ```bash
    npm run figma:compare -- --story-id=blocks-<block-name>--figma-match --figma-node-id=<node-id>
    ```
    Open `tools/compare-output/composite.png` (Figma | Storybook | Diff). Identify all red areas.
 
-5. **Iterate** — for each red area in `diff.png`:
+6. **Iterate** — for each red area in `diff.png`:
    - Fix in `blocks/<block-name>/<block-name>.scss` (never the generated `.css`)
    - Run `npm run scss:build`
    - Re-run `npm run figma:compare -- --story-id=blocks-<block-name>--figma-match`
    - Repeat until mismatch ≤ 2%
 
-6. **Accept the ~2% floor** — remaining diff after reaching ~2% is font anti-aliasing caused by Figma MCP exporting at ~0.65× scale vs Storybook rendering at 1×. This is not a real layout error.
+7. **Accept the ~2% floor** — remaining diff after reaching ~2% is font anti-aliasing caused by Figma MCP exporting at ~0.65× scale vs Storybook rendering at 1×. This is not a real layout error.
 
 ### SCSS pipeline rule
 

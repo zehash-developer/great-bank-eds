@@ -77,6 +77,6 @@ Prefer the picker-backed pattern for new implementations.
 ## Implementation Notes
 
 - Keep `name` aligned with block JS expectations (commonly `icon` or `pictogram`).
-- Reuse generated icon models: [reference/_filled-icons.json](reference/_filled-icons.json) ships with this skill; in the Westpac app they are produced under `models/generated/` at build time.
+- Reuse generated icon models: [reference/_filled-icons.json](reference/_filled-icons.json) ships with this skill; in this repo they are produced under `models/generated/` at build time.
 - If icon is optional, set `required` to `false` and keep the empty default value.
 - If icon visibility depends on another field, model with JsonLogic `condition`.

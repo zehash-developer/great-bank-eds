@@ -20,7 +20,7 @@ import {
 import {
   moveInstrumentation,
 } from '../../scripts/scripts.js';
-// Desktop breakpoint: MD (992px) per Westpac design system
+// Desktop breakpoint: MD (992px) per design spec
 const isDesktop = window.matchMedia('(min-width: 992px)');
 
 /**
@@ -418,7 +418,7 @@ export function renderHeaderHTML(data) {
 
         <!-- Bar: logo + hamburger + sign-in (mobile top) -->
         <div class="nav-bar">
-          <a class="nav-logo-link" href="/" aria-label="Westpac home">
+          <a class="nav-logo-link" href="/" aria-label="Great Bank home">
             <div class="nav-logo">${logoHTML}</div>
           </a>
           <div class="nav-bar-tools">
@@ -467,8 +467,8 @@ export function renderHeaderHTML(data) {
               <input 
                 type="search" 
                 class="nav-search-input" 
-                placeholder="Search Westpac" 
-                aria-label="Search Westpac"
+                placeholder="Search Great Bank"
+                aria-label="Search Great Bank"
               />
               <button class="nav-search-mic-button" type="button" aria-label="Voice search">
                 <i class="gel-icon gel-icon-voice" aria-hidden="true"></i>

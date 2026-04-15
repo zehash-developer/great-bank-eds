@@ -5,7 +5,7 @@
 ```
 
 ```html
-<i class="gel-logo gel-logo-wbc" aria-label="Westpac"></i>
+<i class="gel-logo gel-logo-wbc" aria-label="Brand"></i>
 ```
 
 ```html

@@ -21,7 +21,7 @@ Keep `carousel.js` and `shared-debounce.js` **in the same directory** if you use
 
 The shared carousel system provides a reusable, responsive carousel component for EDS blocks. It automatically adapts between grid and carousel modes based on item count and viewport breakpoint, following GEL design standards.
 
-**Location in the Westpac repo**: `scripts/utility/carousel.js`, `styles/components/_carousel.scss`, `styles/mixins/_block-padding.scss`
+**Location in this repo**: `scripts/utility/carousel.js`, `styles/components/_carousel.scss`, `styles/mixins/_block-padding.scss`
 
 **Location in this skill package**: [reference/](reference/) (same files; `carousel.js` imports `./shared-debounce.js` here)
 
@@ -138,7 +138,7 @@ This allows:
 
 ## Implementation Steps
 
-**Imports:** In the Westpac codebase, blocks use `import … from '../../scripts/utility/carousel.js'` (paths vary by block depth). When you copy only the skill bundle, import from your copy of [reference/carousel.js](reference/carousel.js) next to [reference/shared-debounce.js](reference/shared-debounce.js).
+**Imports:** Blocks use `import … from '../../scripts/utility/carousel.js'` (paths vary by block depth). When you copy only the skill bundle, import from your copy of [reference/carousel.js](reference/carousel.js) next to [reference/shared-debounce.js](reference/shared-debounce.js).
 
 ### Step 1: Import Carousel Utilities
 

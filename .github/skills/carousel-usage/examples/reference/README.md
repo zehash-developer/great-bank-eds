@@ -1,6 +1,6 @@
 # Reference carousel integration snapshots
 
-These files are **copies** from the Westpac EDS repository so this skill does not rely on live `blocks/` or `scripts/` paths.
+These files are **reference copies** so this skill does not rely on live `blocks/` or `scripts/` paths in every consumer repo.
 
 | File | Role |
 | --- | --- |

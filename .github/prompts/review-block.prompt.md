@@ -7,6 +7,10 @@ argument-hint: 'block-name'
 Follow all rules in `/agents.md` and `.github/instructions/copilot-instructions.md`.
 If there is any conflict, `/agents.md` wins.
 
+## Pattern and reference sources
+
+When judging whether markup or UE structure is correct, prefer [Block Development](../skills/block-development/SKILL.md), [Universal Editor](../skills/universal-editor/SKILL.md), and [Block catalog](../skills/block-catalog.md) over comparing to arbitrary other blocks in `blocks/`. Edit only `blocks/<block-name>/` for the block under review.
+
 Use this prompt as:
 
 `review-block <block-name>`
@@ -15,10 +19,15 @@ Use this prompt as:
 
 Validate the block implementation at `blocks/<block-name>/` against the Figma designs referenced in `docs/requirements/<block-name>/requirements.md` and iterate toward pixel-perfect output.
 
-**Preflight:** Read `docs/requirements/<block-name>/requirements.md` to locate Figma links before proceeding.
+**Preflight:** Read `docs/requirements/<block-name>/requirements.md` to locate Figma links, the **Figma visual reference matrix**, and every file under `docs/requirements/<block-name>/figma/` before proceeding.
+
+**Dual baseline (mandatory):** Review must validate against **both** (1) **saved requirement-phase screenshots** in `docs/requirements/<block-name>/figma/` and (2) **live Figma data** via MCP / compare tooling. If requirement screenshots are missing, run `get-requirements` capture steps (`get_screenshot` per target node) and update `requirements.md` before relying solely on fresh MCP fetches — otherwise build and review phases are not comparable.
 
 ## Required References
 
+- [Block catalog](../skills/block-catalog.md)
+- [Block Development](../skills/block-development/SKILL.md)
+- [Universal Editor](../skills/universal-editor/SKILL.md)
 - [Figma Comparison](../skills/figma-comparison/SKILL.md)
 
 ---
@@ -27,10 +36,18 @@ Validate the block implementation at `blocks/<block-name>/` against the Figma de
 
 Use the [Figma Comparison skill](../skills/figma-comparison/SKILL.md) to validate the implementation against Figma and iterate toward pixel-perfect output.
 
-### Two-tool approach (mandatory)
+### Requirement screenshots vs automated compare
 
-- **`figma-get_design_context`** — validates colors, font sizes, weights, spacing, border-radius. Use this first. Screenshots cannot be trusted for these values due to color space differences.
-- **`npm run figma:compare`** — validates structural layout only (positions, widths, heights, alignment).
+1. **Load every saved PNG** from `docs/requirements/<block-name>/figma/` and compare mentally (or side-by-side with Storybook) to the current implementation. This catches drift from the agreed baseline that `get_design_context` alone might not explain.
+2. **Then** run **`npm run figma:compare`** / batch compare against the same Figma node IDs as in the matrix. The composite (`Figma | Storybook | Diff`) should align with what you see when holding the requirement screenshot next to Storybook.
+3. If automated mismatch is low but the **requirement screenshot** still looks wrong versus Storybook, trust the written baseline: re-fetch `get_screenshot` or `get_design_context` for that node, update the saved PNG if the design changed, and fix SCSS/JS.
+4. Keep using the rules below: **`get_screenshot`** for look-and-feel, **`get_design_context`** for measurable values (never infer exact hex/spacing from eyedropper on rasters alone).
+
+### Figma MCP tools (mandatory)
+
+- **`get_screenshot`** — **Encouraged** for exact **look and feel**: composition, hierarchy, and side-by-side checks against Storybook. Re-fetch when the design or implementation changes. Persist PNGs per requirements workflow.
+- **`get_design_context`** — Validates **numeric** styling: colors, font sizes, weights, spacing, border-radius (use API output, not screenshot pixel sampling).
+- **`npm run figma:compare`** — Automated layout diff (positions, widths, heights, alignment); produces composite/diff images.
 
 ---
 
@@ -108,9 +125,9 @@ requestAnimationFrame(() => applyPersonalBankOpenState(el)); // desktop: L1 + L2
 Only fix colors after layout and functionality are verified.
 
 **How to audit colors:**
-- Call `figma-get_design_context` — design token names appear as `var(--color/surface/..., #hexValue)`. Map these to the Westpac token system in `styles/style-config.compiled.css`.
-- Never trust the screenshot pixel color for token validation — use the design context directly.
-- Check `styles/style-config.compiled.css` to see what each CSS variable resolves to at runtime. Token names like `--surface-muted` may resolve to unexpected values (e.g. a dark grey instead of light grey).
+- Call `figma-get_design_context` — note hex values and any Figma variable names. Implement them as **SCSS/CSS variables** in `blocks/<block-name>/<block-name>.scss` or shared `styles/` partials. **If no variable exists for a Figma value, create one** instead of borrowing unrelated names.
+- Use **`get_screenshot`** for overall color *appearance* vs Storybook; use **`get_design_context`** for exact hex/RGB values in SCSS (do not rely on eyedropper from raster alone).
+- For any `var(--...)` used in the block, confirm it matches the current Figma node (re-read `get_design_context` after design updates).
 
 ---
 
@@ -151,14 +168,14 @@ At <992px, the mobile navigation drawer is **full-screen** (`top: 0; width: 100v
 - Inner content: `padding-top: 72px; padding-bottom: 124px`
 - Pills wrapper inside drawer: must have `flex: 0 0 auto` (override global `flex: 1 0 auto`) to prevent height collapse; explicit `background: #f3f4f6`
 - Pill buttons: `font-size: 14px; line-height: 1` (Figma `leading-none`) — gives pill height 42px; if line-height inherits 1.5 the pill becomes 49px
-- Active pill: `border-color: var(--border-hero, #1f1c4f)` (navy)
+- Active pill: border color from Figma (e.g. CSS variable with fallback hex from `get_design_context`)
 - Sign-in slot: **hidden in drawer** (`.nav-drawer .nav-sign-in-slot { display: none }`); the floating sign-in design is implemented separately
 
 **Flex layout debug tip for the pills wrapper:**
 The global `.nav-l0-pills-wrapper` has `flex: 1 0 auto` (grows to fill parent) and `display: flex; align-items: stretch`. Inside the drawer flex-column, this causes the UL inside the wrapper to get `height: 0` (parent_height - padding = 0), which centers pills at the UL's position rather than inside the padding. Fix: add `flex: 0 0 auto` in the `.nav-drawer .nav-l0-pills-wrapper` override.
 
-### CSS variable resolution
-Always verify what a CSS token resolves to at runtime via `styles/style-config.compiled.css` before using it. Example: `--surface-muted` resolves to `--muted-500` = `#706f7c` (dark grey), not the light grey you might expect.
+### CSS variables and Figma
+Define and update variables from **Figma** (`get_design_context`). Inspect computed styles in the browser if needed. If the design adds a new color or spacing scale value, **add** the corresponding variable in SCSS — do not assume an external token dictionary.
 
 ### SCSS pipeline rule
 Never edit `.css` files — they are regenerated from `.scss`. All fixes must be in `blocks/<block-name>/<block-name>.scss`, then run `npm run scss:build`.
@@ -169,7 +186,7 @@ Never edit `.css` files — they are regenerated from `.scss`. All fixes must be
 
 Provide a concise summary containing:
 
-1. Figma links reviewed.
-2. Final mismatch % per story group.
-3. Key layout/functionality/color fixes applied.
+1. Figma links reviewed and **requirement screenshot files** (`docs/requirements/<block-name>/figma/`) checked against Storybook.
+2. Final mismatch % per story group (from `figma:compare` / batch tooling).
+3. Key layout/functionality/color fixes applied, including any updates to saved requirement screenshots when the Figma source changed.
 4. Any remaining open questions or known-limitation mismatches.

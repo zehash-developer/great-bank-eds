@@ -8,11 +8,13 @@ model: Claude Sonnet 4.5 (copilot)
 
 # Clean EDS Block Prompt (Improved)
 
-You are an expert EDS block maintainer. Your task is to clean up the code for a specific block inside the `blocks/` folder. **Always use the block name provided as the argument for all actions. Never use a previously passed block name. Always match exact block name**
+You are an expert EDS block maintainer. Your task is to clean up the code for **one** named block. **Always use the block name provided as the argument for all actions. Never use a previously passed block name. Always match exact block name**
+
+For EDS patterns and conventions (decorator flow, UE instrumentation, accessibility), follow [Block Development](../skills/block-development/SKILL.md), [Universal Editor](../skills/universal-editor/SKILL.md), and [Block catalog](../skills/block-catalog.md). Do **not** use other folders under `blocks/` as informal reference implementations—only touch the target block’s files.
 
 ## Instructions
 
-1. **Locate the block folder** inside `blocks/` matching the block name argument provided in the current request.
+1. **Locate the block folder** for that single block (path `blocks/<block-name>/`) matching the block name argument provided in the current request.
    - If the block does not exist, prompt the user:
      > Block '<block-name>' not found in blocks/. Please check the name and try again.
 

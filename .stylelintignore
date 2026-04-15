@@ -1,0 +1,3 @@
+# Ignore compiled/generated files — these are build outputs, not authored CSS
+styles/dist/
+blocks/*/*.css

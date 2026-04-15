@@ -4,6 +4,7 @@ Use this checklist when running the Figma → Storybook comparison workflow for 
 
 ## Setup
 
+- [ ] **`get_screenshot`** called for the target node(s) — visual baseline for look-and-feel (see skill: encouraged for every component you ship)
 - [ ] Figma MCP is running (check `http://127.0.0.1:3845/mcp` is reachable)
 - [ ] Storybook is running on `http://localhost:6006`
 - [ ] `FigmaMatch` story exists with `layout: 'fullscreen'` and container override
@@ -11,17 +12,16 @@ Use this checklist when running the Figma → Storybook comparison workflow for 
 - [ ] `images/` folder is in `.storybook/main.js` `staticDirs` and in `.gitignore`
 - [ ] All SCSS edits are in `blocks/<name>/<name>.scss` (NOT the generated `.css` file)
 
-## Token Audit (via `get_design_context`)
+## Value audit (via `get_design_context`)
 
-- [ ] Background color matches correct token (e.g. `--background-pale-faint`)
-- [ ] Active/primary color token correct (`--surface-primary` / `--text-primary` for active states only)
-- [ ] Inactive/muted colors use muted tokens (not `--surface-primary`)
+- [ ] Every background, text, and border color matches Figma hex / spec (implemented via `var(--...)` you define in SCSS when needed)
+- [ ] Active vs inactive states match the Figma frames (no accidental reuse of a single color for both)
 - [ ] Heading font-size matches Figma (override `.block-heading` global if needed)
-- [ ] Body/description font-size explicit at `1rem` if 16px is required (global body is 18px)
+- [ ] Body/description font-size explicit at `1rem` if 16px is required (global body may differ)
 - [ ] Line-heights match Figma values
-- [ ] All gap/padding/margin values match Figma spacing (convert px → `spacing(N)` where N = px ÷ 6)
+- [ ] All gap/padding/margin values match Figma spacing (convert px → `spacing(N)` where N = px ÷ 6 when applicable)
 - [ ] Border-radius values match Figma
-- [ ] Icon sizes match Figma (typically 24×24px)
+- [ ] Icon sizes match Figma
 
 ## Layout Audit (via screenshot comparison)
 

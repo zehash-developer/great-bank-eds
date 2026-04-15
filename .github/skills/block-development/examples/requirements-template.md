@@ -1,4 +1,4 @@
-<!-- Portable copy for `.github/skills` bundles. In the Westpac app repo, keep in sync with `docs/requirements/_template.md`. -->
+<!-- Portable copy for `.github/skills` bundles. Keep in sync with `docs/requirements/_template.md` in this repo when both exist. -->
 
 # Block: {block-name}
 

@@ -8,7 +8,7 @@ argument-hint: '[block path] [carousel behavior]'
 
 Use this skill when adding or updating carousel behavior in block JavaScript.
 
-The shared carousel utility switches between grid mode and carousel mode by item count and breakpoint. In the Westpac repo it lives at `scripts/utility/carousel.js` and is styled by shared carousel SCSS.
+The shared carousel utility switches between grid mode and carousel mode by item count and breakpoint. In this repo it lives at `scripts/utility/carousel.js` and is styled by shared carousel SCSS.
 
 **Deep dive:** Architecture, HTML structure, full JS/SCSS examples, testing checklist, and troubleshooting are in **[examples/CAROUSEL_GUIDE.md](examples/CAROUSEL_GUIDE.md)** (merged from the former `agents/skills/carousel` guide).
 

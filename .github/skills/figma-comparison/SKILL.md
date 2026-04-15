@@ -1,6 +1,6 @@
 ---
 name: figma-comparison
-description: Validate a Storybook story against Figma design using screenshot layout comparison and design token audit, iterating until pixel-perfect.
+description: Validate Storybook against Figma using get_screenshot (look-and-feel), get_design_context (measurable values), and figma:compare (layout diff).
 argument-hint: '[block name] [figma-node-id]'
 ---
 
@@ -8,21 +8,28 @@ argument-hint: '[block name] [figma-node-id]'
 
 Use this skill after Storybook stories are ready to validate and iterate toward a pixel-perfect implementation of a Figma design.
 
-## Two-Tool Methodology
+## Figma MCP: screenshots + design context + compare
 
-**Never use screenshots to validate colors, font weights, or spacing values.** Screenshots vary by color space (sRGB vs Display P3/AdobeRGB), monitor calibration, and OS-level font anti-aliasing. Use the two-tool approach:
+**`get_screenshot` is encouraged** for the **exact look and feel** of what you are building: overall composition, visual hierarchy, spacing “at a glance,” and side-by-side checks against Storybook. Call it for the main component node and any important variants or breakpoints. Persist PNGs (e.g. under `docs/requirements/<block>/figma/` or `images/`) so the team shares one visual baseline.
 
-| Tool | Validates |
+**`get_design_context`** is for **measurable** values: hex colors, px spacing, font-size/weight/line-height, radius, gap. Do not infer those by sampling pixels from a screenshot (color space and export scale skew eyedropper reads).
+
+**`npm run figma:compare`** automates layout diffing (Figma vs Storybook raster).
+
+| Tool | Use it for |
 |---|---|
-| `figma-get_design_context` on the Figma node | Colors (exact token values), font sizes, font weights, line-heights, spacing, border-radius, gap — anything measurable |
-| `npm run figma:compare` (Playwright + pixelmatch) | Structural layout: element positions, widths, heights, grid alignment, visual structure |
+| `get_screenshot` | Look-and-feel, layout impression, “does it match the frame?” — **primary visual reference** |
+| `get_design_context` | Numeric/token audit: colors, typography, spacing values in SCSS |
+| `npm run figma:compare` | Pixel diff pipeline, regression tracking, composite/diff images |
+
+Do **not** set `excludeScreenshot: true` on `get_design_context` unless the user explicitly wants to save context window space — default behavior should include the screenshot in the response when available.
 
 ## Workflow
 
 1. **Create a `FigmaMatch` story** — a dedicated full-width story that overrides the Storybook container so it matches the Figma frame's viewport exactly (see `examples/figmamatch-story-pattern.md`).
-2. **Download Figma images** — use `figma-get_screenshot` on image nodes to warm the MCP asset cache, then download to `images/<block-name>-<descriptor>.png`. Reference via `/filename.png` in mocks. Storybook serves `images/` as a static directory.
+2. **Capture visuals** — call **`get_screenshot`** on the component (and key variants). Download assets to `images/<block-name>-<descriptor>.png` or save under requirements `figma/` as needed. Reference via `/filename.png` in mocks. Storybook serves `images/` as a static directory.
 3. **Get the Figma baseline** — run `npm run figma:compare -- --story-id=<id> --figma-node-id=<node>` to produce `tools/compare-output/composite.png` (Figma | Storybook | Diff side-by-side) and `diff.png`.
-4. **Audit design tokens** — call `figma-get_design_context` on the main Figma node and cross-check each value against the SCSS source (`blocks/<name>/<name>.scss`). Fix any mismatches first before re-running the screenshot comparison.
+4. **Audit measurable values** — call `get_design_context` on the main Figma node and cross-check each value against the SCSS source (`blocks/<name>/<name>.scss`). Fix mismatches, then re-check look-and-feel with **`get_screenshot`** or `figma:compare`.
 5. **Iterate on layout** — inspect red areas in `diff.png`, fix in SCSS, run `npm run scss:build`, re-run `figma:compare`. Repeat until mismatch is ≤ 2%.
 6. **Accept the ~2% floor** — Figma MCP exports screenshots at ~0.65× scale while Storybook renders at 1×. Different scale → different font anti-aliasing. This ~2% is not a real layout error; it is the physics of cross-tool screenshot comparison.
 
@@ -41,7 +48,7 @@ Use this skill after Storybook stories are ready to validate and iterate toward 
 
 | Trap | Fix |
 |---|---|
-| `--background-faint` is undefined → transparent | Use `--background-pale-faint` for light muted backgrounds |
+| A CSS variable is missing or wrong vs Figma | Define or update `var(--...)` in the block `.scss` or shared partials to match `get_design_context` |
 | `.block-header` global adds `margin-bottom: 24px` | Override with `margin-bottom: 0` on the block's header element |
 | `.block-heading` global sets `font-size: 27px` | Override explicitly in block SCSS if Figma uses a different size |
 | Global `body` font is 18px, not 16px | Add explicit `font-size: 1rem` on description/content elements |
@@ -49,16 +56,11 @@ Use this skill after Storybook stories are ready to validate and iterate toward 
 | Storybook container adds `max-width: 1200px; padding: 24px` | Override via `requestAnimationFrame` in the `FigmaMatch` story (see pattern) |
 | MCP image asset URLs expire when MCP restarts | Save to `images/` folder; never use `localhost:3845/assets/` in committed mocks |
 
-## Design Token Reference (WBC brand)
+## Values from Figma (not a fixed palette)
 
-- Spacing grid: `spacing(N)` = `N × 0.375rem` (1 unit = 6px)
-- Breakpoints: `sm`=768px, `md`=992px, `lg`=1200px, `xl`=1584px
-- `--background-pale-faint` = `#f5f5f6` (light page/section backgrounds)
-- `--surface-primary` = `#da1710` (brand red — active states, NOT inactive backgrounds)
-- `--surface-muted-strong` = `#8e8d98` (dividers, connectors)
-- `--text-primary` = `#da1710` (red text — active labels)
-- `--text-body` = `#161619` (default body text)
-- `--background-white` = `#ffffff`
+- Read **hex, px, font, weight, radius, gap** from `figma-get_design_context` for the node you are shipping.
+- **Spacing:** often map Figma px to `spacing(N)` where `N = px ÷ 6` (1 unit = 6px); use literal `rem`/`px` when the spec does not fit the grid.
+- **Variables:** implement colors and reused numbers as SCSS variables or CSS custom properties. If Figma introduces a new value, **add** a variable in `blocks/<name>/<name>.scss` or `styles/` — do not rely on an external token package naming scheme.
 
 ## Running the Comparison Tool
 

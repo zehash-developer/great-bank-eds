@@ -11,6 +11,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import { autoLoadBreadcrumbs } from '../blocks/breadcrumbs/breadcrumbs.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -50,7 +51,7 @@ export function moveInstrumentation(from, to) {
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
-  await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
+  await loadCSS(`${window.hlx.codeBasePath}/styles/dist/fonts.css`);
   try {
     if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
   } catch (e) {
@@ -62,9 +63,10 @@ async function loadFonts() {
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
-function buildAutoBlocks() {
+function buildAutoBlocks(main) {
   try {
-    // TODO: add auto block, if needed
+    console.log('[scripts.js:buildAutoBlocks] Starting autoblock generation');
+    autoLoadBreadcrumbs(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -114,8 +116,6 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  loadHeader(doc.querySelector('header'));
-
   const main = doc.querySelector('main');
   await loadSections(main);
 
@@ -123,6 +123,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

@@ -88,7 +88,7 @@ function renderHTML(data) {
   let html = `${headerHTML}`;
   html += '<div class="information-card-container">';
 
-  // Add subtitle first for both types (product name / Westpac Life)
+  // Add subtitle first for both types (product name / product line)
   if (subtitle) {
     html += `<p class="information-card-subtitle">${subtitle}</p>`;
   }

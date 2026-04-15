@@ -19,24 +19,32 @@
     ]
   },
   {
-    "id": "cards",
+    "id": "accordion",
     "components": [
-      "card"
-    ]
+      "accordion-item"
+    ],
+    "min": 1,
+    "max": 15,
+    "minErrorMsg": "An accordion group must have at least 1 item",
+    "maxErrorMsg": "An accordion group cannot have more than 15 items"
   },
   {
-    "id": "columns",
-    "components": [
-      "column"
-    ]
-  },
-  {
-    "id": "column",
+    "id": "accordion-item",
     "components": [
       "text",
       "image",
       "button",
       "title"
     ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carousel-slide"
+    ]
+  },
+  {
+    "id": "carousel-slide",
+    "components": []
   }
 ]

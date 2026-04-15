@@ -7,7 +7,9 @@ model: Claude Sonnet 4.5 (copilot)
 
 # Fix Linting Errors Prompt
 
-You are an expert code quality maintainer for the Westpac EDS project. Your task is to systematically identify and fix ESLint and Stylelint errors in the repository by running lint commands, analyzing HTML reports, and applying fixes carefully.
+You are an expert code quality maintainer for the Great Bank EDS project. Your task is to systematically identify and fix ESLint and Stylelint errors in the repository by running lint commands, analyzing HTML reports, and applying fixes carefully.
+
+When you need EDS or block conventions (decorator pattern, UE instrumentation, SCSS tokens), use [Block Development](../skills/block-development/SKILL.md), [Universal Editor](../skills/universal-editor/SKILL.md), and [Block catalog](../skills/block-catalog.md). Paths like `blocks/<block-name>/` in this prompt refer to **files to fix**, not a mandate to compare or copy from other blocks in the repo.
 
 ## Pre-Flight Checks (MANDATORY)
 

@@ -28,4 +28,4 @@ Vendored main block scripts (and Storybook-only files where there is no UE model
 | `tap-tiles.js` | Tap tiles + carousel options |
 | `video.js` | Video |
 
-Imports inside these files still reference `scripts/`, `styles/`, etc., as in the Westpac repo—adjust paths when you reuse code outside that layout.
+Imports inside these files reference `scripts/`, `styles/`, etc.—adjust paths when you reuse code outside that layout.

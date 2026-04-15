@@ -113,7 +113,7 @@ Source pattern: [reference/tap-tiles.json](reference/tap-tiles.json)
 Icon guidance:
 
 - When requirements mention icons, use this manifest-backed picker pattern.
-- Prefer generated options from the icon manifest. In this skill bundle, use [reference/_filled-icons.json](reference/_filled-icons.json). In the Westpac app repo, `build:json` merges `../../models/generated/_filled-icons.json` relative to each `blocks/<name>/_<name>.json`.
+- Prefer generated options from the icon manifest. In this skill bundle, use [reference/_filled-icons.json](reference/_filled-icons.json). In this repo, `build:json` merges `../../models/generated/_filled-icons.json` relative to each `blocks/<name>/_<name>.json`.
 - Additional source patterns: [reference/feature-list.json](reference/feature-list.json), [reference/information-panel.json](reference/information-panel.json), [reference/tab.json](reference/tab.json).
 
 ## boolean

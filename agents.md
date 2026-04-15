@@ -2,7 +2,7 @@
 applyTo: '**'
 ---
 
-# AI Agent Guide — Westpac AEM Edge Delivery Services (EDS)
+# AI Agent Guide — Great Bank AEM Edge Delivery Services (EDS)
 
 This document defines how AI-assisted development is used in this repository.  
 It is the single source of truth for coding standards, architecture, and guardrails.
@@ -35,10 +35,10 @@ Task-specific detailed guidance:
 - [Universal Editor](.github/skills/universal-editor/SKILL.md) — UE JSON: field types, options, conditional visibility, block vs block item patterns
 - [Semantic HTML](.github/skills/semantic-html/SKILL.md) — Choosing HTML elements and defining ARIA structure
 - [Vanilla JavaScript](.github/skills/vanilla-js/SKILL.md) — DOM manipulation, event handling, and debugging
-- [SCSS Styling](.github/skills/scss-styling/SKILL.md) — spacing(), breakpoints, and style-config design tokens
+- [SCSS Styling](.github/skills/scss-styling/SKILL.md) — spacing(), breakpoints, and SCSS variables derived from Figma
 - [Icon Usage](.github/skills/icon-usage/SKILL.md) — Using GEL icons, logos, and pictograms
 - [Storybook](.github/skills/storybook/SKILL.md) — Stories, mocks, and interaction tests
-- [Figma Comparison](.github/skills/figma-comparison/SKILL.md) — Validate Storybook stories against Figma using screenshot layout comparison and design token audit
+- [Figma Comparison](.github/skills/figma-comparison/SKILL.md) — `get_screenshot` for look-and-feel, `get_design_context` for values, `figma:compare` for layout diff
 - [Accessibility](.github/skills/accessibility/SKILL.md) — WCAG compliance, keyboard navigation, and screen readers
 - [Carousel Usage](.github/skills/carousel-usage/SKILL.md) — Shared carousel utility integration and block patterns
 
@@ -60,21 +60,24 @@ See [Requirements Template](docs/requirements/_template.md) for the expected for
 
 ## Design Validation
 
-All blocks must be validated against their Figma design before delivery. Use the two-tool approach:
+All blocks must be validated against their Figma design before delivery. Use **screenshots for look-and-feel**, **design context for numbers**, and **compare for automated diff**.
 
-### Tool 1 — Design Token Audit (`figma-get_design_context`)
+### Visual reference — `get_screenshot` (encouraged)
 
-Call `figma-get_design_context` on the Figma node to read exact values. Use this to validate:
+Call **`get_screenshot`** on the Figma node(s) you are implementing. Use it as the **primary check** that the component matches the design’s look, hierarchy, and density. Save outputs where the team can compare them to Storybook (see prompts: `docs/requirements/<block>/figma/`, `images/`, or the compare tool’s cached reference). Refresh screenshots when the design or your implementation changes.
 
-- Colors (as CSS tokens — never trust screenshot colors due to color space differences)
-- Font sizes, weights, line-heights
-- Spacing, padding, gap, border-radius values
+### Measurable values — `get_design_context`
 
-Fix all token mismatches in the `.scss` source **before** running any screenshot comparison.
+Call `get_design_context` on the Figma node to read **exact** values for implementation:
 
-### Tool 2 — Layout Comparison (`npm run figma:compare`)
+- Colors, typography, spacing, padding, gap, border-radius (do not sample these from screenshot pixels — use the API output)
+- Map each value into **SCSS** (and JS when needed): CSS custom properties on the block or shared partials under `styles/`. **If Figma specifies a value and no variable exists yet, add one.**
 
-After token fixes, run `npm run figma:compare` (Playwright + pixelmatch) to validate structural layout: positions, widths, heights, alignment. A mismatch of ≤ 2% is acceptable — the remaining diff is font anti-aliasing caused by Figma MCP exporting at ~0.65× scale vs Storybook at 1×.
+Align SCSS with `get_design_context` **and** re-verify visually with **`get_screenshot`** or `figma:compare`.
+
+### Layout comparison — `npm run figma:compare`
+
+Run `npm run figma:compare` (Playwright + pixelmatch) for structural layout diffing. A mismatch of ≤ 2% is often acceptable — remaining diff can be font anti-aliasing from Figma MCP exporting at ~0.65× scale vs Storybook at 1×.
 
 ### SCSS Pipeline Rule
 

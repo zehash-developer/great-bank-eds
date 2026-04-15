@@ -2,7 +2,7 @@
 
 All **source snapshots** below live **only** under `.github/skills/`. Copy the whole `.github/skills` tree into any project; you do not need this repository’s `blocks/` folder to read these files.
 
-When implementing in the **Westpac app**, production sources remain under `blocks/<name>/` in that repo—sync changes from there into this catalog when blocks evolve.
+When implementing in the **production app**, sources live under `blocks/<name>/` — sync changes into this catalog when blocks evolve.
 
 | Block | Summary | Patterns | Universal Editor model | Block JavaScript / stories |
 | --- | --- | --- | --- | --- |

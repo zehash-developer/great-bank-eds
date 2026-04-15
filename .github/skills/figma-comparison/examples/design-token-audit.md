@@ -19,13 +19,12 @@ For each value returned by `get_design_context`, locate the matching property in
 
 ### Colors
 
-| Figma value | Expected SCSS token | Common mistake |
-|---|---|---|
-| `#f5f5f6` | `var(--background-pale-faint)` | Using `--background-faint` (undefined → transparent) |
-| `#da1710` | `var(--surface-primary)` or `var(--text-primary)` | Using red for inactive states |
-| `#8e8d98` | `var(--surface-muted-strong)` | Using `--surface-muted` (different shade) |
-| `#161619` | `var(--text-body)` | Hard-coding hex instead of token |
-| `#ffffff` | `var(--background-white)` | Hard-coding `#fff` |
+For each color from `get_design_context` (hex or Figma variable):
+
+1. Add or reuse a **CSS custom property** in the block SCSS (or a shared `styles/` partial), e.g. `--my-block-surface: #f5f5f6;`, and use `color: var(--my-block-surface)` / `background: var(...)` in rules.
+2. **If no variable exists yet**, define it from the Figma value — do not map to an unrelated legacy token name.
+3. Prefer named variables over repeating the same hex in many selectors.
+4. Common mistake: using a variable that does not match the current Figma node — always reconcile against the latest `get_design_context` output.
 
 ### Typography
 
@@ -58,11 +57,15 @@ Convert Figma px values to `spacing(N)` where `N = px ÷ 6`:
 
 Check whether Figma shows a section **outside** a list/accordion vs **inside** an item's panel. CTA rows, footer rows, and summary sections are commonly shown as separate siblings to the main content list in Figma. If so, render them outside the `<ol>` or list container in JS.
 
-## What NOT to Audit via Screenshots
+## What screenshots (`get_screenshot`) are for
 
-Never compare these via screenshot:
-- Exact color values (sRGB vs P3, ICC profiles, monitor calibration all affect color rendering)
-- Font weight rendering (bold/semibold antialiasing differs between Figma and browsers)
-- Sub-pixel spacing (1–2px differences are lost in the 0.6465× MCP export scale)
+**Use `get_screenshot` liberally** — it is the best way to judge **look and feel**: composition, balance, hierarchy, and whether the built component “matches the frame.” Compare the PNG side-by-side with Storybook (or your preview) while iterating. Save copies under your project’s requirements or `images/` folder so reviews have a stable visual baseline.
 
-Always audit these via `get_design_context` instead.
+## What NOT to infer from screenshot pixels alone
+
+Do not use eyedropper / pixel sampling on screenshots for **authoritative** values — export scale and color space still skew raw pixels:
+
+- Exact hex color values (use `get_design_context`)
+- Font weight / sub-pixel spacing for SCSS literals (use `get_design_context`)
+
+**Workflow:** use **`get_screenshot`** for “does it look right?” and **`get_design_context`** for “what number do I put in SCSS?”

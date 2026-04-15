@@ -7,6 +7,10 @@ argument-hint: 'block-name'
 Follow all rules in `/agents.md` and `.github/instructions/copilot-instructions.md`.
 If there is any conflict, `/agents.md` wins.
 
+## Pattern and reference sources
+
+For cross-block composition, nesting, and UE filter behavior, use [Universal Editor](../skills/universal-editor/SKILL.md), [Block Development](../skills/block-development/SKILL.md), and [Block catalog](../skills/block-catalog.md). Do **not** survey unrelated `blocks/` folders for “how other blocks work” beyond reading the target `blocks/<block-name>/` inputs for this guide.
+
 Use this prompt as:
 
 `block-authoring-guide <block-name>`
@@ -15,11 +19,13 @@ Use this prompt as:
 
 Before generating, you MUST read and apply conventions from these skill files. Open each file and use its content to inform the output:
 
-1. [Universal Editor Skill](../skills/universal-editor/SKILL.md) — field types, patterns, conditional rendering, and block composition
-2. [Field Type Cookbook](../skills/universal-editor/examples/field-type-cookbook.md) — canonical snippets and authoring notes per field type
-3. [Conditional Rendering Cookbook](../skills/universal-editor/examples/conditional-rendering-cookbook.md) — condition patterns and rules
+1. [Block catalog](../skills/block-catalog.md) — block inventory and links to reference UE/JS examples in `.github/skills/`
+2. [Block Development](../skills/block-development/SKILL.md) — decorator patterns that affect authoring behavior where relevant
+3. [Universal Editor Skill](../skills/universal-editor/SKILL.md) — field types, patterns, conditional rendering, and block composition
+4. [Field Type Cookbook](../skills/universal-editor/examples/field-type-cookbook.md) — canonical snippets and authoring notes per field type
+5. [Conditional Rendering Cookbook](../skills/universal-editor/examples/conditional-rendering-cookbook.md) — condition patterns and rules
 
-Do NOT skip reading these files — the field type mapping, condition syntax, and composition pattern rules all come from them.
+Do NOT skip reading these files — the field type mapping, condition syntax, and composition pattern rules come from the UE cookbooks and skills above.
 
 ## Objective
 

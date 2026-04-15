@@ -142,76 +142,136 @@
     ]
   },
   {
-    "id": "card",
+    "id": "accordion",
     "fields": [
       {
-        "component": "reference",
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "Accordion Title",
         "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "description": "Optional heading displayed above the accordion group"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Mode",
+        "description": "Choose light or dark color scheme",
+        "options": [
+          {
+            "name": "Light",
+            "value": ""
+          },
+          {
+            "name": "Dark",
+            "value": "dark"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "Panel Title",
+        "valueType": "string",
+        "description": "The question shown in the accordion trigger row (required, max 256 characters)",
+        "required": true,
+        "validation": {
+          "maxLength": 256,
+          "pattern": "^[^\\s].*$",
+          "customErrorMsg": "Panel title is required, must not start with a space, and cannot exceed 256 characters"
+        }
       },
       {
         "component": "richtext",
-        "name": "text",
+        "name": "content",
         "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "label": "Panel Content",
+        "valueType": "string",
+        "description": "The answer content revealed when the panel is expanded"
       }
     ]
   },
   {
-    "id": "columns",
+    "id": "carousel",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Mode",
+        "value": "",
+        "description": "Choose light or dark colour scheme for the page background and navigation controls.",
+        "options": [
+          {
+            "name": "Light",
+            "value": ""
+          },
+          {
+            "name": "Dark",
+            "value": "dark"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carousel-slide",
     "fields": [
       {
         "component": "text",
-        "valueType": "number",
-        "name": "columns",
+        "name": "title",
         "value": "",
-        "label": "Columns"
+        "label": "Title",
+        "valueType": "string",
+        "required": true,
+        "description": "Slide heading — displayed as an h2 (max 60 characters).",
+        "validation": {
+          "minLength": 1,
+          "maxLength": 60,
+          "pattern": "^[^\\s].*$",
+          "customErrorMsg": "Title is required and must be between 1 and 60 characters"
+        }
       },
       {
         "component": "text",
-        "valueType": "number",
-        "name": "rows",
+        "name": "description",
         "value": "",
-        "label": "Rows"
-      }
-    ]
-  },
-  {
-    "id": "fragment",
-    "fields": [
+        "label": "Description",
+        "valueType": "string",
+        "required": false,
+        "description": "Optional sub-heading displayed below the title (max 80 characters).",
+        "validation": {
+          "maxLength": 80
+        }
+      },
       {
         "component": "aem-content",
-        "name": "reference",
-        "label": "Reference"
-      }
-    ]
-  },
-  {
-    "id": "hero",
-    "fields": [
+        "name": "link",
+        "label": "CTA Link",
+        "description": "Optional call-to-action link. The link text is used as the button label.",
+        "required": false
+      },
       {
         "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "name": "background-image",
+        "label": "Background Image",
+        "description": "Optional background image (cover crop). When set, overrides the background colour field.",
+        "required": false,
+        "valueType": "string"
       },
       {
         "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "text",
+        "name": "background-color",
         "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "label": "Background Colour",
+        "valueType": "string",
+        "required": false,
+        "description": "Optional CSS colour (e.g. #002855) or gradient (e.g. linear-gradient(90deg, #002855, #003D7A)). Ignored when a background image is set. Leave blank to use the default brand palette by slide index."
       }
     ]
   }
