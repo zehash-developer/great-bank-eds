@@ -4,6 +4,20 @@
     "figma": {
       "url": "https://mcp.figma.com/mcp",
       "type": "http"
+    },
+    "mcpServers": {
+      "confluence": {
+        "command": "node",
+        "args": ["/Users/xyz/confluence-connector/build/mcp/server.js"],
+        "env": {
+          "CONFLUENCE_HOST": "https://ic-experience-transformation.atlassian.net",
+          "CONFLUENCE_EMAIL": "your-email@example.com",
+          "CONFLUENCE_API_TOKEN": "your-api-token"
+        }
+      }
     }
-  }
+ }
+
+
 }
+
