@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+.section>.default-content-wrapper>* {
+    padding: 0 spacing(2);
+
+    // SM viewport (768px+): 36px left/right, 0px top/bottom
+    @include breakpoint('sm') {
+        padding: 0 spacing(6);
+    }
+
+    // MD viewport (992px+): 42px left/right, 0px top/bottom
+    @include breakpoint('md') {
+        padding: 0 spacing(7);
+    }
+
+    // LG viewport (1200px+): 60px left/right, 0px top/bottom
+    @include breakpoint('lg') {
+        padding: 0 spacing(10);
+    }
+
+    // XL viewport (1584px+): 72px left/right, 0px top/bottom
+    @include breakpoint('xl') {
+        padding: 0 spacing(12);
+    }
+}
+
+@include breakpoint('md') {
+
+    .section.layout-4-8>div.default-content-wrapper:nth-child(even)>*,
+    .section.layout-6-6>div.default-content-wrapper:nth-child(even)>* {
+        padding-left: 0;
+    }
+
+    .section.layout-4-8>div.default-content-wrapper:nth-child(odd):not(:last-child)>*,
+    .section.layout-6-6>div.default-content-wrapper:nth-child(odd):not(:last-child)>* {
+        padding-right: 0;
+    }
+}

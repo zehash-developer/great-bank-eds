@@ -1,0 +1,199 @@
+{
+  "definitions": [
+    {
+      "title": "Big Numbers",
+      "id": "big-numbers",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Big Numbers",
+              "model": "big-numbers",
+              "filter": "big-numbers"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Big Numbers Item",
+      "id": "big-numbers-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Big Numbers Item",
+              "model": "big-numbers-item",
+              "filter": "big-numbers-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "big-numbers-item",
+      "fields": [
+        {
+          "component": "text",
+          "name": "tab-label",
+          "value": "",
+          "label": "Tab Label",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide a heading.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 27,
+            "pattern": "^.{0,27}$",
+            "customErrorMsg": "Tab label must not exceed 27 characters"
+          }
+        },
+        {
+          "component": "checkbox-group",
+          "name": "show-offer-badge",
+          "label": "Offer rate?",
+          "valueType": "string[]",
+          "description": "Select if Big Number tab content contains an offer rate",
+          "options": [
+            {
+              "name": "",
+              "value": "true"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "subtitle",
+          "value": "",
+          "label": "Subtitle",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide a subtitle.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 52,
+            "pattern": "^.{0,52}$",
+            "customErrorMsg": "Subtitle must not exceed 52 characters"
+          }
+        },
+        {
+          "component": "richtext",
+          "name": "rate-top-label-1",
+          "value": "",
+          "label": "Rate 1 top label",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide the top label for the first rate",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 56,
+            "pattern": "^.{0,56}$",
+            "customErrorMsg": "Rate top label 1 must not exceed 56 characters"
+          }
+        },
+        {
+          "component": "text",
+          "name": "rate-1",
+          "value": "",
+          "label": "Rate 1 value",
+          "valueType": "string",
+          "description": "Provide the first rate",
+          "required": true,
+          "validation": {
+            "minLength": 1,
+            "customErrorMsg": "Rate 1 value is required"
+          }
+        },
+        {
+          "component": "richtext",
+          "name": "rate-bottom-label-1",
+          "value": "",
+          "label": "Rate 1 bottom label",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide the bottom label for the first rate",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 56,
+            "pattern": "^.{0,56}$",
+            "customErrorMsg": "Rate bottom label 1 must not exceed 56 characters"
+          }
+        },
+        {
+          "component": "richtext",
+          "name": "rate-top-label-2",
+          "value": "",
+          "label": "Rate 2 top label",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide the top label for the second rate",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 56,
+            "pattern": "^.{0,56}$",
+            "customErrorMsg": "Rate top label 2 must not exceed 56 characters"
+          }
+        },
+        {
+          "component": "text",
+          "name": "rate-2",
+          "value": "",
+          "label": "Rate 2 value",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide the second rate"
+        },
+        {
+          "component": "richtext",
+          "name": "rate-bottom-label-2",
+          "value": "",
+          "label": "Rate 2 bottom label",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide the bottom label for the second rate",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 56,
+            "pattern": "^.{0,56}$",
+            "customErrorMsg": "Rate bottom label 2 must not exceed 56 characters"
+          }
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "value": "",
+          "label": "Description",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide a description.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 341,
+            "pattern": "^.{0,341}$",
+            "customErrorMsg": "Description must not exceed 341 characters for text content"
+          }
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "big-numbers",
+      "components": [
+        "big-numbers-item"
+      ],
+      "min": 2,
+      "max": 5,
+      "minErrorMsg": "Big Numbers must have at least 2 items (2 items recommended when Type=Tabs)",
+      "maxErrorMsg": "Big Numbers cannot have more than 5 items"
+    },
+    {
+      "id": "big-numbers-item",
+      "components": []
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+@use 'variables' as *;
+
+@mixin block-padding() {
+
+    &:not(:has(.carousel-block-container)) {
+        padding: spacing(8) spacing(2);
+
+        // SM viewport (768px+): 36px left/right, 48px top/bottom
+        @include breakpoint('sm') {
+            padding: spacing(8) spacing(6);
+        }
+
+        // MD viewport (992px+): 42px left/right, 60px top/bottom
+        @include breakpoint('md') {
+            padding: spacing(10) spacing(7);
+        }
+
+        // LG viewport (1200px+): 60px left/right, 96px top/bottom
+        @include breakpoint('lg') {
+            padding: spacing(16) spacing(10);
+        }
+
+        // XL viewport (1584px+): 72px left/right, 96px top/bottom
+        @include breakpoint('xl') {
+            padding: spacing(16) spacing(12);
+        }
+    }
+
+
+    &:has(.carousel-block-container) {
+
+        padding: spacing(8) 0;
+
+        // SM viewport (768px+): 0px left/right, 48px top/bottom
+        @include breakpoint('sm') {
+            padding: spacing(8) 0;
+        }
+
+        // MD viewport (992px+): 0px left/right, 60px top/bottom
+        @include breakpoint('md') {
+            padding: spacing(10) 0;
+        }
+
+        // LG viewport (1200px+): 0px left/right, 96px top/bottom
+        @include breakpoint('lg') {
+            padding: spacing(16) 0;
+        }
+
+        // XL viewport (1584px+): 0px left/right, 96px top/bottom
+        @include breakpoint('xl') {
+            padding: spacing(16) 0;
+        }
+
+        .carousel-list-padding,
+        .block-header,
+        .carousel-row-2 {
+            // XS viewport (default mobile-first): 12px left/right
+            padding: 0 spacing(2);
+
+            // SM viewport (768px+): 36px left/right
+            @include breakpoint('sm') {
+                padding: 0 spacing(6);
+            }
+
+            // MD viewport (992px+): 42px left/right
+            @include breakpoint('md') {
+                padding: 0 spacing(7);
+            }
+
+            // LG viewport (1200px+): 60px left/right
+            @include breakpoint('lg') {
+                padding: 0 spacing(10);
+            }
+
+            // XL viewport (1584px+): 72px left/right
+            @include breakpoint('xl') {
+                padding: 0 spacing(12);
+            }
+        }
+    }
+
+    @include breakpoint('md') {
+
+        .section.layout-4-8>div:nth-child(even) &:not(:has(.carousel-block-container)),
+        .section.layout-6-6>div:nth-child(even) &:not(:has(.carousel-block-container)) {
+            padding-left: 0;
+        }
+
+        .section.layout-4-8>div:nth-child(even) &:has(.carousel-block-container),
+        .section.layout-6-6>div:nth-child(even) &:has(.carousel-block-container) {
+
+            .carousel-list-padding,
+            .block-header,
+            .carousel-row-2 {
+                padding-left: 0;
+            }
+        }
+
+        .section.layout-4-8>div:nth-child(odd):not(:last-child) &:not(:has(.carousel-block-container)),
+        .section.layout-6-6>div:nth-child(odd):not(:last-child) &:not(:has(.carousel-block-container)) {
+            padding-right: 0;
+        }
+
+        .section.layout-4-8>div:nth-child(odd):not(:last-child) &:has(.carousel-block-container),
+        .section.layout-6-6>div:nth-child(odd):not(:last-child) &:has(.carousel-block-container) {
+
+            .carousel-list-padding,
+            .block-header,
+            .carousel-row-2 {
+                padding-right: 0;
+            }
+        }
+
+    }
+
+    .section.layout-4-8>div:not(:first-child):not(:nth-child(2)) &[class],
+    .section.layout-6-6>div:not(:first-child):not(:nth-child(2)) &[class],
+    .section:not(.layout-4-8):not(.layout-6-6)>div:not(:first-child) &[class] {
+        padding-top: 0;
+    }
+}

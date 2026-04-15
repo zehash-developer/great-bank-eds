@@ -1,0 +1,184 @@
+@use '../variables' as *;
+
+// =============================================================================
+// Shared Carousel Component Styles
+// Used by: card, action-card, tap-tiles blocks
+// =============================================================================
+
+$carousel-hover-bg-light: #f0f0f0;
+
+// =============================================================================
+// Row 2: Scrollbar + Navigation Controls Container
+// =============================================================================
+
+.carousel-row-2 {
+  display: none;
+  width: 100%;
+  align-items: center;
+  gap: spacing(8); // 48px between scrollbar and buttons
+
+  .carousel-block-container.carousel-mode & {
+    display: flex;
+  }
+}
+
+// =============================================================================
+// Custom Scrollbar
+// =============================================================================
+
+.carousel-scrollbar-container {
+  flex: 1; // Take remaining space
+  height: 2px;
+  background: var(--border-muted-soft);
+  border-radius: 1px;
+  position: relative;
+  cursor: pointer;
+}
+
+.carousel-scrollbar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--text-body);
+  border-radius: 1px;
+  cursor: grab;
+  transition: background-color $carousel-transition;
+
+  &:active {
+    cursor: grabbing;
+    background: var(--text-body);
+  }
+
+  &:hover {
+    background: var(--text-body);
+  }
+}
+
+// =============================================================================
+// Navigation Controls
+// =============================================================================
+
+.carousel-controls {
+  flex: 0 0 auto; // Fixed width
+  display: flex;
+  gap: spacing(4); // 24px between buttons
+  align-items: center;
+}
+
+.carousel-scroll-btn {
+  flex-shrink: 0;
+  width: spacing(8); // 48px
+  height: spacing(8); // 48px
+  padding: 0;
+  border: 1px solid var(--border-muted-soft);
+  border-radius: 50%;
+  background: var(--background-pale-faint);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color $carousel-transition,
+  background-color $carousel-transition;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .gel-icon {
+    color: var(--text-body);
+    pointer-events: none;
+  }
+}
+
+// =============================================================================
+// Scrollable List Base
+// =============================================================================
+
+.carousel-list {
+  // Parent scroll container - has scroll, no padding
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE/Edge
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome/Safari/Opera
+  }
+}
+
+.carousel-list-padding {
+  // Child padding wrapper - has padding, no scroll
+  // Padding on child element creates scrollable overflow in parent
+  display: block;
+  min-width: fit-content;
+
+  // Remove default list styling from ul
+  ul[role='list'] {
+    list-style: none;
+    margin: 0 0 spacing(4); 
+    display: flex;
+    gap: $carousel-card-gap; // 24px gap between cards
+    padding: spacing(1) 0; // Add vertical padding to allow hover lift without clipping
+
+    .carousel-block-container:not(.carousel-mode) & {
+      flex-wrap: wrap;
+      overflow-x: visible;
+      @include breakpoint-down('sm') { 
+        justify-content: center;
+      }
+    }
+
+    @include breakpoint-down('sm') {
+      gap: spacing(2);
+    }
+  }
+  li {
+    padding: 0;
+  }
+}
+
+// =============================================================================
+// Dark Mode Support
+// =============================================================================
+
+[data-theme='dark'] {
+  .carousel-scrollbar-container {
+    background: var(--border-muted-soft);
+  }
+
+  .carousel-scrollbar-thumb {
+    background: var(--muted-200);
+  }
+
+  .carousel-scroll-btn {
+    background: var(--mono-white);
+    border-color: var(--mono-white);
+
+    .gel-icon {
+      color: var(--muted-950);
+    }
+  }
+}
+
+.carousel-scroll-btn {
+  &:hover:not(:disabled) {
+    border-color: var(--surface-primary);
+    background: var(--surface-muted-faint);
+  }
+}
+
+[data-theme='dark'] {
+ &:hover:not(:disabled) {
+      background: var(--wbc-muted-100);
+      border-color: var(--wbc-muted-100);
+    }
+}

@@ -1,0 +1,1062 @@
+[
+  {
+    "name": "accessibility",
+    "value": "accessibility-outlined"
+  },
+  {
+    "name": "account",
+    "value": "account-outlined"
+  },
+  {
+    "name": "add-circle",
+    "value": "add-circle-outlined"
+  },
+  {
+    "name": "add",
+    "value": "add-outlined"
+  },
+  {
+    "name": "alert",
+    "value": "alert-outlined"
+  },
+  {
+    "name": "android",
+    "value": "android-outlined"
+  },
+  {
+    "name": "apple",
+    "value": "apple-outlined"
+  },
+  {
+    "name": "archive-box",
+    "value": "archive-box-outlined"
+  },
+  {
+    "name": "arrow-back-circle",
+    "value": "arrow-back-circle-outlined"
+  },
+  {
+    "name": "arrow-back",
+    "value": "arrow-back-outlined"
+  },
+  {
+    "name": "arrow-down-circle",
+    "value": "arrow-down-circle-outlined"
+  },
+  {
+    "name": "arrow-down",
+    "value": "arrow-down-outlined"
+  },
+  {
+    "name": "arrow-fork",
+    "value": "arrow-fork-outlined"
+  },
+  {
+    "name": "arrow-forward-circle",
+    "value": "arrow-forward-circle-outlined"
+  },
+  {
+    "name": "arrow-forward",
+    "value": "arrow-forward-outlined"
+  },
+  {
+    "name": "arrow-left",
+    "value": "arrow-left-outlined"
+  },
+  {
+    "name": "arrow-right",
+    "value": "arrow-right-outlined"
+  },
+  {
+    "name": "arrow-split",
+    "value": "arrow-split-outlined"
+  },
+  {
+    "name": "arrow-thread-reply",
+    "value": "arrow-thread-reply-outlined"
+  },
+  {
+    "name": "arrow-up-circle",
+    "value": "arrow-up-circle-outlined"
+  },
+  {
+    "name": "arrow-up",
+    "value": "arrow-up-outlined"
+  },
+  {
+    "name": "atm",
+    "value": "atm-outlined"
+  },
+  {
+    "name": "attache-case",
+    "value": "attache-case-outlined"
+  },
+  {
+    "name": "australia",
+    "value": "australia-outlined"
+  },
+  {
+    "name": "baby-buggy",
+    "value": "baby-buggy-outlined"
+  },
+  {
+    "name": "backspace",
+    "value": "backspace-outlined"
+  },
+  {
+    "name": "bank",
+    "value": "bank-outlined"
+  },
+  {
+    "name": "bar-chart-down",
+    "value": "bar-chart-down-outlined"
+  },
+  {
+    "name": "bar-chart",
+    "value": "bar-chart-outlined"
+  },
+  {
+    "name": "barbell",
+    "value": "barbell-outlined"
+  },
+  {
+    "name": "book",
+    "value": "book-outlined"
+  },
+  {
+    "name": "bpay",
+    "value": "bpay-outlined"
+  },
+  {
+    "name": "briefcase",
+    "value": "briefcase-outlined"
+  },
+  {
+    "name": "bug-report",
+    "value": "bug-report-outlined"
+  },
+  {
+    "name": "burger",
+    "value": "burger-outlined"
+  },
+  {
+    "name": "business-person",
+    "value": "business-person-outlined"
+  },
+  {
+    "name": "button-shape",
+    "value": "button-shape-outlined"
+  },
+  {
+    "name": "cafe",
+    "value": "cafe-outlined"
+  },
+  {
+    "name": "cake",
+    "value": "cake-outlined"
+  },
+  {
+    "name": "calculate",
+    "value": "calculate-outlined"
+  },
+  {
+    "name": "calculator",
+    "value": "calculator-outlined"
+  },
+  {
+    "name": "calendar",
+    "value": "calendar-outlined"
+  },
+  {
+    "name": "camera",
+    "value": "camera-outlined"
+  },
+  {
+    "name": "cancel-card",
+    "value": "cancel-card-outlined"
+  },
+  {
+    "name": "car",
+    "value": "car-outlined"
+  },
+  {
+    "name": "cardless-cash",
+    "value": "cardless-cash-outlined"
+  },
+  {
+    "name": "cart",
+    "value": "cart-outlined"
+  },
+  {
+    "name": "chat",
+    "value": "chat-outlined"
+  },
+  {
+    "name": "check",
+    "value": "check-outlined"
+  },
+  {
+    "name": "child-care",
+    "value": "child-care-outlined"
+  },
+  {
+    "name": "child",
+    "value": "child-outlined"
+  },
+  {
+    "name": "circle",
+    "value": "circle-outlined"
+  },
+  {
+    "name": "clear",
+    "value": "clear-outlined"
+  },
+  {
+    "name": "clock",
+    "value": "clock-outlined"
+  },
+  {
+    "name": "close",
+    "value": "close-outlined"
+  },
+  {
+    "name": "closed-caption",
+    "value": "closed-caption-outlined"
+  },
+  {
+    "name": "cocktail-glass",
+    "value": "cocktail-glass-outlined"
+  },
+  {
+    "name": "color-filters",
+    "value": "color-filters-outlined"
+  },
+  {
+    "name": "compass",
+    "value": "compass-outlined"
+  },
+  {
+    "name": "contact",
+    "value": "contact-outlined"
+  },
+  {
+    "name": "content-copy",
+    "value": "content-copy-outlined"
+  },
+  {
+    "name": "credit-card",
+    "value": "credit-card-outlined"
+  },
+  {
+    "name": "credit-cards",
+    "value": "credit-cards-outlined"
+  },
+  {
+    "name": "cube",
+    "value": "cube-outlined"
+  },
+  {
+    "name": "cursor-arrow-click",
+    "value": "cursor-arrow-click-outlined"
+  },
+  {
+    "name": "cursor-arrow-doubleclick",
+    "value": "cursor-arrow-doubleclick-outlined"
+  },
+  {
+    "name": "cursor-arrow",
+    "value": "cursor-arrow-outlined"
+  },
+  {
+    "name": "cursor-arrow-rays",
+    "value": "cursor-arrow-rays-outlined"
+  },
+  {
+    "name": "delete",
+    "value": "delete-outlined"
+  },
+  {
+    "name": "delivery-truck",
+    "value": "delivery-truck-outlined"
+  },
+  {
+    "name": "desktop",
+    "value": "desktop-outlined"
+  },
+  {
+    "name": "diamond",
+    "value": "diamond-outlined"
+  },
+  {
+    "name": "dollar",
+    "value": "dollar-outlined"
+  },
+  {
+    "name": "dollar-sign",
+    "value": "dollar-sign-outlined"
+  },
+  {
+    "name": "download-file",
+    "value": "download-file-outlined"
+  },
+  {
+    "name": "download",
+    "value": "download-outlined"
+  },
+  {
+    "name": "drag",
+    "value": "drag-outlined"
+  },
+  {
+    "name": "drop-down",
+    "value": "drop-down-outlined"
+  },
+  {
+    "name": "drop-left",
+    "value": "drop-left-outlined"
+  },
+  {
+    "name": "drop-right",
+    "value": "drop-right-outlined"
+  },
+  {
+    "name": "drop-up",
+    "value": "drop-up-outlined"
+  },
+  {
+    "name": "dropbox",
+    "value": "dropbox-outlined"
+  },
+  {
+    "name": "edit",
+    "value": "edit-outlined"
+  },
+  {
+    "name": "education",
+    "value": "education-outlined"
+  },
+  {
+    "name": "eftpos",
+    "value": "eftpos-outlined"
+  },
+  {
+    "name": "email",
+    "value": "email-outlined"
+  },
+  {
+    "name": "error",
+    "value": "error-outlined"
+  },
+  {
+    "name": "excel-file",
+    "value": "excel-file-outlined"
+  },
+  {
+    "name": "exit",
+    "value": "exit-outlined"
+  },
+  {
+    "name": "expand-less",
+    "value": "expand-less-outlined"
+  },
+  {
+    "name": "expand-more",
+    "value": "expand-more-outlined"
+  },
+  {
+    "name": "face-happy",
+    "value": "face-happy-outlined"
+  },
+  {
+    "name": "facebook",
+    "value": "facebook-outlined"
+  },
+  {
+    "name": "favorite",
+    "value": "favorite-outlined"
+  },
+  {
+    "name": "filter",
+    "value": "filter-outlined"
+  },
+  {
+    "name": "fingerprint",
+    "value": "fingerprint-outlined"
+  },
+  {
+    "name": "first-aid-case",
+    "value": "first-aid-case-outlined"
+  },
+  {
+    "name": "first-aid",
+    "value": "first-aid-outlined"
+  },
+  {
+    "name": "format-color",
+    "value": "format-color-outlined"
+  },
+  {
+    "name": "fullscreen-exit",
+    "value": "fullscreen-exit-outlined"
+  },
+  {
+    "name": "fullscreen",
+    "value": "fullscreen-outlined"
+  },
+  {
+    "name": "future-clock",
+    "value": "future-clock-outlined"
+  },
+  {
+    "name": "gel",
+    "value": "gel-outlined"
+  },
+  {
+    "name": "generic-file",
+    "value": "generic-file-outlined"
+  },
+  {
+    "name": "geolocation",
+    "value": "geolocation-outlined"
+  },
+  {
+    "name": "gift",
+    "value": "gift-outlined"
+  },
+  {
+    "name": "github",
+    "value": "github-outlined"
+  },
+  {
+    "name": "global",
+    "value": "global-outlined"
+  },
+  {
+    "name": "google-plus",
+    "value": "google-plus-outlined"
+  },
+  {
+    "name": "grid",
+    "value": "grid-outlined"
+  },
+  {
+    "name": "growth",
+    "value": "growth-outlined"
+  },
+  {
+    "name": "hamburger-menu",
+    "value": "hamburger-menu-outlined"
+  },
+  {
+    "name": "headset",
+    "value": "headset-outlined"
+  },
+  {
+    "name": "heart-add",
+    "value": "heart-add-outlined"
+  },
+  {
+    "name": "heart-tick",
+    "value": "heart-tick-outlined"
+  },
+  {
+    "name": "help",
+    "value": "help-outlined"
+  },
+  {
+    "name": "history-clock",
+    "value": "history-clock-outlined"
+  },
+  {
+    "name": "house-dollar",
+    "value": "house-dollar-outlined"
+  },
+  {
+    "name": "house",
+    "value": "house-outlined"
+  },
+  {
+    "name": "house-people",
+    "value": "house-people-outlined"
+  },
+  {
+    "name": "house-person",
+    "value": "house-person-outlined"
+  },
+  {
+    "name": "ice-cream",
+    "value": "ice-cream-outlined"
+  },
+  {
+    "name": "id-card",
+    "value": "id-card-outlined"
+  },
+  {
+    "name": "image-square",
+    "value": "image-square-outlined"
+  },
+  {
+    "name": "info",
+    "value": "info-outlined"
+  },
+  {
+    "name": "instagram",
+    "value": "instagram-outlined"
+  },
+  {
+    "name": "inventory",
+    "value": "inventory-outlined"
+  },
+  {
+    "name": "invest",
+    "value": "invest-outlined"
+  },
+  {
+    "name": "invoice",
+    "value": "invoice-outlined"
+  },
+  {
+    "name": "key",
+    "value": "key-outlined"
+  },
+  {
+    "name": "keyhole",
+    "value": "keyhole-outlined"
+  },
+  {
+    "name": "leaf",
+    "value": "leaf-outlined"
+  },
+  {
+    "name": "light-bulb",
+    "value": "light-bulb-outlined"
+  },
+  {
+    "name": "limit",
+    "value": "limit-outlined"
+  },
+  {
+    "name": "link",
+    "value": "link-outlined"
+  },
+  {
+    "name": "linkedin",
+    "value": "linkedin-outlined"
+  },
+  {
+    "name": "list",
+    "value": "list-outlined"
+  },
+  {
+    "name": "live-chat",
+    "value": "live-chat-outlined"
+  },
+  {
+    "name": "luggage",
+    "value": "luggage-outlined"
+  },
+  {
+    "name": "map",
+    "value": "map-outlined"
+  },
+  {
+    "name": "map-pin",
+    "value": "map-pin-outlined"
+  },
+  {
+    "name": "medical",
+    "value": "medical-outlined"
+  },
+  {
+    "name": "megaphone",
+    "value": "megaphone-outlined"
+  },
+  {
+    "name": "message",
+    "value": "message-outlined"
+  },
+  {
+    "name": "mobile-pay",
+    "value": "mobile-pay-outlined"
+  },
+  {
+    "name": "money-bag",
+    "value": "money-bag-outlined"
+  },
+  {
+    "name": "money-in",
+    "value": "money-in-outlined"
+  },
+  {
+    "name": "money-notes",
+    "value": "money-notes-outlined"
+  },
+  {
+    "name": "money-out",
+    "value": "money-out-outlined"
+  },
+  {
+    "name": "more-horiz",
+    "value": "more-horiz-outlined"
+  },
+  {
+    "name": "more-vert",
+    "value": "more-vert-outlined"
+  },
+  {
+    "name": "move-from",
+    "value": "move-from-outlined"
+  },
+  {
+    "name": "move-to",
+    "value": "move-to-outlined"
+  },
+  {
+    "name": "new-content",
+    "value": "new-content-outlined"
+  },
+  {
+    "name": "new-window",
+    "value": "new-window-outlined"
+  },
+  {
+    "name": "notification-active",
+    "value": "notification-active-outlined"
+  },
+  {
+    "name": "notification-off",
+    "value": "notification-off-outlined"
+  },
+  {
+    "name": "notification",
+    "value": "notification-outlined"
+  },
+  {
+    "name": "office",
+    "value": "office-outlined"
+  },
+  {
+    "name": "open-browser",
+    "value": "open-browser-outlined"
+  },
+  {
+    "name": "package-delivery",
+    "value": "package-delivery-outlined"
+  },
+  {
+    "name": "padlock-open",
+    "value": "padlock-open-outlined"
+  },
+  {
+    "name": "padlock",
+    "value": "padlock-outlined"
+  },
+  {
+    "name": "padlock-tick",
+    "value": "padlock-tick-outlined"
+  },
+  {
+    "name": "pause-circle",
+    "value": "pause-circle-outlined"
+  },
+  {
+    "name": "pause",
+    "value": "pause-outlined"
+  },
+  {
+    "name": "paw",
+    "value": "paw-outlined"
+  },
+  {
+    "name": "pay-id",
+    "value": "pay-id-outlined"
+  },
+  {
+    "name": "pay",
+    "value": "pay-outlined"
+  },
+  {
+    "name": "pay-to-mobile",
+    "value": "pay-to-mobile-outlined"
+  },
+  {
+    "name": "pay-to",
+    "value": "pay-to-outlined"
+  },
+  {
+    "name": "paypass",
+    "value": "paypass-outlined"
+  },
+  {
+    "name": "pdf-file",
+    "value": "pdf-file-outlined"
+  },
+  {
+    "name": "pending",
+    "value": "pending-outlined"
+  },
+  {
+    "name": "people",
+    "value": "people-outlined"
+  },
+  {
+    "name": "percent",
+    "value": "percent-outlined"
+  },
+  {
+    "name": "person",
+    "value": "person-outlined"
+  },
+  {
+    "name": "phone",
+    "value": "phone-outlined"
+  },
+  {
+    "name": "pie-chart",
+    "value": "pie-chart-outlined"
+  },
+  {
+    "name": "piggy-bank",
+    "value": "piggy-bank-outlined"
+  },
+  {
+    "name": "pin",
+    "value": "pin-outlined"
+  },
+  {
+    "name": "pizza",
+    "value": "pizza-outlined"
+  },
+  {
+    "name": "plane",
+    "value": "plane-outlined"
+  },
+  {
+    "name": "play-circle",
+    "value": "play-circle-outlined"
+  },
+  {
+    "name": "play",
+    "value": "play-outlined"
+  },
+  {
+    "name": "pram",
+    "value": "pram-outlined"
+  },
+  {
+    "name": "presets",
+    "value": "presets-outlined"
+  },
+  {
+    "name": "print",
+    "value": "print-outlined"
+  },
+  {
+    "name": "progress",
+    "value": "progress-outlined"
+  },
+  {
+    "name": "question-mark",
+    "value": "question-mark-outlined"
+  },
+  {
+    "name": "quick-balance",
+    "value": "quick-balance-outlined"
+  },
+  {
+    "name": "receipt",
+    "value": "receipt-outlined"
+  },
+  {
+    "name": "refresh",
+    "value": "refresh-outlined"
+  },
+  {
+    "name": "remove-circle",
+    "value": "remove-circle-outlined"
+  },
+  {
+    "name": "remove",
+    "value": "remove-outlined"
+  },
+  {
+    "name": "replay",
+    "value": "replay-outlined"
+  },
+  {
+    "name": "restaurant",
+    "value": "restaurant-outlined"
+  },
+  {
+    "name": "rss",
+    "value": "rss-outlined"
+  },
+  {
+    "name": "scan-document",
+    "value": "scan-document-outlined"
+  },
+  {
+    "name": "sd-storage",
+    "value": "sd-storage-outlined"
+  },
+  {
+    "name": "search",
+    "value": "search-outlined"
+  },
+  {
+    "name": "security",
+    "value": "security-outlined"
+  },
+  {
+    "name": "service-bell",
+    "value": "service-bell-outlined"
+  },
+  {
+    "name": "settings",
+    "value": "settings-outlined"
+  },
+  {
+    "name": "share-ios",
+    "value": "share-ios-outlined"
+  },
+  {
+    "name": "share",
+    "value": "share-outlined"
+  },
+  {
+    "name": "shop",
+    "value": "shop-outlined"
+  },
+  {
+    "name": "shopping-bag",
+    "value": "shopping-bag-outlined"
+  },
+  {
+    "name": "shopping-basket",
+    "value": "shopping-basket-outlined"
+  },
+  {
+    "name": "sim-card",
+    "value": "sim-card-outlined"
+  },
+  {
+    "name": "slack",
+    "value": "slack-outlined"
+  },
+  {
+    "name": "sms",
+    "value": "sms-outlined"
+  },
+  {
+    "name": "spa",
+    "value": "spa-outlined"
+  },
+  {
+    "name": "star-half",
+    "value": "star-half-outlined"
+  },
+  {
+    "name": "star-rate",
+    "value": "star-rate-outlined"
+  },
+  {
+    "name": "stars",
+    "value": "stars-outlined"
+  },
+  {
+    "name": "stopwatch",
+    "value": "stopwatch-outlined"
+  },
+  {
+    "name": "stroller",
+    "value": "stroller-outlined"
+  },
+  {
+    "name": "success",
+    "value": "success-outlined"
+  },
+  {
+    "name": "super",
+    "value": "super-outlined"
+  },
+  {
+    "name": "switch",
+    "value": "switch-outlined"
+  },
+  {
+    "name": "tablet",
+    "value": "tablet-outlined"
+  },
+  {
+    "name": "tag",
+    "value": "tag-outlined"
+  },
+  {
+    "name": "takeout-coffee",
+    "value": "takeout-coffee-outlined"
+  },
+  {
+    "name": "takeout-food",
+    "value": "takeout-food-outlined"
+  },
+  {
+    "name": "target",
+    "value": "target-outlined"
+  },
+  {
+    "name": "telephone",
+    "value": "telephone-outlined"
+  },
+  {
+    "name": "text-bold",
+    "value": "text-bold-outlined"
+  },
+  {
+    "name": "text-increase",
+    "value": "text-increase-outlined"
+  },
+  {
+    "name": "text-large",
+    "value": "text-large-outlined"
+  },
+  {
+    "name": "thumb-down",
+    "value": "thumb-down-outlined"
+  },
+  {
+    "name": "thumb-up",
+    "value": "thumb-up-outlined"
+  },
+  {
+    "name": "tick-circle",
+    "value": "tick-circle-outlined"
+  },
+  {
+    "name": "tick",
+    "value": "tick-outlined"
+  },
+  {
+    "name": "tiles",
+    "value": "tiles-outlined"
+  },
+  {
+    "name": "transfer",
+    "value": "transfer-outlined"
+  },
+  {
+    "name": "transport",
+    "value": "transport-outlined"
+  },
+  {
+    "name": "travel-explore",
+    "value": "travel-explore-outlined"
+  },
+  {
+    "name": "tune",
+    "value": "tune-outlined"
+  },
+  {
+    "name": "twitter",
+    "value": "twitter-outlined"
+  },
+  {
+    "name": "umbrella",
+    "value": "umbrella-outlined"
+  },
+  {
+    "name": "unpin",
+    "value": "unpin-outlined"
+  },
+  {
+    "name": "upload",
+    "value": "upload-outlined"
+  },
+  {
+    "name": "verified",
+    "value": "verified-outlined"
+  },
+  {
+    "name": "video",
+    "value": "video-outlined"
+  },
+  {
+    "name": "visibility-off",
+    "value": "visibility-off-outlined"
+  },
+  {
+    "name": "visibility",
+    "value": "visibility-outlined"
+  },
+  {
+    "name": "voice",
+    "value": "voice-outlined"
+  },
+  {
+    "name": "voiceover-on",
+    "value": "voiceover-on-outlined"
+  },
+  {
+    "name": "volume-off",
+    "value": "volume-off-outlined"
+  },
+  {
+    "name": "volume-on",
+    "value": "volume-on-outlined"
+  },
+  {
+    "name": "walk",
+    "value": "walk-outlined"
+  },
+  {
+    "name": "wallet",
+    "value": "wallet-outlined"
+  },
+  {
+    "name": "warning",
+    "value": "warning-outlined"
+  },
+  {
+    "name": "watch",
+    "value": "watch-outlined"
+  },
+  {
+    "name": "wearable",
+    "value": "wearable-outlined"
+  },
+  {
+    "name": "wheelchair",
+    "value": "wheelchair-outlined"
+  },
+  {
+    "name": "windows-new",
+    "value": "windows-new-outlined"
+  },
+  {
+    "name": "wine-glass",
+    "value": "wine-glass-outlined"
+  },
+  {
+    "name": "word-file",
+    "value": "word-file-outlined"
+  },
+  {
+    "name": "write",
+    "value": "write-outlined"
+  },
+  {
+    "name": "x",
+    "value": "x-outlined"
+  },
+  {
+    "name": "yammer",
+    "value": "yammer-outlined"
+  },
+  {
+    "name": "youtube",
+    "value": "youtube-outlined"
+  },
+  {
+    "name": "zip-file",
+    "value": "zip-file-outlined"
+  }
+]

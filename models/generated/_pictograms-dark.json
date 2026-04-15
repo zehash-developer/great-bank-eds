@@ -1,0 +1,382 @@
+[
+  {
+    "name": "accessibility",
+    "value": "accessibility-dark"
+  },
+  {
+    "name": "accounts",
+    "value": "accounts-dark"
+  },
+  {
+    "name": "aeroplane",
+    "value": "aeroplane-dark"
+  },
+  {
+    "name": "arrow-down",
+    "value": "arrow-down-dark"
+  },
+  {
+    "name": "arrow-left",
+    "value": "arrow-left-dark"
+  },
+  {
+    "name": "arrow-right",
+    "value": "arrow-right-dark"
+  },
+  {
+    "name": "arrow-up",
+    "value": "arrow-up-dark"
+  },
+  {
+    "name": "arrows-passing",
+    "value": "arrows-passing-dark"
+  },
+  {
+    "name": "atm",
+    "value": "atm-dark"
+  },
+  {
+    "name": "australia",
+    "value": "australia-dark"
+  },
+  {
+    "name": "bank-card-locked",
+    "value": "bank-card-locked-dark"
+  },
+  {
+    "name": "bank-card",
+    "value": "bank-card-dark"
+  },
+  {
+    "name": "bank",
+    "value": "bank-dark"
+  },
+  {
+    "name": "birth-certificate",
+    "value": "birth-certificate-dark"
+  },
+  {
+    "name": "building",
+    "value": "building-dark"
+  },
+  {
+    "name": "buoy",
+    "value": "buoy-dark"
+  },
+  {
+    "name": "bus",
+    "value": "bus-dark"
+  },
+  {
+    "name": "business-person",
+    "value": "business-person-dark"
+  },
+  {
+    "name": "calculator",
+    "value": "calculator-dark"
+  },
+  {
+    "name": "calendar",
+    "value": "calendar-dark"
+  },
+  {
+    "name": "car",
+    "value": "car-dark"
+  },
+  {
+    "name": "cash",
+    "value": "cash-dark"
+  },
+  {
+    "name": "celebration",
+    "value": "celebration-dark"
+  },
+  {
+    "name": "chat",
+    "value": "chat-dark"
+  },
+  {
+    "name": "clock",
+    "value": "clock-dark"
+  },
+  {
+    "name": "coffee",
+    "value": "coffee-dark"
+  },
+  {
+    "name": "coins",
+    "value": "coins-dark"
+  },
+  {
+    "name": "compass",
+    "value": "compass-dark"
+  },
+  {
+    "name": "customer-profile",
+    "value": "customer-profile-dark"
+  },
+  {
+    "name": "desktop-computer",
+    "value": "desktop-computer-dark"
+  },
+  {
+    "name": "document-and-pen",
+    "value": "document-and-pen-dark"
+  },
+  {
+    "name": "dollar-sign",
+    "value": "dollar-sign-dark"
+  },
+  {
+    "name": "drivers-licence",
+    "value": "drivers-licence-dark"
+  },
+  {
+    "name": "education",
+    "value": "education-dark"
+  },
+  {
+    "name": "eftpos",
+    "value": "eftpos-dark"
+  },
+  {
+    "name": "envelope-email",
+    "value": "envelope-email-dark"
+  },
+  {
+    "name": "envelope-printed",
+    "value": "envelope-printed-dark"
+  },
+  {
+    "name": "face-happy",
+    "value": "face-happy-dark"
+  },
+  {
+    "name": "face-unhappy",
+    "value": "face-unhappy-dark"
+  },
+  {
+    "name": "face-unsure",
+    "value": "face-unsure-dark"
+  },
+  {
+    "name": "finger-motion",
+    "value": "finger-motion-dark"
+  },
+  {
+    "name": "fingerprint",
+    "value": "fingerprint-dark"
+  },
+  {
+    "name": "football",
+    "value": "football-dark"
+  },
+  {
+    "name": "fork-knife",
+    "value": "fork-knife-dark"
+  },
+  {
+    "name": "generic-document",
+    "value": "generic-document-dark"
+  },
+  {
+    "name": "gift",
+    "value": "gift-dark"
+  },
+  {
+    "name": "globe-australia",
+    "value": "globe-australia-dark"
+  },
+  {
+    "name": "globe",
+    "value": "globe-dark"
+  },
+  {
+    "name": "graph-decreasing",
+    "value": "graph-decreasing-dark"
+  },
+  {
+    "name": "graph-increasing",
+    "value": "graph-increasing-dark"
+  },
+  {
+    "name": "gym",
+    "value": "gym-dark"
+  },
+  {
+    "name": "headset",
+    "value": "headset-dark"
+  },
+  {
+    "name": "heart",
+    "value": "heart-dark"
+  },
+  {
+    "name": "house",
+    "value": "house-dark"
+  },
+  {
+    "name": "light-bulb",
+    "value": "light-bulb-dark"
+  },
+  {
+    "name": "loop",
+    "value": "loop-dark"
+  },
+  {
+    "name": "medicare-card",
+    "value": "medicare-card-dark"
+  },
+  {
+    "name": "mobile-device",
+    "value": "mobile-device-dark"
+  },
+  {
+    "name": "money-in",
+    "value": "money-in-dark"
+  },
+  {
+    "name": "money-out",
+    "value": "money-out-dark"
+  },
+  {
+    "name": "movie-tickets",
+    "value": "movie-tickets-dark"
+  },
+  {
+    "name": "nest-egg",
+    "value": "nest-egg-dark"
+  },
+  {
+    "name": "noodles",
+    "value": "noodles-dark"
+  },
+  {
+    "name": "number1pictogram",
+    "value": "number1pictogram-dark"
+  },
+  {
+    "name": "number2pictogram",
+    "value": "number2pictogram-dark"
+  },
+  {
+    "name": "number3pictogram",
+    "value": "number3pictogram-dark"
+  },
+  {
+    "name": "number4pictogram",
+    "value": "number4pictogram-dark"
+  },
+  {
+    "name": "number5pictogram",
+    "value": "number5pictogram-dark"
+  },
+  {
+    "name": "padlock-locked",
+    "value": "padlock-locked-dark"
+  },
+  {
+    "name": "padlock-unlocked",
+    "value": "padlock-unlocked-dark"
+  },
+  {
+    "name": "passport",
+    "value": "passport-dark"
+  },
+  {
+    "name": "percent-sign",
+    "value": "percent-sign-dark"
+  },
+  {
+    "name": "person",
+    "value": "person-dark"
+  },
+  {
+    "name": "piggy-bank",
+    "value": "piggy-bank-dark"
+  },
+  {
+    "name": "pizza",
+    "value": "pizza-dark"
+  },
+  {
+    "name": "plant",
+    "value": "plant-dark"
+  },
+  {
+    "name": "search",
+    "value": "search-dark"
+  },
+  {
+    "name": "secure",
+    "value": "secure-dark"
+  },
+  {
+    "name": "shop",
+    "value": "shop-dark"
+  },
+  {
+    "name": "shopping",
+    "value": "shopping-dark"
+  },
+  {
+    "name": "sparkle",
+    "value": "sparkle-dark"
+  },
+  {
+    "name": "star",
+    "value": "star-dark"
+  },
+  {
+    "name": "stopwatch",
+    "value": "stopwatch-dark"
+  },
+  {
+    "name": "target",
+    "value": "target-dark"
+  },
+  {
+    "name": "tax-document",
+    "value": "tax-document-dark"
+  },
+  {
+    "name": "telephone-call",
+    "value": "telephone-call-dark"
+  },
+  {
+    "name": "thumbs-up",
+    "value": "thumbs-up-dark"
+  },
+  {
+    "name": "tick",
+    "value": "tick-dark"
+  },
+  {
+    "name": "tools",
+    "value": "tools-dark"
+  },
+  {
+    "name": "tractor",
+    "value": "tractor-dark"
+  },
+  {
+    "name": "truck",
+    "value": "truck-dark"
+  },
+  {
+    "name": "umbrella",
+    "value": "umbrella-dark"
+  },
+  {
+    "name": "unsecure",
+    "value": "unsecure-dark"
+  },
+  {
+    "name": "wallet",
+    "value": "wallet-dark"
+  },
+  {
+    "name": "wearables",
+    "value": "wearables-dark"
+  }
+]

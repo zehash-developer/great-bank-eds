@@ -1,0 +1,21 @@
+
+@import url('tailwindcss');
+
+/* ==================================================
+   GEL TOKENS — SHARED
+   ================================================== */
+
+@import url("@westpac/style-config/dist/css/shared/animations.css");
+@import url("@westpac/style-config/dist/css/shared/borders.css");
+@import url("@westpac/style-config/dist/css/shared/brand-fonts.css");
+@import url("@westpac/style-config/dist/css/shared/colors.css");
+@import url("@westpac/style-config/dist/css/shared/layout.css");
+@import url("@westpac/style-config/dist/css/shared/typography.css");
+@import url("@westpac/style-config/dist/css/shared/utilities.css");
+
+/* ==================================================
+   GEL TOKENS — BRAND THEMES
+   ================================================== */
+
+@import url("@westpac/style-config/dist/css/themes/theme-wbc.css");
+@import url("@westpac/style-config/dist/css/themes/theme-stg.css");

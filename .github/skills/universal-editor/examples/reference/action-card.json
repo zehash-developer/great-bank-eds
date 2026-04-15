@@ -1,0 +1,228 @@
+{
+  "definitions": [
+    {
+      "title": "Action Card",
+      "id": "action-card",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Action Card",
+              "model": "action-card",
+              "filter": "action-card"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Action Card Item",
+      "id": "action-card-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Action Card Item",
+              "model": "action-card-item",
+              "filter": "action-card-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "action-card",
+      "fields": [
+        {
+          "component": "select",
+          "name": "type",
+          "label": "Type",
+          "description": "Select a type",
+          "required": true,
+          "default":"grey",
+          "options": [
+            {
+              "name": "Grey background",
+              "value": "grey"
+            },
+            {
+              "name": "White background",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "heading",
+          "value": "",
+          "label": "Heading",
+          "valueType": "string",
+          "required": true,
+          "description": "Provide a heading. Limit content to 1-60 characters.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 60,
+            "pattern": "^[^\\s].*$",
+            "customErrorMsg": "Heading is required and must be between 1 and 60 characters"
+          }
+        },
+        {
+          "component": "text",
+          "name": "supporting-link-label",
+          "value": "",
+          "label": "Supporting link label",
+          "valueType": "string",
+          "description": "Provide a supporting link label."
+        },
+        {
+          "component": "aem-content",
+          "name": "supporting-link-url",
+          "label": "Hyperlink",
+          "description": "Provide navigation URL"
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Mode",
+          "value": "",
+          "description": "Choose light or dark color scheme",
+          "options": [
+            {
+              "name": "Light",
+              "value": ""
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "action-card-item",
+      "fields": [
+        {
+          "component": "select",
+          "name": "card-type",
+          "label": "Card Type",
+          "value": "action-card",
+          "description": "Select a card type",
+          "options": [
+            {
+              "name": "Action card",
+              "value": "action-card"
+            },
+            {
+              "name": "App action card",
+              "value": "app-action-card"
+            }
+          ]
+        },
+        {
+          "component": "reference",
+          "name": "image",
+          "value": "",
+          "label": "Image",
+          "valueType": "string",
+          "required": true,
+          "description": "Select an image (SVG/PNG)",
+          "validation": {
+            "customErrorMsg": "Image is required"
+          }
+        },
+        {
+          "component": "text",
+          "name": "subtitle",
+          "value": "",
+          "label": "Subtitle",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide a subtitle. Limit content to 1-40 characters.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 40,
+            "pattern": "^.{0,40}$",
+            "customErrorMsg": "Subtitle must not exceed 40 characters"
+          }
+        },
+        {
+          "component": "text",
+          "name": "card-heading",
+          "value": "",
+          "label": "Card heading",
+          "valueType": "string",
+          "required": true,
+          "description": "Provide a card heading. Limit content to 1-46 characters.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 46,
+            "pattern": "^.{1,46}$",
+            "customErrorMsg": "Card heading is required and must be between 1 and 46 characters"
+          }
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "value": "",
+          "label": "Description",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide a description. Limit content to 1-76 characters. Body - allows hyperlinks and superscripts.",
+          "validation": {
+            "minLength": 1,
+            "maxLength": 76,
+            "pattern": "^.{0,76}$",
+            "customErrorMsg": "Description must not exceed 76 characters"
+          }
+        },
+        {
+          "component": "text",
+          "name": "url",
+          "value": "",
+          "label": "URL",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide navigation URL"
+        },
+        {
+          "component": "text",
+          "name": "aria-label",
+          "value": "",
+          "label": "ARIA Label",
+          "valueType": "string",
+          "required": false,
+          "description": "Provide ARIA label for accessibility",
+          "condition": {
+          "!=": [
+            {
+              "var": "url"
+            },
+            ""
+          ]
+        }
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "action-card",
+      "components": [
+        "action-card-item"
+      ],
+      "min": 1,
+      "max": 12,
+      "minErrorMsg": "Action Card must have at least 1 card",
+      "maxErrorMsg": "Action Card cannot have more than 12 cards"
+    },
+    {
+      "id": "action-card-item",
+      "components": []
+    }
+  ]
+}

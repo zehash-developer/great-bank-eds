@@ -1,0 +1,330 @@
+[
+  {
+    "name": "american-express-symbol-dm",
+    "value": "american-express-symbol-dm"
+  },
+  {
+    "name": "american-express-symbol-lm",
+    "value": "american-express-symbol-lm"
+  },
+  {
+    "name": "apple-pay-symbol-dm",
+    "value": "apple-pay-symbol-dm"
+  },
+  {
+    "name": "apple-pay-symbol-lm",
+    "value": "apple-pay-symbol-lm"
+  },
+  {
+    "name": "apple-store-inverse-symbol-dm",
+    "value": "apple-store-inverse-symbol-dm"
+  },
+  {
+    "name": "apple-store-inverse-symbol-lm",
+    "value": "apple-store-inverse-symbol-lm"
+  },
+  {
+    "name": "apple-store-symbol-dm",
+    "value": "apple-store-symbol-dm"
+  },
+  {
+    "name": "apple-store-symbol-lm",
+    "value": "apple-store-symbol-lm"
+  },
+  {
+    "name": "bom-logo-dm",
+    "value": "bom-logo-dm"
+  },
+  {
+    "name": "bom-logo-lm",
+    "value": "bom-logo-lm"
+  },
+  {
+    "name": "bom-shield-logo-dm",
+    "value": "bom-shield-logo-dm"
+  },
+  {
+    "name": "bom-shield-logo-lm",
+    "value": "bom-shield-logo-lm"
+  },
+  {
+    "name": "bpay-land-symbol-dm",
+    "value": "bpay-land-symbol-dm"
+  },
+  {
+    "name": "bpay-land-symbol-lm",
+    "value": "bpay-land-symbol-lm"
+  },
+  {
+    "name": "bpay-port-symbol-dm",
+    "value": "bpay-port-symbol-dm"
+  },
+  {
+    "name": "bpay-port-symbol-lm",
+    "value": "bpay-port-symbol-lm"
+  },
+  {
+    "name": "bsa-logo-dm",
+    "value": "bsa-logo-dm"
+  },
+  {
+    "name": "bsa-logo-lm",
+    "value": "bsa-logo-lm"
+  },
+  {
+    "name": "bsa-stacked-logo-dm",
+    "value": "bsa-stacked-logo-dm"
+  },
+  {
+    "name": "bsa-stacked-logo-lm",
+    "value": "bsa-stacked-logo-lm"
+  },
+  {
+    "name": "bt-logo-dm",
+    "value": "bt-logo-dm"
+  },
+  {
+    "name": "bt-logo-lm",
+    "value": "bt-logo-lm"
+  },
+  {
+    "name": "bt-logo-reversed-dm",
+    "value": "bt-logo-reversed-dm"
+  },
+  {
+    "name": "bt-logo-reversed-lm",
+    "value": "bt-logo-reversed-lm"
+  },
+  {
+    "name": "bt-panorama-logo-dm",
+    "value": "bt-panorama-logo-dm"
+  },
+  {
+    "name": "bt-panorama-logo-lm",
+    "value": "bt-panorama-logo-lm"
+  },
+  {
+    "name": "bt-panorama-reversed-logo-dm",
+    "value": "bt-panorama-reversed-logo-dm"
+  },
+  {
+    "name": "bt-panorama-reversed-logo-lm",
+    "value": "bt-panorama-reversed-logo-lm"
+  },
+  {
+    "name": "eftpos-horizontal-inverse-symbol-dm",
+    "value": "eftpos-horizontal-inverse-symbol-dm"
+  },
+  {
+    "name": "eftpos-horizontal-inverse-symbol-lm",
+    "value": "eftpos-horizontal-inverse-symbol-lm"
+  },
+  {
+    "name": "eftpos-horizontal-symbol-dm",
+    "value": "eftpos-horizontal-symbol-dm"
+  },
+  {
+    "name": "eftpos-horizontal-symbol-lm",
+    "value": "eftpos-horizontal-symbol-lm"
+  },
+  {
+    "name": "eftpos-vertical-inverse-symbol-dm",
+    "value": "eftpos-vertical-inverse-symbol-dm"
+  },
+  {
+    "name": "eftpos-vertical-inverse-symbol-lm",
+    "value": "eftpos-vertical-inverse-symbol-lm"
+  },
+  {
+    "name": "eftpos-vertical-symbol-dm",
+    "value": "eftpos-vertical-symbol-dm"
+  },
+  {
+    "name": "eftpos-vertical-symbol-lm",
+    "value": "eftpos-vertical-symbol-lm"
+  },
+  {
+    "name": "facebook-circular-symbol-dm",
+    "value": "facebook-circular-symbol-dm"
+  },
+  {
+    "name": "facebook-circular-symbol-lm",
+    "value": "facebook-circular-symbol-lm"
+  },
+  {
+    "name": "facebook-symbol-dm",
+    "value": "facebook-symbol-dm"
+  },
+  {
+    "name": "facebook-symbol-lm",
+    "value": "facebook-symbol-lm"
+  },
+  {
+    "name": "google-pay-inverse-symbol-dm",
+    "value": "google-pay-inverse-symbol-dm"
+  },
+  {
+    "name": "google-pay-inverse-symbol-lm",
+    "value": "google-pay-inverse-symbol-lm"
+  },
+  {
+    "name": "google-pay-symbol-dm",
+    "value": "google-pay-symbol-dm"
+  },
+  {
+    "name": "google-pay-symbol-lm",
+    "value": "google-pay-symbol-lm"
+  },
+  {
+    "name": "google-store-symbol-dm",
+    "value": "google-store-symbol-dm"
+  },
+  {
+    "name": "google-store-symbol-lm",
+    "value": "google-store-symbol-lm"
+  },
+  {
+    "name": "instagram-symbol-dm",
+    "value": "instagram-symbol-dm"
+  },
+  {
+    "name": "instagram-symbol-lm",
+    "value": "instagram-symbol-lm"
+  },
+  {
+    "name": "linked-in-symbol-dm",
+    "value": "linked-in-symbol-dm"
+  },
+  {
+    "name": "linked-in-symbol-lm",
+    "value": "linked-in-symbol-lm"
+  },
+  {
+    "name": "mastercard-symbol-dm",
+    "value": "mastercard-symbol-dm"
+  },
+  {
+    "name": "mastercard-symbol-lm",
+    "value": "mastercard-symbol-lm"
+  },
+  {
+    "name": "pay-id-inverse-symbol-dm",
+    "value": "pay-id-inverse-symbol-dm"
+  },
+  {
+    "name": "pay-id-inverse-symbol-lm",
+    "value": "pay-id-inverse-symbol-lm"
+  },
+  {
+    "name": "pay-id-symbol-dm",
+    "value": "pay-id-symbol-dm"
+  },
+  {
+    "name": "pay-id-symbol-lm",
+    "value": "pay-id-symbol-lm"
+  },
+  {
+    "name": "pay-to-inverse-symbol-dm",
+    "value": "pay-to-inverse-symbol-dm"
+  },
+  {
+    "name": "pay-to-inverse-symbol-lm",
+    "value": "pay-to-inverse-symbol-lm"
+  },
+  {
+    "name": "pay-to-symbol-dm",
+    "value": "pay-to-symbol-dm"
+  },
+  {
+    "name": "pay-to-symbol-lm",
+    "value": "pay-to-symbol-lm"
+  },
+  {
+    "name": "samsung-pay-button-inverse-symbol-dm",
+    "value": "samsung-pay-button-inverse-symbol-dm"
+  },
+  {
+    "name": "samsung-pay-button-inverse-symbol-lm",
+    "value": "samsung-pay-button-inverse-symbol-lm"
+  },
+  {
+    "name": "samsung-pay-button-symbol-dm",
+    "value": "samsung-pay-button-symbol-dm"
+  },
+  {
+    "name": "samsung-pay-button-symbol-lm",
+    "value": "samsung-pay-button-symbol-lm"
+  },
+  {
+    "name": "stg-dragon-logo-dm",
+    "value": "stg-dragon-logo-dm"
+  },
+  {
+    "name": "stg-dragon-logo-lm",
+    "value": "stg-dragon-logo-lm"
+  },
+  {
+    "name": "stg-logo-dm",
+    "value": "stg-logo-dm"
+  },
+  {
+    "name": "stg-logo-lm",
+    "value": "stg-logo-lm"
+  },
+  {
+    "name": "visa-blue-symbol-dm",
+    "value": "visa-blue-symbol-dm"
+  },
+  {
+    "name": "visa-blue-symbol-lm",
+    "value": "visa-blue-symbol-lm"
+  },
+  {
+    "name": "visa-white-symbol-dm",
+    "value": "visa-white-symbol-dm"
+  },
+  {
+    "name": "visa-white-symbol-lm",
+    "value": "visa-white-symbol-lm"
+  },
+  {
+    "name": "wbc-logo-dm",
+    "value": "wbc-logo-dm"
+  },
+  {
+    "name": "wbc-logo-lm",
+    "value": "wbc-logo-lm"
+  },
+  {
+    "name": "wbg-internal-logo-dm",
+    "value": "wbg-internal-logo-dm"
+  },
+  {
+    "name": "wbg-internal-logo-lm",
+    "value": "wbg-internal-logo-lm"
+  },
+  {
+    "name": "wbg-logo-dm",
+    "value": "wbg-logo-dm"
+  },
+  {
+    "name": "wbg-logo-lm",
+    "value": "wbg-logo-lm"
+  },
+  {
+    "name": "x-symbol-dm",
+    "value": "x-symbol-dm"
+  },
+  {
+    "name": "x-symbol-lm",
+    "value": "x-symbol-lm"
+  },
+  {
+    "name": "you-tube-symbol-dm",
+    "value": "you-tube-symbol-dm"
+  },
+  {
+    "name": "you-tube-symbol-lm",
+    "value": "you-tube-symbol-lm"
+  }
+]

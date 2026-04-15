@@ -1,0 +1,77 @@
+{
+  "description": "Accordion-style pattern where block items can host nested authored child components.",
+  "basedOn": "examples/reference/accordion.json",
+  "definitions": [
+    {
+      "id": "example-block",
+      "resourceType": "core/franklin/components/block/v1/block",
+      "template": {
+        "model": "example-block",
+        "filter": "example-block"
+      }
+    },
+    {
+      "id": "example-block-item",
+      "resourceType": "core/franklin/components/block/v1/block/item",
+      "template": {
+        "model": "example-block-item",
+        "filter": "example-block-item"
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "example-block",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Block Title"
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Mode",
+          "options": [
+            {
+              "name": "Light",
+              "value": ""
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "example-block-item",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Item Title",
+          "required": true
+        },
+        {
+          "component": "richtext",
+          "name": "content",
+          "label": "Item Content"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "example-block",
+      "components": ["example-block-item"],
+      "min": 1,
+      "max": 15
+    },
+    {
+      "id": "example-block-item",
+      "components": ["text", "image", "button", "title", "card"]
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "definitions": [
+    {
+      "title": "Step Accordion",
+      "id": "step-accordion",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Step Accordion",
+              "model": "step-accordion",
+              "filter": "step-accordion"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Step Accordion Item",
+      "id": "step-accordion-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Step Accordion Item",
+              "model": "step-accordion-item",
+              "filter": "step-accordion-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "step-accordion",
+      "fields": [
+        {
+          "component": "text",
+          "name": "heading",
+          "value": "",
+          "label": "Heading",
+          "valueType": "string",
+          "required": true,
+          "description": "Provide a heading for the Step Accordion.",
+          "validation": {
+            "minLength": 1,
+            "pattern": "^[^\\s].*$",
+            "customErrorMsg": "Heading is required and cannot start with whitespace"
+          }
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "Mode",
+          "description": "Choose light or dark color scheme",
+          "options": [
+            {
+              "name": "Light",
+              "value": ""
+            },
+            {
+              "name": "Dark",
+              "value": "dark"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "ctaType",
+          "label": "CTA Type",
+          "value": "none",
+          "required": true,
+          "description": "Select call to action type for the block.",
+          "options": [
+            {
+              "name": "None",
+              "value": "none"
+            },
+            {
+              "name": "Single",
+              "value": "single"
+            },
+            {
+              "name": "Dual",
+              "value": "dual"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "singleLabel",
+          "value": "",
+          "label": "Single CTA Label",
+          "valueType": "string",
+          "required": true,
+          "condition": "{ctaType} === 'single'",
+          "description": "Provide single CTA label."
+        },
+        {
+          "component": "aem-content",
+          "name": "singleUrl",
+          "label": "Single CTA URL",
+          "required": true,
+          "condition": "{ctaType} === 'single'",
+          "description": "Provide single CTA URL."
+        },
+        {
+          "component": "multiselect",
+          "name": "dualIconOne",
+          "value": "",
+          "label": "Dual CTA 1 Icon",
+          "valueType": "string",
+          "required": true,
+          "condition": "{ctaType} === 'dual'",
+          "description": "Select the first outlined GEL icon.",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            { "...": "./_outlined-icons.json" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "dualLabelOne",
+          "value": "",
+          "label": "Dual CTA 1 Label",
+          "valueType": "string",
+          "required": true,
+          "condition": "{ctaType} === 'dual'",
+          "description": "Provide first dual CTA label."
+        },
+        {
+          "component": "text",
+          "name": "dualDescriptionOne",
+          "value": "",
+          "label": "Dual CTA 1 Description",
+          "valueType": "string",
+          "condition": "{ctaType} === 'dual'",
+          "description": "Optional first dual CTA description."
+        },
+        {
+          "component": "aem-content",
+          "name": "dualUrlOne",
+          "label": "Dual CTA 1 URL",
+          "required": true,
+          "condition": "{ctaType} === 'dual'",
+          "description": "Provide first dual CTA URL."
+        },
+        {
+          "component": "multiselect",
+          "name": "dualIconTwo",
+          "value": "",
+          "label": "Dual CTA 2 Icon",
+          "valueType": "string",
+          "required": true,
+          "condition": "{ctaType} === 'dual'",
+          "description": "Select the second outlined GEL icon.",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            { "...": "./_outlined-icons.json" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "dualLabelTwo",
+          "value": "",
+          "label": "Dual CTA 2 Label",
+          "valueType": "string",
+          "required": true,
+          "condition": "{ctaType} === 'dual'",
+          "description": "Provide second dual CTA label."
+        },
+        {
+          "component": "text",
+          "name": "dualDescriptionTwo",
+          "value": "",
+          "label": "Dual CTA 2 Description",
+          "valueType": "string",
+          "condition": "{ctaType} === 'dual'",
+          "description": "Optional second dual CTA description."
+        },
+        {
+          "component": "aem-content",
+          "name": "dualUrlTwo",
+          "label": "Dual CTA 2 URL",
+          "required": true,
+          "condition": "{ctaType} === 'dual'",
+          "description": "Provide second dual CTA URL."
+        }
+      ]
+    },
+    {
+      "id": "step-accordion-item",
+      "fields": [
+        {
+          "component": "text",
+          "name": "label",
+          "value": "",
+          "label": "Label",
+          "valueType": "string",
+          "required": true,
+          "description": "Provide a step label.",
+          "validation": {
+            "minLength": 1,
+            "pattern": "^[^\\s].*$",
+            "customErrorMsg": "Label is required and cannot start with whitespace"
+          }
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "value": "",
+          "label": "Description",
+          "valueType": "string",
+          "required": true,
+          "description": "Provide a step description."
+        },
+        {
+          "component": "reference",
+          "name": "image",
+          "value": "",
+          "label": "Image",
+          "valueType": "string",
+          "description": "Optional image (SVG/PNG)."
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "step-accordion",
+      "components": [
+        "step-accordion-item"
+      ],
+      "min": 3,
+      "max": 6,
+      "minErrorMsg": "Step Accordion must have at least 3 items",
+      "maxErrorMsg": "Step Accordion cannot have more than 6 items"
+    },
+    {
+      "id": "step-accordion-item",
+      "components": []
+    }
+  ]
+}

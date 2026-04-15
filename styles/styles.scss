@@ -1,0 +1,323 @@
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+@use 'variables' as *;
+@use 'components/index' as *;
+// =============================================================================
+// CSS Custom Properties (for runtime theming)
+// =============================================================================
+
+:root {
+  // Colors
+  --background-color: #{$background-color};
+  --light-color: #{$light-color};
+  --dark-color: #{$dark-color};
+  --text-color: #{$text-color};
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
+
+  // Body sizes
+  --body-font-size-m: #{$body-font-size-m};
+  --body-font-size-s: #{$body-font-size-s};
+  --body-font-size-xs: #{$body-font-size-xs};
+
+  // Heading sizes
+  --heading-font-size-xxl: #{$heading-font-size-xxl};
+  --heading-font-size-xl: #{$heading-font-size-xl};
+  --heading-font-size-l: #{$heading-font-size-l};
+  --heading-font-size-m: #{$heading-font-size-m};
+  --heading-font-size-s: #{$heading-font-size-s};
+  --heading-font-size-xs: #{$heading-font-size-xs};
+
+  // Layout
+  --nav-height: #{$nav-height};
+}
+
+// =============================================================================
+// Fallback Fonts
+// =============================================================================
+
+@font-face {
+  font-family: roboto-condensed-fallback;
+  size-adjust: 88.82%;
+  src: local('Arial');
+}
+
+@font-face {
+  font-family: roboto-fallback;
+  size-adjust: 99.529%;
+  src: local('Arial');
+}
+
+// =============================================================================
+// Global Focus Styles
+// =============================================================================
+
+// Override browser default focus color with design token
+:focus-visible {
+  outline-color: var(--border-focus);
+  outline-offset: 2px;
+}
+
+// =============================================================================
+// Desktop Overrides
+// =============================================================================
+
+@include desktop {
+  :root {
+    // Body sizes
+    --body-font-size-m: #{$body-font-size-m-desktop};
+    --body-font-size-s: #{$body-font-size-s-desktop};
+    --body-font-size-xs: #{$body-font-size-xs-desktop};
+
+    // Heading sizes
+    --heading-font-size-xxl: #{$heading-font-size-xxl-desktop};
+    --heading-font-size-xl: #{$heading-font-size-xl-desktop};
+    --heading-font-size-l: #{$heading-font-size-l-desktop};
+    --heading-font-size-m: #{$heading-font-size-m-desktop};
+    --heading-font-size-s: #{$heading-font-size-s-desktop};
+    --heading-font-size-xs: #{$heading-font-size-xs-desktop};
+  }
+}
+
+// =============================================================================
+// Base Styles
+// =============================================================================
+
+body {
+  display: none;
+  margin: 0;
+  font-style: normal;
+  background-color: var(--background-color);
+  color: var(--text-body);
+  font-family: var(--font-family-sans);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+
+  &.appear {
+    display: block;
+  }
+}
+
+// =============================================================================
+// Header & Footer
+// =============================================================================
+
+header {
+  height: var(--nav-height);
+
+  .header {
+    visibility: hidden;
+
+    &[data-block-status="loaded"] {
+      visibility: visible;
+    }
+  }
+}
+
+footer .footer {
+  visibility: hidden;
+
+  &[data-block-status="loaded"] {
+    visibility: visible;
+  }
+}
+
+// =============================================================================
+// Lists
+// =============================================================================
+ul,
+ol,
+dl {
+  padding-inline-start: 1rem;
+  margin: 0;
+  list-style-type: revert;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin: 0.375rem 0;
+}
+
+main ul li {
+  padding-left: 1rem;
+  position: relative;
+}
+
+main ul li::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--text-body);
+  background-color: var(--text-body);
+}
+
+main ul li ul li::after{
+  background-color: transparent;
+}
+
+ul>li>ol {
+  list-style-type: decimal;
+}
+
+ol>li>ol {
+  list-style-type: lower-alpha;
+}
+
+ul>li>ol>li>ol {
+  list-style-type: lower-alpha;
+}
+
+
+ol>li>ol>li>ol {
+  list-style-type: lower-roman;
+}
+
+ul>li>ol>li>ol>li>ol {
+  list-style-type: lower-roman;
+}
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  color: var(--text-body);
+  scroll-margin: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+h1 {
+  font-family: var(--font-brand);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 90%;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+}
+
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+dl, pre, blockquote {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+}
+
+p {
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 0.75rem;
+
+  strong {
+    font-weight: 700;
+  }
+
+  u{
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+
+  &.text-lead{
+    font-size: var(--body-font-size-l);
+  }
+
+  &.text-small {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+code, pre {
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: 16px;
+  border-radius: var(--rounded-2xl);
+  background-color: var(--light-color);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+// =============================================================================
+// Form Elements
+// =============================================================================
+
+input, textarea, select, button {
+  font: inherit;
+}
+
+
+// =============================================================================
+// Images
+// =============================================================================
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+// =============================================================================
+// Icons
+// =============================================================================
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// =============================================================================
+// Sections
+// =============================================================================
+
+// Section styles moved to _sections.scss for better organization
+// See styles/_sections.scss for section layout, padding, background, and sizing configuration
+

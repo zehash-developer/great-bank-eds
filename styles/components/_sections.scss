@@ -1,0 +1,249 @@
+/*
+ * Section Layout, Padding, Background & Sizing Configuration
+ * This file provides configurable section styles following GEL conventions.
+ */
+
+// Import dependencies
+@use 'variables' as *;
+// =============================================================================
+// Layout
+// =============================================================================
+
+main > div {
+  margin: 40px 16px;
+}
+
+// =============================================================================
+// Section Base Styles (moved from styles.scss for consolidation)
+// =============================================================================
+
+main > .section {
+  // Default: grid container with single column, centered with max-width
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0; // Default: no gap
+  max-width : $content-max-width;
+  width:100%;
+  margin:0 auto;
+
+  > div {
+    // No constraints on child divs - section padding handles centering
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+}
+
+// =============================================================================
+// Sizing Variants
+// =============================================================================
+
+// Full-width sizing: no horizontal padding, true edge-to-edge
+.section.sizing-full-width {
+  padding: 0;
+  max-width:none;
+
+  > div {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Centered sizing: explicit (same as default, kept for clarity)
+// .section.sizing-centered {
+//   padding-left: max($section-padding-mobile, calc((100% - $content-max-width) / 2));
+//   padding-right: max($section-padding-mobile, calc((100% - $content-max-width) / 2));
+
+//   @include desktop {
+//     padding-left: max($section-padding-desktop, calc((100% - $content-max-width) / 2));
+//     padding-right: max($section-padding-desktop, calc((100% - $content-max-width) / 2));
+//   }
+
+//   > div {
+//     max-width: none;
+//     margin: 0;
+//     padding: 0;
+//   }
+// }```
+
+// Layout: 4-8 columns
+.section.layout-4-8 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  // Default: no gap, add gap-* class if needed
+
+  // All wrapper divs: full width on mobile
+  > div {
+    grid-column: span 12;
+  }
+
+  // Desktop: odd wrappers = 4 columns
+  @include breakpoint('md') {
+    > div:nth-child(odd) {
+      grid-column: span 4;
+    }
+
+    // Desktop: even wrappers = 8 columns
+    > div:nth-child(even) {
+      grid-column: span 8;
+    }
+
+    // Desktop: last wrapper = full width if odd total count
+    > div:last-child:nth-child(odd) {
+      grid-column: span 12;
+    }
+  }
+}
+
+// Layout: 6-6 columns
+.section.layout-6-6 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  // Default: no gap, add gap-* class if needed
+
+  // All wrapper divs: full width on mobile
+  > div {
+    grid-column: span 12;
+  }
+
+  // Desktop: all wrappers = 6 columns (50/50)
+  @include breakpoint('md') {
+    > div {
+      grid-column: span 6;
+    }
+
+    // Desktop: last wrapper = full width if odd total count
+    > div:last-child:nth-child(odd) {
+      grid-column: span 12;
+    }
+  }
+}
+
+// Layout: 12 columns (default - explicit class for clarity)
+.section.layout-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  // Default: no gap, add gap-* class if needed
+
+  > div {
+    grid-column: span 12;
+  }
+}
+
+// When no layout class is present, default grid behavior applies (single column)
+
+// =============================================================================
+// Margin Variants
+// =============================================================================
+
+.section.margin-none {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section.margin-small {
+  margin-top: spacing(4); // 24px
+  margin-bottom: spacing(4);
+}
+
+.section.margin-medium {
+  margin-top: spacing(6.67); // 40px
+  margin-bottom: spacing(6.67);
+}
+
+.section.margin-large {
+  margin-top: spacing(8); // 48px
+  margin-bottom: spacing(8);
+}
+
+// Default: no margin (unless margin-* class is applied)
+
+// =============================================================================
+// Gap Variants (for grid layouts)
+// =============================================================================
+
+.section.gap-none {
+  gap: 0;
+}
+
+.section.gap-small {
+  gap: spacing(4); // 24px
+}
+
+.section.gap-medium {
+  gap: spacing(6); // 36px
+}
+
+.section.gap-large {
+  gap: spacing(8); // 48px
+}
+
+// Default: no gap (unless gap-* class is applied)
+
+// =============================================================================
+// Padding Variants
+// =============================================================================
+
+.section.padding-none {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section.padding-small {
+  padding-top: spacing(4); // 24px
+  padding-bottom: spacing(4);
+}
+
+.section.padding-medium {
+  padding-top: spacing(6); // 36px
+  padding-bottom: spacing(6);
+}
+
+.section.padding-large {
+  padding-top: spacing(8); // 48px
+  padding-bottom: spacing(8);
+}
+
+// Default: no padding (unless padding-* class is applied)
+
+// =============================================================================
+// Background Variants
+// =============================================================================
+
+.section.bg-none {
+  background-color: transparent;
+}
+
+.section.bg-light {
+  background-color: var(--surface-muted-faint);
+}
+
+.section.bg-dark {
+  background-color: var(--surface-muted-soft);
+  color: var(--surface-mono);
+
+  a:any-link {
+    color: var(--surface-mono);
+
+    &:hover {
+      color: var(--text-link);
+    }
+  }
+}
+
+.section.bg-grey {
+  background-color: var(--background-pale-faint);
+}
+
+// Default: no background (transparent, unless bg-* class is applied)
+
+// =============================================================================
+// Legacy Support (maintain existing variants)
+// =============================================================================
+
+.section.highlight {
+  // Keep existing highlight behavior
+  background-color: var(--surface-muted-faint);
+}

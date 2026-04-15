@@ -1,0 +1,382 @@
+[
+  {
+    "name": "accessibility",
+    "value": "accessibility-light"
+  },
+  {
+    "name": "accounts",
+    "value": "accounts-light"
+  },
+  {
+    "name": "aeroplane",
+    "value": "aeroplane-light"
+  },
+  {
+    "name": "arrow-down",
+    "value": "arrow-down-light"
+  },
+  {
+    "name": "arrow-left",
+    "value": "arrow-left-light"
+  },
+  {
+    "name": "arrow-right",
+    "value": "arrow-right-light"
+  },
+  {
+    "name": "arrow-up",
+    "value": "arrow-up-light"
+  },
+  {
+    "name": "arrows-passing",
+    "value": "arrows-passing-light"
+  },
+  {
+    "name": "atm",
+    "value": "atm-light"
+  },
+  {
+    "name": "australia",
+    "value": "australia-light"
+  },
+  {
+    "name": "bank-card-locked",
+    "value": "bank-card-locked-light"
+  },
+  {
+    "name": "bank-card",
+    "value": "bank-card-light"
+  },
+  {
+    "name": "bank",
+    "value": "bank-light"
+  },
+  {
+    "name": "birth-certificate",
+    "value": "birth-certificate-light"
+  },
+  {
+    "name": "building",
+    "value": "building-light"
+  },
+  {
+    "name": "buoy",
+    "value": "buoy-light"
+  },
+  {
+    "name": "bus",
+    "value": "bus-light"
+  },
+  {
+    "name": "business-person",
+    "value": "business-person-light"
+  },
+  {
+    "name": "calculator",
+    "value": "calculator-light"
+  },
+  {
+    "name": "calendar",
+    "value": "calendar-light"
+  },
+  {
+    "name": "car",
+    "value": "car-light"
+  },
+  {
+    "name": "cash",
+    "value": "cash-light"
+  },
+  {
+    "name": "celebration",
+    "value": "celebration-light"
+  },
+  {
+    "name": "chat",
+    "value": "chat-light"
+  },
+  {
+    "name": "clock",
+    "value": "clock-light"
+  },
+  {
+    "name": "coffee",
+    "value": "coffee-light"
+  },
+  {
+    "name": "coins",
+    "value": "coins-light"
+  },
+  {
+    "name": "compass",
+    "value": "compass-light"
+  },
+  {
+    "name": "customer-profile",
+    "value": "customer-profile-light"
+  },
+  {
+    "name": "desktop-computer",
+    "value": "desktop-computer-light"
+  },
+  {
+    "name": "document-and-pen",
+    "value": "document-and-pen-light"
+  },
+  {
+    "name": "dollar-sign",
+    "value": "dollar-sign-light"
+  },
+  {
+    "name": "drivers-licence",
+    "value": "drivers-licence-light"
+  },
+  {
+    "name": "education",
+    "value": "education-light"
+  },
+  {
+    "name": "eftpos",
+    "value": "eftpos-light"
+  },
+  {
+    "name": "envelope-email",
+    "value": "envelope-email-light"
+  },
+  {
+    "name": "envelope-printed",
+    "value": "envelope-printed-light"
+  },
+  {
+    "name": "face-happy",
+    "value": "face-happy-light"
+  },
+  {
+    "name": "face-unhappy",
+    "value": "face-unhappy-light"
+  },
+  {
+    "name": "face-unsure",
+    "value": "face-unsure-light"
+  },
+  {
+    "name": "finger-motion",
+    "value": "finger-motion-light"
+  },
+  {
+    "name": "fingerprint",
+    "value": "fingerprint-light"
+  },
+  {
+    "name": "football",
+    "value": "football-light"
+  },
+  {
+    "name": "fork-knife",
+    "value": "fork-knife-light"
+  },
+  {
+    "name": "generic-document",
+    "value": "generic-document-light"
+  },
+  {
+    "name": "gift",
+    "value": "gift-light"
+  },
+  {
+    "name": "globe-australia",
+    "value": "globe-australia-light"
+  },
+  {
+    "name": "globe",
+    "value": "globe-light"
+  },
+  {
+    "name": "graph-decreasing",
+    "value": "graph-decreasing-light"
+  },
+  {
+    "name": "graph-increasing",
+    "value": "graph-increasing-light"
+  },
+  {
+    "name": "gym",
+    "value": "gym-light"
+  },
+  {
+    "name": "headset",
+    "value": "headset-light"
+  },
+  {
+    "name": "heart",
+    "value": "heart-light"
+  },
+  {
+    "name": "house",
+    "value": "house-light"
+  },
+  {
+    "name": "light-bulb",
+    "value": "light-bulb-light"
+  },
+  {
+    "name": "loop",
+    "value": "loop-light"
+  },
+  {
+    "name": "medicare-card",
+    "value": "medicare-card-light"
+  },
+  {
+    "name": "mobile-device",
+    "value": "mobile-device-light"
+  },
+  {
+    "name": "money-in",
+    "value": "money-in-light"
+  },
+  {
+    "name": "money-out",
+    "value": "money-out-light"
+  },
+  {
+    "name": "movie-tickets",
+    "value": "movie-tickets-light"
+  },
+  {
+    "name": "nest-egg",
+    "value": "nest-egg-light"
+  },
+  {
+    "name": "noodles",
+    "value": "noodles-light"
+  },
+  {
+    "name": "number1pictogram",
+    "value": "number1pictogram-light"
+  },
+  {
+    "name": "number2pictogram",
+    "value": "number2pictogram-light"
+  },
+  {
+    "name": "number3pictogram",
+    "value": "number3pictogram-light"
+  },
+  {
+    "name": "number4pictogram",
+    "value": "number4pictogram-light"
+  },
+  {
+    "name": "number5pictogram",
+    "value": "number5pictogram-light"
+  },
+  {
+    "name": "padlock-locked",
+    "value": "padlock-locked-light"
+  },
+  {
+    "name": "padlock-unlocked",
+    "value": "padlock-unlocked-light"
+  },
+  {
+    "name": "passport",
+    "value": "passport-light"
+  },
+  {
+    "name": "percent-sign",
+    "value": "percent-sign-light"
+  },
+  {
+    "name": "person",
+    "value": "person-light"
+  },
+  {
+    "name": "piggy-bank",
+    "value": "piggy-bank-light"
+  },
+  {
+    "name": "pizza",
+    "value": "pizza-light"
+  },
+  {
+    "name": "plant",
+    "value": "plant-light"
+  },
+  {
+    "name": "search",
+    "value": "search-light"
+  },
+  {
+    "name": "secure",
+    "value": "secure-light"
+  },
+  {
+    "name": "shop",
+    "value": "shop-light"
+  },
+  {
+    "name": "shopping",
+    "value": "shopping-light"
+  },
+  {
+    "name": "sparkle",
+    "value": "sparkle-light"
+  },
+  {
+    "name": "star",
+    "value": "star-light"
+  },
+  {
+    "name": "stopwatch",
+    "value": "stopwatch-light"
+  },
+  {
+    "name": "target",
+    "value": "target-light"
+  },
+  {
+    "name": "tax-document",
+    "value": "tax-document-light"
+  },
+  {
+    "name": "telephone-call",
+    "value": "telephone-call-light"
+  },
+  {
+    "name": "thumbs-up",
+    "value": "thumbs-up-light"
+  },
+  {
+    "name": "tick",
+    "value": "tick-light"
+  },
+  {
+    "name": "tools",
+    "value": "tools-light"
+  },
+  {
+    "name": "tractor",
+    "value": "tractor-light"
+  },
+  {
+    "name": "truck",
+    "value": "truck-light"
+  },
+  {
+    "name": "umbrella",
+    "value": "umbrella-light"
+  },
+  {
+    "name": "unsecure",
+    "value": "unsecure-light"
+  },
+  {
+    "name": "wallet",
+    "value": "wallet-light"
+  },
+  {
+    "name": "wearables",
+    "value": "wearables-light"
+  }
+]

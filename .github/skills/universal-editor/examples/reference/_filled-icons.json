@@ -1,0 +1,1062 @@
+[
+  {
+    "name": "accessibility",
+    "value": "accessibility"
+  },
+  {
+    "name": "account",
+    "value": "account"
+  },
+  {
+    "name": "add-circle",
+    "value": "add-circle"
+  },
+  {
+    "name": "add",
+    "value": "add"
+  },
+  {
+    "name": "alert",
+    "value": "alert"
+  },
+  {
+    "name": "android",
+    "value": "android"
+  },
+  {
+    "name": "apple",
+    "value": "apple"
+  },
+  {
+    "name": "archive-box",
+    "value": "archive-box"
+  },
+  {
+    "name": "arrow-back-circle",
+    "value": "arrow-back-circle"
+  },
+  {
+    "name": "arrow-back",
+    "value": "arrow-back"
+  },
+  {
+    "name": "arrow-down-circle",
+    "value": "arrow-down-circle"
+  },
+  {
+    "name": "arrow-down",
+    "value": "arrow-down"
+  },
+  {
+    "name": "arrow-fork",
+    "value": "arrow-fork"
+  },
+  {
+    "name": "arrow-forward-circle",
+    "value": "arrow-forward-circle"
+  },
+  {
+    "name": "arrow-forward",
+    "value": "arrow-forward"
+  },
+  {
+    "name": "arrow-left",
+    "value": "arrow-left"
+  },
+  {
+    "name": "arrow-right",
+    "value": "arrow-right"
+  },
+  {
+    "name": "arrow-split",
+    "value": "arrow-split"
+  },
+  {
+    "name": "arrow-thread-reply",
+    "value": "arrow-thread-reply"
+  },
+  {
+    "name": "arrow-up-circle",
+    "value": "arrow-up-circle"
+  },
+  {
+    "name": "arrow-up",
+    "value": "arrow-up"
+  },
+  {
+    "name": "atm",
+    "value": "atm"
+  },
+  {
+    "name": "attache-case",
+    "value": "attache-case"
+  },
+  {
+    "name": "australia",
+    "value": "australia"
+  },
+  {
+    "name": "baby-buggy",
+    "value": "baby-buggy"
+  },
+  {
+    "name": "backspace",
+    "value": "backspace"
+  },
+  {
+    "name": "bank",
+    "value": "bank"
+  },
+  {
+    "name": "bar-chart-down",
+    "value": "bar-chart-down"
+  },
+  {
+    "name": "bar-chart",
+    "value": "bar-chart"
+  },
+  {
+    "name": "barbell",
+    "value": "barbell"
+  },
+  {
+    "name": "book",
+    "value": "book"
+  },
+  {
+    "name": "bpay",
+    "value": "bpay"
+  },
+  {
+    "name": "briefcase",
+    "value": "briefcase"
+  },
+  {
+    "name": "bug-report",
+    "value": "bug-report"
+  },
+  {
+    "name": "burger",
+    "value": "burger"
+  },
+  {
+    "name": "business-person",
+    "value": "business-person"
+  },
+  {
+    "name": "button-shape",
+    "value": "button-shape"
+  },
+  {
+    "name": "cafe",
+    "value": "cafe"
+  },
+  {
+    "name": "cake",
+    "value": "cake"
+  },
+  {
+    "name": "calculate",
+    "value": "calculate"
+  },
+  {
+    "name": "calculator",
+    "value": "calculator"
+  },
+  {
+    "name": "calendar",
+    "value": "calendar"
+  },
+  {
+    "name": "camera",
+    "value": "camera"
+  },
+  {
+    "name": "cancel-card",
+    "value": "cancel-card"
+  },
+  {
+    "name": "car",
+    "value": "car"
+  },
+  {
+    "name": "cardless-cash",
+    "value": "cardless-cash"
+  },
+  {
+    "name": "cart",
+    "value": "cart"
+  },
+  {
+    "name": "chat",
+    "value": "chat"
+  },
+  {
+    "name": "check",
+    "value": "check"
+  },
+  {
+    "name": "child-care",
+    "value": "child-care"
+  },
+  {
+    "name": "child",
+    "value": "child"
+  },
+  {
+    "name": "circle",
+    "value": "circle"
+  },
+  {
+    "name": "clear",
+    "value": "clear"
+  },
+  {
+    "name": "clock",
+    "value": "clock"
+  },
+  {
+    "name": "close",
+    "value": "close"
+  },
+  {
+    "name": "closed-caption",
+    "value": "closed-caption"
+  },
+  {
+    "name": "cocktail-glass",
+    "value": "cocktail-glass"
+  },
+  {
+    "name": "color-filters",
+    "value": "color-filters"
+  },
+  {
+    "name": "compass",
+    "value": "compass"
+  },
+  {
+    "name": "contact",
+    "value": "contact"
+  },
+  {
+    "name": "content-copy",
+    "value": "content-copy"
+  },
+  {
+    "name": "credit-card",
+    "value": "credit-card"
+  },
+  {
+    "name": "credit-cards",
+    "value": "credit-cards"
+  },
+  {
+    "name": "cube",
+    "value": "cube"
+  },
+  {
+    "name": "cursor-arrow-click",
+    "value": "cursor-arrow-click"
+  },
+  {
+    "name": "cursor-arrow-doubleclick",
+    "value": "cursor-arrow-doubleclick"
+  },
+  {
+    "name": "cursor-arrow",
+    "value": "cursor-arrow"
+  },
+  {
+    "name": "cursor-arrow-rays",
+    "value": "cursor-arrow-rays"
+  },
+  {
+    "name": "delete",
+    "value": "delete"
+  },
+  {
+    "name": "delivery-truck",
+    "value": "delivery-truck"
+  },
+  {
+    "name": "desktop",
+    "value": "desktop"
+  },
+  {
+    "name": "diamond",
+    "value": "diamond"
+  },
+  {
+    "name": "dollar",
+    "value": "dollar"
+  },
+  {
+    "name": "dollar-sign",
+    "value": "dollar-sign"
+  },
+  {
+    "name": "download-file",
+    "value": "download-file"
+  },
+  {
+    "name": "download",
+    "value": "download"
+  },
+  {
+    "name": "drag",
+    "value": "drag"
+  },
+  {
+    "name": "drop-down",
+    "value": "drop-down"
+  },
+  {
+    "name": "drop-left",
+    "value": "drop-left"
+  },
+  {
+    "name": "drop-right",
+    "value": "drop-right"
+  },
+  {
+    "name": "drop-up",
+    "value": "drop-up"
+  },
+  {
+    "name": "dropbox",
+    "value": "dropbox"
+  },
+  {
+    "name": "edit",
+    "value": "edit"
+  },
+  {
+    "name": "education",
+    "value": "education"
+  },
+  {
+    "name": "eftpos",
+    "value": "eftpos"
+  },
+  {
+    "name": "email",
+    "value": "email"
+  },
+  {
+    "name": "error",
+    "value": "error"
+  },
+  {
+    "name": "excel-file",
+    "value": "excel-file"
+  },
+  {
+    "name": "exit",
+    "value": "exit"
+  },
+  {
+    "name": "expand-less",
+    "value": "expand-less"
+  },
+  {
+    "name": "expand-more",
+    "value": "expand-more"
+  },
+  {
+    "name": "face-happy",
+    "value": "face-happy"
+  },
+  {
+    "name": "facebook",
+    "value": "facebook"
+  },
+  {
+    "name": "favorite",
+    "value": "favorite"
+  },
+  {
+    "name": "filter",
+    "value": "filter"
+  },
+  {
+    "name": "fingerprint",
+    "value": "fingerprint"
+  },
+  {
+    "name": "first-aid-case",
+    "value": "first-aid-case"
+  },
+  {
+    "name": "first-aid",
+    "value": "first-aid"
+  },
+  {
+    "name": "format-color",
+    "value": "format-color"
+  },
+  {
+    "name": "fullscreen-exit",
+    "value": "fullscreen-exit"
+  },
+  {
+    "name": "fullscreen",
+    "value": "fullscreen"
+  },
+  {
+    "name": "future-clock",
+    "value": "future-clock"
+  },
+  {
+    "name": "gel",
+    "value": "gel"
+  },
+  {
+    "name": "generic-file",
+    "value": "generic-file"
+  },
+  {
+    "name": "geolocation",
+    "value": "geolocation"
+  },
+  {
+    "name": "gift",
+    "value": "gift"
+  },
+  {
+    "name": "github",
+    "value": "github"
+  },
+  {
+    "name": "global",
+    "value": "global"
+  },
+  {
+    "name": "google-plus",
+    "value": "google-plus"
+  },
+  {
+    "name": "grid",
+    "value": "grid"
+  },
+  {
+    "name": "growth",
+    "value": "growth"
+  },
+  {
+    "name": "hamburger-menu",
+    "value": "hamburger-menu"
+  },
+  {
+    "name": "headset",
+    "value": "headset"
+  },
+  {
+    "name": "heart-add",
+    "value": "heart-add"
+  },
+  {
+    "name": "heart-tick",
+    "value": "heart-tick"
+  },
+  {
+    "name": "help",
+    "value": "help"
+  },
+  {
+    "name": "history-clock",
+    "value": "history-clock"
+  },
+  {
+    "name": "house-dollar",
+    "value": "house-dollar"
+  },
+  {
+    "name": "house",
+    "value": "house"
+  },
+  {
+    "name": "house-people",
+    "value": "house-people"
+  },
+  {
+    "name": "house-person",
+    "value": "house-person"
+  },
+  {
+    "name": "ice-cream",
+    "value": "ice-cream"
+  },
+  {
+    "name": "id-card",
+    "value": "id-card"
+  },
+  {
+    "name": "image-square",
+    "value": "image-square"
+  },
+  {
+    "name": "info",
+    "value": "info"
+  },
+  {
+    "name": "instagram",
+    "value": "instagram"
+  },
+  {
+    "name": "inventory",
+    "value": "inventory"
+  },
+  {
+    "name": "invest",
+    "value": "invest"
+  },
+  {
+    "name": "invoice",
+    "value": "invoice"
+  },
+  {
+    "name": "key",
+    "value": "key"
+  },
+  {
+    "name": "keyhole",
+    "value": "keyhole"
+  },
+  {
+    "name": "leaf",
+    "value": "leaf"
+  },
+  {
+    "name": "light-bulb",
+    "value": "light-bulb"
+  },
+  {
+    "name": "limit",
+    "value": "limit"
+  },
+  {
+    "name": "link",
+    "value": "link"
+  },
+  {
+    "name": "linkedin",
+    "value": "linkedin"
+  },
+  {
+    "name": "list",
+    "value": "list"
+  },
+  {
+    "name": "live-chat",
+    "value": "live-chat"
+  },
+  {
+    "name": "luggage",
+    "value": "luggage"
+  },
+  {
+    "name": "map",
+    "value": "map"
+  },
+  {
+    "name": "map-pin",
+    "value": "map-pin"
+  },
+  {
+    "name": "medical",
+    "value": "medical"
+  },
+  {
+    "name": "megaphone",
+    "value": "megaphone"
+  },
+  {
+    "name": "message",
+    "value": "message"
+  },
+  {
+    "name": "mobile-pay",
+    "value": "mobile-pay"
+  },
+  {
+    "name": "money-bag",
+    "value": "money-bag"
+  },
+  {
+    "name": "money-in",
+    "value": "money-in"
+  },
+  {
+    "name": "money-notes",
+    "value": "money-notes"
+  },
+  {
+    "name": "money-out",
+    "value": "money-out"
+  },
+  {
+    "name": "more-horiz",
+    "value": "more-horiz"
+  },
+  {
+    "name": "more-vert",
+    "value": "more-vert"
+  },
+  {
+    "name": "move-from",
+    "value": "move-from"
+  },
+  {
+    "name": "move-to",
+    "value": "move-to"
+  },
+  {
+    "name": "new-content",
+    "value": "new-content"
+  },
+  {
+    "name": "new-window",
+    "value": "new-window"
+  },
+  {
+    "name": "notification-active",
+    "value": "notification-active"
+  },
+  {
+    "name": "notification",
+    "value": "notification"
+  },
+  {
+    "name": "notification-off",
+    "value": "notification-off"
+  },
+  {
+    "name": "office",
+    "value": "office"
+  },
+  {
+    "name": "open-browser",
+    "value": "open-browser"
+  },
+  {
+    "name": "package-delivery",
+    "value": "package-delivery"
+  },
+  {
+    "name": "padlock",
+    "value": "padlock"
+  },
+  {
+    "name": "padlock-open",
+    "value": "padlock-open"
+  },
+  {
+    "name": "padlock-tick",
+    "value": "padlock-tick"
+  },
+  {
+    "name": "pause-circle",
+    "value": "pause-circle"
+  },
+  {
+    "name": "pause",
+    "value": "pause"
+  },
+  {
+    "name": "paw",
+    "value": "paw"
+  },
+  {
+    "name": "pay",
+    "value": "pay"
+  },
+  {
+    "name": "pay-id",
+    "value": "pay-id"
+  },
+  {
+    "name": "pay-to",
+    "value": "pay-to"
+  },
+  {
+    "name": "pay-to-mobile",
+    "value": "pay-to-mobile"
+  },
+  {
+    "name": "paypass",
+    "value": "paypass"
+  },
+  {
+    "name": "pdf-file",
+    "value": "pdf-file"
+  },
+  {
+    "name": "pending",
+    "value": "pending"
+  },
+  {
+    "name": "people",
+    "value": "people"
+  },
+  {
+    "name": "percent",
+    "value": "percent"
+  },
+  {
+    "name": "person",
+    "value": "person"
+  },
+  {
+    "name": "phone",
+    "value": "phone"
+  },
+  {
+    "name": "pie-chart",
+    "value": "pie-chart"
+  },
+  {
+    "name": "piggy-bank",
+    "value": "piggy-bank"
+  },
+  {
+    "name": "pin",
+    "value": "pin"
+  },
+  {
+    "name": "pizza",
+    "value": "pizza"
+  },
+  {
+    "name": "plane",
+    "value": "plane"
+  },
+  {
+    "name": "play-circle",
+    "value": "play-circle"
+  },
+  {
+    "name": "play",
+    "value": "play"
+  },
+  {
+    "name": "pram",
+    "value": "pram"
+  },
+  {
+    "name": "presets",
+    "value": "presets"
+  },
+  {
+    "name": "print",
+    "value": "print"
+  },
+  {
+    "name": "progress",
+    "value": "progress"
+  },
+  {
+    "name": "question-mark",
+    "value": "question-mark"
+  },
+  {
+    "name": "quick-balance",
+    "value": "quick-balance"
+  },
+  {
+    "name": "receipt",
+    "value": "receipt"
+  },
+  {
+    "name": "refresh",
+    "value": "refresh"
+  },
+  {
+    "name": "remove-circle",
+    "value": "remove-circle"
+  },
+  {
+    "name": "remove",
+    "value": "remove"
+  },
+  {
+    "name": "replay",
+    "value": "replay"
+  },
+  {
+    "name": "restaurant",
+    "value": "restaurant"
+  },
+  {
+    "name": "rss",
+    "value": "rss"
+  },
+  {
+    "name": "scan-document",
+    "value": "scan-document"
+  },
+  {
+    "name": "sd-storage",
+    "value": "sd-storage"
+  },
+  {
+    "name": "search",
+    "value": "search"
+  },
+  {
+    "name": "security",
+    "value": "security"
+  },
+  {
+    "name": "service-bell",
+    "value": "service-bell"
+  },
+  {
+    "name": "settings",
+    "value": "settings"
+  },
+  {
+    "name": "share",
+    "value": "share"
+  },
+  {
+    "name": "share-ios",
+    "value": "share-ios"
+  },
+  {
+    "name": "shop",
+    "value": "shop"
+  },
+  {
+    "name": "shopping-bag",
+    "value": "shopping-bag"
+  },
+  {
+    "name": "shopping-basket",
+    "value": "shopping-basket"
+  },
+  {
+    "name": "sim-card",
+    "value": "sim-card"
+  },
+  {
+    "name": "slack",
+    "value": "slack"
+  },
+  {
+    "name": "sms",
+    "value": "sms"
+  },
+  {
+    "name": "spa",
+    "value": "spa"
+  },
+  {
+    "name": "star-half",
+    "value": "star-half"
+  },
+  {
+    "name": "star-rate",
+    "value": "star-rate"
+  },
+  {
+    "name": "stars",
+    "value": "stars"
+  },
+  {
+    "name": "stopwatch",
+    "value": "stopwatch"
+  },
+  {
+    "name": "stroller",
+    "value": "stroller"
+  },
+  {
+    "name": "success",
+    "value": "success"
+  },
+  {
+    "name": "super",
+    "value": "super"
+  },
+  {
+    "name": "switch",
+    "value": "switch"
+  },
+  {
+    "name": "tablet",
+    "value": "tablet"
+  },
+  {
+    "name": "tag",
+    "value": "tag"
+  },
+  {
+    "name": "takeout-coffee",
+    "value": "takeout-coffee"
+  },
+  {
+    "name": "takeout-food",
+    "value": "takeout-food"
+  },
+  {
+    "name": "target",
+    "value": "target"
+  },
+  {
+    "name": "telephone",
+    "value": "telephone"
+  },
+  {
+    "name": "text-bold",
+    "value": "text-bold"
+  },
+  {
+    "name": "text-increase",
+    "value": "text-increase"
+  },
+  {
+    "name": "text-large",
+    "value": "text-large"
+  },
+  {
+    "name": "thumb-down",
+    "value": "thumb-down"
+  },
+  {
+    "name": "thumb-up",
+    "value": "thumb-up"
+  },
+  {
+    "name": "tick-circle",
+    "value": "tick-circle"
+  },
+  {
+    "name": "tick",
+    "value": "tick"
+  },
+  {
+    "name": "tiles",
+    "value": "tiles"
+  },
+  {
+    "name": "transfer",
+    "value": "transfer"
+  },
+  {
+    "name": "transport",
+    "value": "transport"
+  },
+  {
+    "name": "travel-explore",
+    "value": "travel-explore"
+  },
+  {
+    "name": "tune",
+    "value": "tune"
+  },
+  {
+    "name": "twitter",
+    "value": "twitter"
+  },
+  {
+    "name": "umbrella",
+    "value": "umbrella"
+  },
+  {
+    "name": "unpin",
+    "value": "unpin"
+  },
+  {
+    "name": "upload",
+    "value": "upload"
+  },
+  {
+    "name": "verified",
+    "value": "verified"
+  },
+  {
+    "name": "video",
+    "value": "video"
+  },
+  {
+    "name": "visibility",
+    "value": "visibility"
+  },
+  {
+    "name": "visibility-off",
+    "value": "visibility-off"
+  },
+  {
+    "name": "voice",
+    "value": "voice"
+  },
+  {
+    "name": "voiceover-on",
+    "value": "voiceover-on"
+  },
+  {
+    "name": "volume-off",
+    "value": "volume-off"
+  },
+  {
+    "name": "volume-on",
+    "value": "volume-on"
+  },
+  {
+    "name": "walk",
+    "value": "walk"
+  },
+  {
+    "name": "wallet",
+    "value": "wallet"
+  },
+  {
+    "name": "warning",
+    "value": "warning"
+  },
+  {
+    "name": "watch",
+    "value": "watch"
+  },
+  {
+    "name": "wearable",
+    "value": "wearable"
+  },
+  {
+    "name": "wheelchair",
+    "value": "wheelchair"
+  },
+  {
+    "name": "windows-new",
+    "value": "windows-new"
+  },
+  {
+    "name": "wine-glass",
+    "value": "wine-glass"
+  },
+  {
+    "name": "word-file",
+    "value": "word-file"
+  },
+  {
+    "name": "write",
+    "value": "write"
+  },
+  {
+    "name": "x",
+    "value": "x"
+  },
+  {
+    "name": "yammer",
+    "value": "yammer"
+  },
+  {
+    "name": "youtube",
+    "value": "youtube"
+  },
+  {
+    "name": "zip-file",
+    "value": "zip-file"
+  }
+]

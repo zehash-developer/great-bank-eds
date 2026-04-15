@@ -1,0 +1,19 @@
+@use '../../../styles/variables' as *;
+
+.sample-block {
+  padding: spacing(4);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+
+  &__title {
+    margin-bottom: spacing(2);
+  }
+
+  &__item + &__item {
+    margin-top: spacing(3);
+  }
+
+  @include breakpoint('md') {
+    padding: spacing(6);
+  }
+}

@@ -1,0 +1,292 @@
+/**
+ * Global SCSS Variables and Mixins
+ * This file is imported by other SCSS files using @use or @import
+ */
+
+@use 'sass:map';
+
+// =============================================================================
+// Colors
+// =============================================================================
+
+$background-color: white;
+$light-color: #f8f8f8;
+$dark-color: #505050;
+$text-color: #131313;
+$link-color: #3b63fb;
+$link-hover-color: #1d3ecf;
+
+// =============================================================================
+// GEL Token Fallbacks
+// Single source of truth for fallback values when CSS custom properties
+// are not available. Components should use these instead of hardcoded values.
+// =============================================================================
+
+// Color fallbacks (Westpac defaults - from @westpac/style-config)
+$gel-fallback-white: #FFFFFF;
+$gel-fallback-primary: #DA1710;
+$gel-fallback-hero: #1F1C4F;
+$gel-fallback-text: #181B25;
+$gel-fallback-heading: #1F1C4F;
+$gel-fallback-background: #F3F4F6;
+$gel-fallback-light: #F9F9FB;
+$gel-fallback-border: #DEDEE1;
+$gel-fallback-border-dark: #9390A2;
+$gel-fallback-muted: #595767;
+$gel-fallback-neutral: #2A2E42;
+$gel-fallback-focus: #B978D9;
+$gel-fallback-link: #DA1710;
+$gel-fallback-pop: #FF3DDB;
+
+// Typography fallbacks
+$gel-fallback-font-brand: system-ui, sans-serif;
+$gel-fallback-font-body: system-ui, sans-serif;
+
+// =============================================================================
+// Dark Mode Token Fallbacks (from @westpac/style-config)
+// These SCSS variables are kept as reference values. Dark mode colors are now
+// applied via CSS custom properties in _gel-tokens.scss which auto-resolve.
+// Values sourced from @westpac/style-config values-night/wbc_colors.xml
+// =============================================================================
+
+// Background tokens (dark mode)
+$dark-background-white-pale: #1c1c1f;
+$dark-background-pale-faint: #161619;
+$dark-background-white-black: #000000;
+
+// Surface tokens (dark mode)
+$dark-surface-muted-pale: #1c1c1f;
+$dark-surface-muted-soft: #323238;
+$dark-surface-muted-mild: #464651;
+$dark-surface-muted-strong: #5b5b6a;
+$dark-surface-hover-muted-pale: #323238;
+$dark-surface-active-muted-pale: #5b5b6a;
+
+// Text tokens (dark mode)
+$dark-text-body: #dedee1;
+$dark-text-heading: #a9a5df;
+$dark-text-muted: #8e8d98;
+$dark-text-link: #f1423c;
+$dark-text-hover-link: #f46e69;
+
+// Border tokens (dark mode)
+$dark-border-muted: #706f7c;
+$dark-border-muted-soft: #323238;
+$dark-border-muted-mild: #464651;
+
+// =============================================================================
+// style-config Variables Reference
+// Use var(--...) directly. Dark mode auto-switches when data-theme="dark" on document.
+// Key tokens: --text-body, --text-heading, --text-muted, --text-link, --surface-primary,
+// --background-pale-faint, --surface-muted-faint, --border-muted-soft, --border-muted-mild,
+// --border-focus, --surface-hero, --font-family-sans
+// =============================================================================
+
+/// GEL Spacing Function (matches Tailwind naming convention)
+/// Based on GEL 6px grid: (step × 6) / 16 = rem
+/// @param {Number} $step - The spacing step (0-35)
+/// @return {Length} - Calculated rem value
+/// @example scss
+///   padding: spacing(2);       // 0.75rem (12px)
+///   margin: spacing(4);        // 1.5rem (24px)
+///   gap: spacing(1);           // 0.375rem (6px)
+@function spacing($step) {
+  @return calc(#{$step} * var(--spacing));
+}
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+// Body sizes (mobile first)
+$body-font-size-l: 24px;
+$body-font-size-m: 16px;
+$body-font-size-s: 14px;
+$body-font-size-xs: 12px;
+
+// Heading sizes (mobile first)
+$heading-font-size-xxl: 54px;
+$heading-font-size-xl: 30px;
+$heading-font-size-l: 24px;
+$heading-font-size-m: 18px;
+$heading-font-size-s: 16px;
+$heading-font-size-xs: 14px;
+
+// Desktop sizes
+$body-font-size-l-desktop: 24px;
+$body-font-size-m-desktop: 16px;
+$body-font-size-s-desktop: 14px;
+$body-font-size-xs-desktop: 12px;
+
+$heading-font-size-xxl-desktop: 54px;
+$heading-font-size-xl-desktop: 30px;
+$heading-font-size-l-desktop: 24px;
+$heading-font-size-m-desktop: 18px;
+$heading-font-size-s-desktop: 16px;
+$heading-font-size-xs-desktop: 14px;
+
+// =============================================================================
+// Layout
+// =============================================================================
+
+$nav-height: 64px;
+$content-max-width: 1584px;
+$section-padding-mobile: 24px;
+$section-padding-desktop: 32px;
+
+// =============================================================================
+// Carousel & card (shared by cards, action-card, tap-tiles, _carousel.scss)
+// =============================================================================
+$carousel-transition: 300ms cubic-bezier(0.2, 0, 0, 1);
+$carousel-peek: 30px;
+$carousel-card-gap: spacing(4);
+$shadow-card-hover: rgba(0, 0, 0, 0.1);
+
+// =============================================================================
+// Panel / alert (shared by information-panel, important-to-know)
+// =============================================================================
+$panel-border-radius: spacing(3);
+$panel-icon-size: spacing(4);
+
+// =============================================================================
+// Breakpoints (GEL Design System)
+// https://gel.westpacgroup.com.au/design-system/wbc/foundation/layout/breakpoints
+// =============================================================================
+
+$breakpoints: (
+  'xsl': 576px,   // Extra small landscape
+  'sm': 768px,    // Small (tablet)
+  'md': 992px,    // Medium (desktop)
+  'lg': 1200px,   // Large (wide desktop)
+  'xl': 1584px,   // Extra large (ultrawide)
+);
+
+/// GEL Breakpoint mixin (mobile-first, min-width)
+/// @param {String} $name - Breakpoint name ('xsl', 'sm', 'md', 'lg', 'xl')
+@mixin breakpoint($name) {
+  @media (width >= map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+/// GEL Breakpoint mixin (desktop-first, max-width)
+/// @param {String} $name - Breakpoint name ('xsl', 'sm', 'md', 'lg', 'xl')
+@mixin breakpoint-down($name) {
+  @media (width < map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+/// Legacy desktop mixin (maps to 'md' breakpoint for backwards compatibility)
+@mixin desktop {
+  @include breakpoint('md') {
+    @content;
+  }
+}
+
+/// Legacy mobile mixin (maps to 'md' breakpoint for backwards compatibility)
+@mixin mobile {
+  @include breakpoint-down('md') {
+    @content;
+  }
+}
+
+/// Visually hidden but accessible
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/// Reset button styles
+@mixin button-reset {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/// Reset list styles
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// =============================================================================
+// Animation Variables
+// Consistent animation speeds and easing across all components
+// =============================================================================
+
+// Animation speeds
+$animation-speed-fast: 150ms;
+$animation-speed-normal: 250ms;
+$animation-speed-slow: 350ms;
+
+// Animation easing functions
+$animation-ease-default: ease-in-out;
+$animation-ease-in: ease-in;
+$animation-ease-out: ease-out;
+
+/// Apply a consistent animated transition with configurable speed
+/// @param {String} $property - CSS property to animate (e.g., 'transform', 'opacity', 'all')
+/// @param {String} $speed - Speed preset: 'fast', 'normal', 'slow' or custom duration (default: 'normal')
+/// @param {String} $easing - Easing function (default: ease-in-out)
+/// @example scss
+///   .icon {
+///     @include animate(transform);                    // 250ms ease-in-out
+///     @include animate(opacity, 'fast');              // 150ms ease-in-out
+///     @include animate(background-color, 'slow');     // 350ms ease-in-out
+///     @include animate(all, 200ms, ease-out);         // Custom duration and easing
+///   }
+@mixin animate($property, $speed: 'normal', $easing: $animation-ease-default) {
+  $duration: $speed;
+
+  @if $speed == 'fast' {
+    $duration: $animation-speed-fast;
+  } @else if $speed == 'normal' {
+    $duration: $animation-speed-normal;
+  } @else if $speed == 'slow' {
+    $duration: $animation-speed-slow;
+  }
+
+  transition: $property $duration $easing;
+}
+
+/// Apply multiple animated transitions with consistent timing
+/// @param {List} $properties - List of CSS properties to animate
+/// @param {String} $speed - Speed preset: 'fast', 'normal', 'slow' (default: 'normal')
+/// @param {String} $easing - Easing function (default: ease-in-out)
+/// @example scss
+///   .button {
+///     @include animates(background-color color, 'fast');
+///   }
+@mixin animates($properties, $speed: 'normal', $easing: $animation-ease-default) {
+  $duration: $speed;
+
+  @if $speed == 'fast' {
+    $duration: $animation-speed-fast;
+  } @else if $speed == 'normal' {
+    $duration: $animation-speed-normal;
+  } @else if $speed == 'slow' {
+    $duration: $animation-speed-slow;
+  }
+
+  $transition-list: ();
+  @each $prop in $properties {
+    $transition-list: append($transition-list, $prop $duration $easing, comma);
+  }
+
+  transition: $transition-list;
+}
+

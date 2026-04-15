@@ -1,0 +1,382 @@
+[
+  {
+    "name": "accessibility",
+    "value": "accessibility-duo"
+  },
+  {
+    "name": "accounts",
+    "value": "accounts-duo"
+  },
+  {
+    "name": "aeroplane",
+    "value": "aeroplane-duo"
+  },
+  {
+    "name": "arrow-down",
+    "value": "arrow-down-duo"
+  },
+  {
+    "name": "arrow-left",
+    "value": "arrow-left-duo"
+  },
+  {
+    "name": "arrow-right",
+    "value": "arrow-right-duo"
+  },
+  {
+    "name": "arrow-up",
+    "value": "arrow-up-duo"
+  },
+  {
+    "name": "arrows-passing",
+    "value": "arrows-passing-duo"
+  },
+  {
+    "name": "atm",
+    "value": "atm-duo"
+  },
+  {
+    "name": "australia",
+    "value": "australia-duo"
+  },
+  {
+    "name": "bank-card-locked",
+    "value": "bank-card-locked-duo"
+  },
+  {
+    "name": "bank-card",
+    "value": "bank-card-duo"
+  },
+  {
+    "name": "bank",
+    "value": "bank-duo"
+  },
+  {
+    "name": "birth-certificate",
+    "value": "birth-certificate-duo"
+  },
+  {
+    "name": "building",
+    "value": "building-duo"
+  },
+  {
+    "name": "buoy",
+    "value": "buoy-duo"
+  },
+  {
+    "name": "bus",
+    "value": "bus-duo"
+  },
+  {
+    "name": "business-person",
+    "value": "business-person-duo"
+  },
+  {
+    "name": "calculator",
+    "value": "calculator-duo"
+  },
+  {
+    "name": "calendar",
+    "value": "calendar-duo"
+  },
+  {
+    "name": "car",
+    "value": "car-duo"
+  },
+  {
+    "name": "cash",
+    "value": "cash-duo"
+  },
+  {
+    "name": "celebration",
+    "value": "celebration-duo"
+  },
+  {
+    "name": "chat",
+    "value": "chat-duo"
+  },
+  {
+    "name": "clock",
+    "value": "clock-duo"
+  },
+  {
+    "name": "coffee",
+    "value": "coffee-duo"
+  },
+  {
+    "name": "coins",
+    "value": "coins-duo"
+  },
+  {
+    "name": "compass",
+    "value": "compass-duo"
+  },
+  {
+    "name": "customer-profile",
+    "value": "customer-profile-duo"
+  },
+  {
+    "name": "desktop-computer",
+    "value": "desktop-computer-duo"
+  },
+  {
+    "name": "document-and-pen",
+    "value": "document-and-pen-duo"
+  },
+  {
+    "name": "dollar-sign",
+    "value": "dollar-sign-duo"
+  },
+  {
+    "name": "drivers-licence",
+    "value": "drivers-licence-duo"
+  },
+  {
+    "name": "education",
+    "value": "education-duo"
+  },
+  {
+    "name": "eftpos",
+    "value": "eftpos-duo"
+  },
+  {
+    "name": "envelope-email",
+    "value": "envelope-email-duo"
+  },
+  {
+    "name": "envelope-printed",
+    "value": "envelope-printed-duo"
+  },
+  {
+    "name": "face-happy",
+    "value": "face-happy-duo"
+  },
+  {
+    "name": "face-unhappy",
+    "value": "face-unhappy-duo"
+  },
+  {
+    "name": "face-unsure",
+    "value": "face-unsure-duo"
+  },
+  {
+    "name": "finger-motion",
+    "value": "finger-motion-duo"
+  },
+  {
+    "name": "fingerprint",
+    "value": "fingerprint-duo"
+  },
+  {
+    "name": "football",
+    "value": "football-duo"
+  },
+  {
+    "name": "fork-knife",
+    "value": "fork-knife-duo"
+  },
+  {
+    "name": "generic-document",
+    "value": "generic-document-duo"
+  },
+  {
+    "name": "gift",
+    "value": "gift-duo"
+  },
+  {
+    "name": "globe-australia",
+    "value": "globe-australia-duo"
+  },
+  {
+    "name": "globe",
+    "value": "globe-duo"
+  },
+  {
+    "name": "graph-decreasing",
+    "value": "graph-decreasing-duo"
+  },
+  {
+    "name": "graph-increasing",
+    "value": "graph-increasing-duo"
+  },
+  {
+    "name": "gym",
+    "value": "gym-duo"
+  },
+  {
+    "name": "headset",
+    "value": "headset-duo"
+  },
+  {
+    "name": "heart",
+    "value": "heart-duo"
+  },
+  {
+    "name": "house",
+    "value": "house-duo"
+  },
+  {
+    "name": "light-bulb",
+    "value": "light-bulb-duo"
+  },
+  {
+    "name": "loop",
+    "value": "loop-duo"
+  },
+  {
+    "name": "medicare-card",
+    "value": "medicare-card-duo"
+  },
+  {
+    "name": "mobile-device",
+    "value": "mobile-device-duo"
+  },
+  {
+    "name": "money-in",
+    "value": "money-in-duo"
+  },
+  {
+    "name": "money-out",
+    "value": "money-out-duo"
+  },
+  {
+    "name": "movie-tickets",
+    "value": "movie-tickets-duo"
+  },
+  {
+    "name": "nest-egg",
+    "value": "nest-egg-duo"
+  },
+  {
+    "name": "noodles",
+    "value": "noodles-duo"
+  },
+  {
+    "name": "number1pictogram",
+    "value": "number1pictogram-duo"
+  },
+  {
+    "name": "number2pictogram",
+    "value": "number2pictogram-duo"
+  },
+  {
+    "name": "number3pictogram",
+    "value": "number3pictogram-duo"
+  },
+  {
+    "name": "number4pictogram",
+    "value": "number4pictogram-duo"
+  },
+  {
+    "name": "number5pictogram",
+    "value": "number5pictogram-duo"
+  },
+  {
+    "name": "padlock-locked",
+    "value": "padlock-locked-duo"
+  },
+  {
+    "name": "padlock-unlocked",
+    "value": "padlock-unlocked-duo"
+  },
+  {
+    "name": "passport",
+    "value": "passport-duo"
+  },
+  {
+    "name": "percent-sign",
+    "value": "percent-sign-duo"
+  },
+  {
+    "name": "person",
+    "value": "person-duo"
+  },
+  {
+    "name": "piggy-bank",
+    "value": "piggy-bank-duo"
+  },
+  {
+    "name": "pizza",
+    "value": "pizza-duo"
+  },
+  {
+    "name": "plant",
+    "value": "plant-duo"
+  },
+  {
+    "name": "search",
+    "value": "search-duo"
+  },
+  {
+    "name": "secure",
+    "value": "secure-duo"
+  },
+  {
+    "name": "shop",
+    "value": "shop-duo"
+  },
+  {
+    "name": "shopping",
+    "value": "shopping-duo"
+  },
+  {
+    "name": "sparkle",
+    "value": "sparkle-duo"
+  },
+  {
+    "name": "star",
+    "value": "star-duo"
+  },
+  {
+    "name": "stopwatch",
+    "value": "stopwatch-duo"
+  },
+  {
+    "name": "target",
+    "value": "target-duo"
+  },
+  {
+    "name": "tax-document",
+    "value": "tax-document-duo"
+  },
+  {
+    "name": "telephone-call",
+    "value": "telephone-call-duo"
+  },
+  {
+    "name": "thumbs-up",
+    "value": "thumbs-up-duo"
+  },
+  {
+    "name": "tick",
+    "value": "tick-duo"
+  },
+  {
+    "name": "tools",
+    "value": "tools-duo"
+  },
+  {
+    "name": "tractor",
+    "value": "tractor-duo"
+  },
+  {
+    "name": "truck",
+    "value": "truck-duo"
+  },
+  {
+    "name": "umbrella",
+    "value": "umbrella-duo"
+  },
+  {
+    "name": "unsecure",
+    "value": "unsecure-duo"
+  },
+  {
+    "name": "wallet",
+    "value": "wallet-duo"
+  },
+  {
+    "name": "wearables",
+    "value": "wearables-duo"
+  }
+]

@@ -1,0 +1,100 @@
+@use '../mixins/buttons' as *;
+@use 'variables' as *;
+
+
+// =============================================================================
+// Links
+// =============================================================================
+a:any-link {
+    overflow-wrap: break-word;
+    background-color: transparent;
+    color: var(--text-link);
+    text-decoration: underline;
+    border-radius: var(--rounded-none);
+    height: auto;
+
+    &:has(sup) {
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: var(--text-link);
+        text-decoration: none;
+    }
+
+    &:has(sup):hover {
+        text-decoration: none;
+    }
+
+    .file-icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 6px;
+        margin-top: -2px;
+    }
+
+    sup {
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    sup:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+$button-variants: (
+    'primary',
+    'secondary',
+    'tertiary',
+    'hero-standard',
+    'hero-soft',
+    'faint',
+    'faint-soft'
+);
+$button-sizes: (
+    'xl',
+    'lg',
+    'md',
+    'sm',
+);
+
+.button-container {
+    display: flex;
+    gap: spacing(1.67);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: spacing(2);
+    font-weight: 400;
+    line-height: 1.4;
+    width: auto;
+    @include animate(background-color, 'fast');
+
+    @each $variant in $button-variants {
+        &.#{$variant} {
+            @include button-variant($variant);
+        }
+    }
+
+    @each $size in $button-sizes {
+        &.#{$size} {
+            @include button-variant($size: $size);
+        }
+    }
+
+    @each $variant in $button-variants {
+        @each $size in $button-sizes {
+            &.#{$variant}.btn-#{$size} {
+                @include button-variant($variant, $size);
+            }
+        }
+    }
+}

@@ -27,6 +27,26 @@ Furthremore, we encourage you to watch the recordings of any of our previous pre
 npm i
 ```
 
+## Figma MCP
+
+The **single source of truth** for MCP servers in this repo is [.vscode/mcp.json](.vscode/mcp.json) (VS Code / GitHub Copilot format: `servers`, HTTP `type`, etc.). It includes Figma’s hosted server (`https://mcp.figma.com/mcp`).
+
+**Cursor** expects project MCP in `.cursor/mcp.json` with a different shape (`mcpServers`). After cloning, generate that file locally (it is gitignored so it is not duplicated in version control):
+
+```sh
+npm run mcp:sync
+```
+
+Restart Cursor if needed, then **connect / authenticate with Figma once** (OAuth). No API tokens belong in the repo.
+
+**Claude Code** (CLI), for example:
+
+```sh
+claude mcp add --transport http figma https://mcp.figma.com/mcp
+```
+
+Use `--scope user` if you want this server available in every project. Other supported clients are listed in the [Figma MCP catalog](https://www.figma.com/mcp-catalog/).
+
 ## Linting
 
 ```sh

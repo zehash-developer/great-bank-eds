@@ -1,0 +1,143 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+@mixin link {
+    background-color: transparent;
+    color: var(--text-link);
+    text-decoration: underline;
+    padding: 0;
+    border-radius: 0;
+    height: auto;
+
+    &:hover {
+        color: var(--text-link);
+        text-decoration: none;
+    }
+}
+
+@mixin button-size($padding, $font-size, $height) {
+    padding: 0 $padding;
+    font-size: $font-size;
+    height: $height;
+}
+
+
+@mixin button-variant($variant: "primary", $size: "lg") {
+    @include button-reset;
+
+    @if $size =='sm' {
+        @include button-size(spacing(1.5), 0.875rem, 1.875rem);
+    }
+
+    @else if $size =='md' {
+        @include button-size(spacing(2), 1rem, 2.25rem);
+    }
+
+    @else if $size =='lg' {
+        @include button-size(spacing(2.5), 1rem, 2.625rem);
+    }
+
+    @else if $size =='xl' {
+        @include button-size(spacing(3), 1.125rem, 3rem);
+    }
+
+
+    @if $variant =='primary' {
+        background-color: var(--surface-primary);
+        color: var(--text-mono);
+        border: 1px solid var(--border-primary);
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--surface-primary) 70%, white);
+            color: var(--text-mono);
+            text-decoration: none;
+        }
+    }
+
+    @else if $variant =='secondary' {
+        background-color: var(--surface-mono);
+        color: var(--text-body);
+        border: 1px solid var(--border-primary);
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--surface-primary) 70%, white);
+            color: var(--text-reversed);
+            text-decoration: none;
+        }
+    }
+
+    @if $variant =='hero-standard' {
+        background-color: var(--surface-hero);
+        color: var(--text-reversed);
+        border: 1px solid var(--border-hero);
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--surface-hero) 70%, white);
+            color: var(--text-reversed);
+            text-decoration: none;
+        }
+    }
+
+    @else if $variant =='hero-soft' {
+        background-color: var(--surface-mono);
+        color: var(--text-body);
+        border: 1px solid var(--border-hero);
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--surface-hero) 70%, white);
+            color: var(--text-reversed);
+            text-decoration: none;
+        }
+    }
+
+    @if $variant =='faint' {
+        background-color: var(--surface-muted-faint);
+        color: var(--text-muted);
+        border: 1px solid var(--border-muted-strong);
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: var(--surface-mono);
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+    }
+
+    @else if $variant =='faint-soft' {
+        background-color: var(--surface-mono);
+        color: var(--text-muted);
+        border: 1px solid var(--border-muted-strong);
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: var(--surface-muted-faint);
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+    }
+
+    @else if $variant =='tertiary' {
+        @include link;
+    }
+
+
+    &.btn-block {
+        width: 100%;
+    }
+
+    @include breakpoint("sm") {
+        &.btn-block {
+            width: auto;
+        }
+    }
+}
