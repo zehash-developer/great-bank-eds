@@ -1,0 +1,148 @@
+// =============================================================================
+// Great Bank — Color Tokens
+// Source: Figma node 4:2692 (Great Bank Design Files)
+// Replaces @westpac/style-config/dist/css/shared/colors.css
+//
+// Structure:
+//   1. Raw palette — named brand colours as CSS custom properties
+//   2. Semantic tokens — surface / text / border / background (light default)
+//   3. Dark theme overrides — [data-theme="dark"], .dark
+// =============================================================================
+
+:root {
+    // ── Raw Palette ────────────────────────────────────────────────────────────
+
+    // Brand — Navy
+    --gb-navy:              #002855;
+    --gb-navy-light:        #003d7a;
+    --gb-navy-dark:         #001a38;
+
+    // Brand — Gold
+    --gb-gold:              #D4AF37;
+    --gb-gold-light:        #E8C968;
+    --gb-gold-dark:         #B8941F;
+
+    // Extended palette
+    --gb-teal:              #008B8B;
+    --gb-blue:              #0066CC;
+    --gb-green:             #10b981;
+    --gb-orange:            #f59e0b;
+    --gb-purple:            #8b5cf6;
+    --gb-pink:              #ec4899;
+
+    // Neutrals
+    --gb-white:             #ffffff;
+    --gb-black:             #0a0f1a;
+    --gb-grey-50:           #f8f9fb;
+    --gb-grey-100:          #f1f2f4;
+    --gb-grey-200:          #e4e6ea;
+    --gb-grey-300:          #c9cdd6;
+    --gb-grey-400:          #9ba3af;
+    --gb-grey-500:          #6b7280;
+    --gb-grey-700:          #364153;
+    --gb-grey-900:          #101828;
+    --gb-grey-950:          #181b25;
+
+    // ── Semantic — Surface ─────────────────────────────────────────────────────
+
+    --surface-primary:        var(--gb-navy);
+    --surface-primary-faint:  #e6edf5;
+    --surface-hero:           var(--gb-navy-dark);
+    --surface-hero-faint:     #e0e9f2;
+    --surface-mono:           var(--gb-white);
+    --surface-reversed:       var(--gb-white);
+    --surface-muted-vivid:    var(--gb-grey-950);
+    --surface-muted:          var(--gb-grey-500);
+    --surface-muted-strong:   var(--gb-grey-300);
+    --surface-muted-mild:     var(--gb-grey-200);
+    --surface-muted-soft:     var(--gb-grey-100);
+    --surface-muted-faint:    var(--gb-grey-50);
+
+    // ── Semantic — Text ────────────────────────────────────────────────────────
+
+    --text-body:              var(--gb-grey-950);
+    --text-heading:           var(--gb-navy);
+    --text-mono:              var(--gb-white);
+    --text-reversed:          var(--gb-white);
+    --text-muted:             var(--gb-grey-500);
+    --text-link:              var(--gb-navy);
+    --text-primary:           var(--gb-navy);
+    --text-hero:              var(--gb-navy-dark);
+
+    // ── Semantic — Border ──────────────────────────────────────────────────────
+
+    --border-primary:         var(--gb-navy);
+    --border-hero:            var(--gb-navy-dark);
+    --border-muted-soft:      var(--gb-grey-200);
+    --border-muted-mild:      var(--gb-grey-300);
+    --border-muted-strong:    var(--gb-grey-400);
+    --border-muted:           var(--gb-grey-400);
+    --border-focus:           var(--gb-gold);
+
+    // ── Semantic — Background ──────────────────────────────────────────────────
+
+    --background-primary:     var(--gb-navy);
+    --background-hero:        var(--gb-navy-dark);
+    --background-pale-faint:  var(--gb-grey-50);
+
+    // ── Aliases ────────────────────────────────────────────────────────────────
+    // Kept for compatibility with carousel and legacy SCSS. Remove when blocks
+    // are updated to use the semantic tokens above.
+
+    --mono-white:             var(--gb-white);
+    --muted-200:              var(--gb-grey-200);
+    --muted-950:              var(--gb-grey-950);
+    --wbc-muted-100:          var(--gb-grey-100);
+
+    // ── Non-colour tokens previously from GEL ─────────────────────────────────
+    --rounded-none:           0;
+}
+
+// ── Dark theme ────────────────────────────────────────────────────────────────
+// Applied via data-theme="dark" on any ancestor (page/section) or
+// via the .dark class on block elements.
+
+[data-theme="dark"],
+.dark {
+    // Surface
+    --surface-primary:        var(--gb-gold-light);
+    --surface-primary-faint:  #2a2210;
+    --surface-hero:           var(--gb-navy-dark);
+    --surface-mono:           #1e293b;
+    --surface-reversed:       var(--gb-black);
+    --surface-muted-vivid:    #f1f5f9;
+    --surface-muted:          #64748b;
+    --surface-muted-strong:   #475569;
+    --surface-muted-mild:     #334155;
+    --surface-muted-soft:     #1e293b;
+    --surface-muted-faint:    #161619;
+
+    // Text
+    --text-body:              #f1f5f9;
+    --text-heading:           var(--gb-gold-light);
+    --text-mono:              var(--gb-black);
+    --text-reversed:          var(--gb-black);
+    --text-muted:             #8e8d98;
+    --text-link:              var(--gb-gold-light);
+    --text-primary:           var(--gb-gold-light);
+    --text-hero:              var(--gb-gold);
+
+    // Border
+    --border-primary:         var(--gb-gold-light);
+    --border-hero:            var(--gb-gold);
+    --border-muted-soft:      #334155;
+    --border-muted-mild:      #475569;
+    --border-muted-strong:    #64748b;
+    --border-muted:           #475569;
+    --border-focus:           var(--gb-gold-light);
+
+    // Background
+    --background-primary:     var(--gb-gold-light);
+    --background-hero:        var(--gb-navy-dark);
+    --background-pale-faint:  #161619;
+
+    // Aliases
+    --muted-200:              #334155;
+    --muted-950:              #f1f5f9;
+    --wbc-muted-100:          #1e293b;
+}

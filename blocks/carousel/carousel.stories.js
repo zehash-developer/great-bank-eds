@@ -13,6 +13,47 @@
 import './carousel.css';
 import * as mocks from './carousel.mocks.js';
 
+// =============================================================================
+// Figma reference helpers
+// =============================================================================
+
+const FIGMA_VARIATIONS = [
+  { label: 'Variation 1: Carousel (3 Slides)', slides: () => mocks.threeSlides },
+  { label: 'Variation 2: Carousel (5 Slides)', slides: () => mocks.fiveSlides },
+  { label: 'Variation 3: Carousel (2 Slides - Simple)', slides: () => mocks.twoSlides },
+];
+
+/**
+ * Render all three Figma variations stacked — mirrors the Figma frame layout
+ * (node 5:5196 for light, node 5:5296 for dark).
+ */
+function renderFigmaPage({ dark = false } = {}) {
+  const bg = dark ? '#111827' : '#ffffff';
+  const headingColor = dark ? '#f1f5f9' : '#0f172a';
+
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = `background:${bg};padding:24px;font-family:Inter,sans-serif;`;
+
+  const pageTitle = document.createElement('p');
+  pageTitle.textContent = 'Carousel Component';
+  pageTitle.style.cssText = `color:${headingColor};font-size:20px;font-weight:700;margin:0 0 24px;line-height:28px;`;
+  wrapper.appendChild(pageTitle);
+
+  FIGMA_VARIATIONS.forEach(({ label, slides }, i) => {
+    const section = document.createElement('div');
+    if (i < FIGMA_VARIATIONS.length - 1) section.style.marginBottom = '32px';
+
+    const varLabel = document.createElement('p');
+    varLabel.textContent = label;
+    varLabel.style.cssText = `color:${headingColor};font-size:14px;font-weight:700;margin:0 0 12px;line-height:20px;`;
+    section.appendChild(varLabel);
+    section.appendChild(mocks.createCarousel(slides(), { dark }));
+    wrapper.appendChild(section);
+  });
+
+  return wrapper;
+}
+
 export default {
   title: 'Blocks/Carousel',
   parameters: {
@@ -112,6 +153,52 @@ export const DarkFiveSlides = {
 export const DarkTwoSlides = {
   name: 'Dark — 2 slides',
   render: () => mocks.createCarousel(mocks.twoSlides, { dark: true }),
+};
+
+// =============================================================================
+// Figma reference — composite (mirrors Figma screenshot exactly)
+// =============================================================================
+
+/**
+ * Figma Light (node 5:5196) — all 3 variations stacked on white,
+ * with variation labels matching the Figma frame layout.
+ */
+export const FigmaLight = {
+  name: 'Figma — Light (node 5:5196)',
+  render: () => renderFigmaPage({ dark: false }),
+  parameters: {
+    layout: 'padded',
+    backgrounds: { default: 'white' },
+    docs: {
+      description: {
+        story:
+          'Composite story mirroring Figma node 5:5196. '
+          + 'All 3 variations (3-slide, 5-slide, 2-slide) on white background. '
+          + 'Use for side-by-side comparison with the Figma screenshot.',
+      },
+    },
+  },
+};
+
+/**
+ * Figma Dark (node 5:5296) — all 3 variations stacked on #111827 background,
+ * with variation labels matching the Figma frame layout.
+ */
+export const FigmaDark = {
+  name: 'Figma — Dark (node 5:5296)',
+  render: () => renderFigmaPage({ dark: true }),
+  parameters: {
+    layout: 'padded',
+    backgrounds: { default: 'dark' },
+    docs: {
+      description: {
+        story:
+          'Composite story mirroring Figma node 5:5296. '
+          + 'All 3 variations on #111827 dark background. '
+          + 'Dark nav buttons (border, no shadow), gold active dots.',
+      },
+    },
+  },
 };
 
 // =============================================================================

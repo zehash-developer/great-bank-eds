@@ -8,14 +8,12 @@
 @import url("@westpac/style-config/dist/css/shared/animations.css");
 @import url("@westpac/style-config/dist/css/shared/borders.css");
 @import url("@westpac/style-config/dist/css/shared/brand-fonts.css");
-@import url("@westpac/style-config/dist/css/shared/colors.css");
+
+/* colors provided by styles/_colors.scss — compiled into styles/dist/styles.min.css */
 @import url("@westpac/style-config/dist/css/shared/layout.css");
 @import url("@westpac/style-config/dist/css/shared/typography.css");
 @import url("@westpac/style-config/dist/css/shared/utilities.css");
 
-/* ==================================================
-   GEL TOKENS — BRAND THEMES
-   ================================================== */
+/* Brand theme tokens now defined in styles/_colors.scss */
 
-@import url("@westpac/style-config/dist/css/themes/theme-wbc.css");
-@import url("@westpac/style-config/dist/css/themes/theme-stg.css");
+/* theme-wbc.css and theme-stg.css removed — Great Bank palette applied via CSS custom properties */

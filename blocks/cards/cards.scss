@@ -1,0 +1,248 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins/block-padding' as *;
+
+// =============================================================================
+// Cards Block — CSS custom properties
+// Source: Figma nodes 17:6 (light) and 22:372 (dark)
+// =============================================================================
+
+.cards {
+  // ── Light mode tokens ───────────────────────────────────────────────────────
+  --card-bg:               var(--gb-white);
+  --card-border:           var(--gb-grey-200);        // #e4e6ea ≈ Figma #e5e7eb
+  --card-radius:           12px;
+  --card-padding:          24px;
+  --card-gap:              24px;
+  --card-icon-tint:        color-mix(in srgb, var(--gb-gold) 10%, transparent);  // rgba(212,175,55,0.1)
+  --card-tag-bg:           color-mix(in srgb, var(--gb-gold) 10%, transparent);
+  --card-tag-text:         var(--gb-navy);             // #002855
+  --card-title-color:      var(--gb-grey-900);         // #101828
+  --card-subtitle-color:   var(--gb-gold);             // #d4af37
+  --card-description-color: #4a5565;                   // Figma exact — between --gb-grey-500 and --gb-grey-700
+}
+
+// ── Dark mode token overrides ────────────────────────────────────────────────
+// Applied when `.cards.dark` is on the block — `.dark` activates _colors.scss
+// dark theme so semantic tokens (--surface-primary, etc.) also update.
+
+.cards.dark {
+  --card-bg:               #111827;                     // Figma exact dark card bg
+  --card-border:           #334155;                     // Figma exact dark border
+  --card-icon-tint:        color-mix(in srgb, var(--gb-gold-light) 10%, transparent);  // rgba(232,201,104,0.1)
+  --card-tag-bg:           color-mix(in srgb, var(--gb-gold-light) 10%, transparent);
+  --card-tag-text:         var(--gb-gold-light);        // #e8c968
+  --card-title-color:      #f1f5f9;                     // Figma exact — near white
+  --card-subtitle-color:   var(--gb-gold-light);        // #e8c968
+  --card-description-color: var(--gb-grey-400);         // #9ba3af ≈ Figma #94a3b8
+}
+
+// =============================================================================
+// Block wrapper
+// =============================================================================
+
+.cards {
+  @include block-padding;
+
+  // ── Carousel container: full-width scroll, no horizontal padding ─────────
+  .card-block-container {
+    width: 100%;
+  }
+
+  // ── Scroll container (carousel-list = card-row-1) ───────────────────────
+  .carousel-list {
+    overflow: hidden;
+  }
+
+  // Activate horizontal scroll in carousel mode (mobile only)
+  .carousel-block-container.carousel-mode .carousel-list {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // ── List padding wrapper ─────────────────────────────────────────────────
+  .card-list-padding {
+    // Provide horizontal padding for the carousel list on mobile
+    @include breakpoint('sm') {
+      padding: 0;
+    }
+  }
+
+  // ── Card list (ul) ───────────────────────────────────────────────────────
+  .card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--card-gap);
+
+    // In carousel mode: switch to horizontal flex row (JS sets item widths)
+    .carousel-block-container.carousel-mode & {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0;
+    }
+  }
+
+  // ── Carousel item wrapper ────────────────────────────────────────────────
+  .card-item {
+    min-width: 0; // Prevent grid blowout
+
+    .carousel-block-container.carousel-mode & {
+      scroll-snap-align: start;
+      padding-right: var(--card-gap);
+      flex-shrink: 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Card article
+// =============================================================================
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--card-padding);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+}
+
+// =============================================================================
+// Icon container
+// =============================================================================
+
+.card-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--card-icon-tint);
+  margin-bottom: spacing(2.667); // 16px — icon → tags
+  flex-shrink: 0;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+// =============================================================================
+// Badge tags
+// =============================================================================
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: spacing(2); // 12px — tags → title
+}
+
+.card-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  background: var(--card-tag-bg);
+  color: var(--card-tag-text);
+  font-size: 0.75rem;  // 12px
+  line-height: 1rem;   // 16px
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+.card-title {
+  font-size: 1.125rem;  // 18px
+  font-weight: 500;
+  line-height: 1.6875rem; // 27px (1.5 × 18px)
+  color: var(--card-title-color);
+  margin: 0 0 8px;
+}
+
+.card-subtitle {
+  font-size: 0.875rem; // 14px
+  font-weight: 500;
+  line-height: 1.25rem; // 20px
+  color: var(--card-subtitle-color);
+  margin: 0 0 8px;
+}
+
+.card-description {
+  font-size: 0.875rem; // 14px
+  font-weight: 400;
+  line-height: 1.25rem; // 20px
+  color: var(--card-description-color);
+  margin: 0;
+  flex-grow: 1; // Push CTA buttons to the bottom of the card
+}
+
+// =============================================================================
+// CTA buttons
+// =============================================================================
+
+.card-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: spacing(2.667); // 16px — description → buttons
+}
+
+// Scoped button size override — card buttons use 40px height per Figma
+.cards .card-ctas .button {
+  height: 2.5rem; // 40px — Figma card button spec
+  font-size: 0.875rem; // 14px
+  padding: 0 1rem;
+}
+
+// Dark mode: primary button on gold background needs near-black text
+.cards.dark .card-ctas .button.primary {
+  color: var(--gb-black); // #0a0f1a — WCAG compliant on --gb-gold-light bg
+}
+
+// =============================================================================
+// Carousel navigation (Row 2) — dark mode inversion
+// =============================================================================
+
+// The shared _carousel.scss styles the scrollbar + nav buttons using light tokens.
+// In dark mode, override to use gold-tinted thumb.
+.cards.dark {
+  .carousel-scrollbar-container {
+    background: var(--card-border);
+  }
+
+  .carousel-scrollbar-thumb {
+    background: var(--gb-gold-light);
+  }
+
+  .carousel-scroll-btn {
+    border-color: var(--card-border);
+    background: var(--card-bg);
+
+    .gel-icon {
+      color: var(--gb-gold-light);
+    }
+  }
+}

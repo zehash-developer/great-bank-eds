@@ -115,14 +115,13 @@ const preview = {
       const isDarkStory = /-dark(-|$)/i.test(context.id || '');
       const isDark = mode === 'dark' || storyBg === 'dark' || isDarkBg || isDarkStory;
       
-      document.documentElement.setAttribute('data-brand', brand);
-      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : brand);
-      document.documentElement.setAttribute('data-mode', mode);
-      document.body.setAttribute('data-brand', brand);
-      document.body.setAttribute('data-theme', isDark ? 'dark' : brand);
-      document.body.setAttribute('data-mode', mode);
-      
-      document.body.style.backgroundColor = 'var(--background-white-pale)';
+      // data-brand removed — Great Bank has a single palette (no GEL brand switching)
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      document.documentElement.removeAttribute('data-brand');
+      document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      document.body.removeAttribute('data-brand');
+
+      document.body.style.backgroundColor = isDark ? 'var(--gb-black)' : 'var(--gb-white)';
       document.body.style.color = 'var(--text-body)';
       
       return Story();

@@ -25,28 +25,34 @@
 @mixin button-variant($variant: "primary", $size: "lg") {
     @include button-reset;
 
-    @if $size =='sm' {
-        @include button-size(spacing(1.5), 0.875rem, 1.875rem);
+    font-weight: 500;
+
+    @if $size == 'xs' {
+        @include button-size(0.75rem, 0.75rem, 1.75rem);
     }
 
-    @else if $size =='md' {
-        @include button-size(spacing(2), 1rem, 2.25rem);
+    @else if $size == 'sm' {
+        @include button-size(1rem, 0.875rem, 2.25rem);
     }
 
-    @else if $size =='lg' {
-        @include button-size(spacing(2.5), 1rem, 2.625rem);
+    @else if $size == 'md' {
+        @include button-size(1.5rem, 1rem, 2.75rem);
     }
 
-    @else if $size =='xl' {
-        @include button-size(spacing(3), 1.125rem, 3rem);
+    @else if $size == 'lg' {
+        @include button-size(2rem, 1.125rem, 3.25rem);
+    }
+
+    @else if $size == 'xl' {
+        @include button-size(2.5rem, 1.25rem, 3.75rem);
     }
 
 
-    @if $variant =='primary' {
+    @if $variant == 'primary' {
         background-color: var(--surface-primary);
         color: var(--text-mono);
         border: 1px solid var(--border-primary);
-        border-radius: 5px;
+        border-radius: 8px;
         text-decoration: none;
 
         &:hover {
@@ -56,11 +62,11 @@
         }
     }
 
-    @else if $variant =='secondary' {
+    @else if $variant == 'secondary' {
         background-color: var(--surface-mono);
         color: var(--text-body);
         border: 1px solid var(--border-primary);
-        border-radius: 5px;
+        border-radius: 8px;
         text-decoration: none;
 
         &:hover {
@@ -70,11 +76,11 @@
         }
     }
 
-    @if $variant =='hero-standard' {
+    @if $variant == 'hero-standard' {
         background-color: var(--surface-hero);
         color: var(--text-reversed);
         border: 1px solid var(--border-hero);
-        border-radius: 5px;
+        border-radius: 8px;
         text-decoration: none;
 
         &:hover {
@@ -84,11 +90,11 @@
         }
     }
 
-    @else if $variant =='hero-soft' {
+    @else if $variant == 'hero-soft' {
         background-color: var(--surface-mono);
         color: var(--text-body);
         border: 1px solid var(--border-hero);
-        border-radius: 5px;
+        border-radius: 8px;
         text-decoration: none;
 
         &:hover {
@@ -98,11 +104,11 @@
         }
     }
 
-    @if $variant =='faint' {
+    @if $variant == 'faint' {
         background-color: var(--surface-muted-faint);
         color: var(--text-muted);
         border: 1px solid var(--border-muted-strong);
-        border-radius: 5px;
+        border-radius: 8px;
         text-decoration: none;
 
         &:hover {
@@ -112,11 +118,11 @@
         }
     }
 
-    @else if $variant =='faint-soft' {
+    @else if $variant == 'faint-soft' {
         background-color: var(--surface-mono);
         color: var(--text-muted);
         border: 1px solid var(--border-muted-strong);
-        border-radius: 5px;
+        border-radius: 8px;
         text-decoration: none;
 
         &:hover {
@@ -126,10 +132,53 @@
         }
     }
 
-    @else if $variant =='tertiary' {
+    @else if $variant == 'outline' {
+        // +4px height to maintain the same content area as filled buttons (2px border top + bottom)
+        @if $size == 'xs' { height: 2rem; }
+        @else if $size == 'sm' { height: 2.5rem; }
+        @else if $size == 'md' { height: 3rem; }
+        @else if $size == 'lg' { height: 3.5rem; }
+        @else if $size == 'xl' { height: 4rem; }
+
+        background-color: transparent;
+        color: var(--surface-primary);
+        border: 2px solid var(--surface-primary);
+        border-radius: 8px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--surface-primary) 10%, transparent);
+            color: var(--surface-primary);
+            text-decoration: none;
+        }
+    }
+
+    @else if $variant == 'ghost' {
+        background-color: transparent;
+        color: var(--text-body);
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--text-body) 10%, transparent);
+            color: var(--text-body);
+            text-decoration: none;
+        }
+    }
+
+    @else if $variant == 'tertiary' {
         @include link;
     }
 
+
+    &:disabled,
+    &[disabled],
+    &[aria-disabled='true'] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 
     &.btn-block {
         width: 100%;

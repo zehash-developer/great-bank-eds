@@ -48,6 +48,8 @@ a:any-link {
 $button-variants: (
     'primary',
     'secondary',
+    'outline',
+    'ghost',
     'tertiary',
     'hero-standard',
     'hero-soft',
@@ -59,6 +61,7 @@ $button-sizes: (
     'lg',
     'md',
     'sm',
+    'xs',
 );
 
 .button-container {
